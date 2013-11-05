@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81089545-3084-4981-A83C-D5F5DEE7A388}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StonedineWarrantyDB_MyDataTree</RootNamespace>
+    <AssemblyName>StonedineWarrantyDB_MyDataTree</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\DiffieHellman.dll</HintPath>
+    </Reference>
+    <Reference Include="Org.Mentalis.Security, Version=1.0.13.715, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Org.Mentalis.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application_Code\BusinessObjects\acmgorder.cs" />
+    <Compile Include="Application_Code\BusinessObjects\TrustAllCertificatePolicy.cs" />
+    <Compile Include="Application_Code\DataAccess\DAL.cs" />
+    <Compile Include="Application_Code\DataAccess\DAO.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDAL.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALAcneComplexVersion2.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALAcneComplexVersion3.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALDirectMail.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALGlow.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALJoanSkin.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALTzone.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALV2.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALV3.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALVersionA4.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDAO.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerNoNoSkin.cs" />
+    <Compile Include="Application_Code\UI\BasePage.cs" />
+    <Compile Include="Application_Code\Utility\Helper.cs" />
+    <Compile Include="Application_Code\Utility\LogData.cs" />
+    <Compile Include="Batch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SshFileTransfer.cs" />
+    <Compile Include="UTIL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\DiffieHellman.dll" />
+    <Content Include="DLL\Org.Mentalis.Security.dll" />
+    <Content Include="DLL\Tamir.sharpSsh.dll" />
+    <Content Include="DLL\Tamir.sharpSsh.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
