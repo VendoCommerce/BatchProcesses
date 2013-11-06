@@ -289,20 +289,23 @@ namespace StonedineWarrantyDB_MyDataTree
        
         void LoadWarrantyDB_MyDataTree(DateTime ImportDate)
         {
-            log.LogToFile("***************************************************************************");
-            log.LogToFile("Start Importing data to MyDataTree Date " + ImportDate.ToShortDateString());
-            DateTime startDate ;
-            startDate = ImportDate; //the -900 is for testing
-            //DateTime.TryParse("6/28/2013",out startDate); //one time only for all orders back to 6/28/13
 
-            DateTime endDate = ImportDate;
-                    
-            Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + ImportDate.ToShortDateString());
-            Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + startDate.ToShortDateString());
-            Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + endDate.ToShortDateString());
+            try
+            {
+                log.LogToFile("***************************************************************************");
+                log.LogToFile("Start Importing data to MyDataTree Date " + ImportDate.ToShortDateString());
+                DateTime startDate;
+                startDate = ImportDate; //the -900 is for testing
+                //DateTime.TryParse("6/28/2013",out startDate); //one time only for all orders back to 6/28/13
 
-         
-             string txtFileID = "26733"; //static not to be changed
+                DateTime endDate = ImportDate;
+
+                Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + ImportDate.ToShortDateString());
+                Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + startDate.ToShortDateString());
+                Console.WriteLine("Loading WarrantyDB to MyDataTree Date: " + endDate.ToShortDateString());
+
+
+                string txtFileID = "26733"; //static not to be changed
                 String DatePart = DateTime.Now.ToString("yyyyMMddhhmmss", CultureInfo.InvariantCulture);
 
                 string SavePath = Helper.AppSettings["FileDirectoryPath"].ToString();
@@ -310,59 +313,59 @@ namespace StonedineWarrantyDB_MyDataTree
                 string fullPathFileName = SavePath + "\\" + DatePart + "_" + txtFileID + ".txt";
                 StreamWriter sw = new StreamWriter(fullPathFileName);
                 write_file_header(sw);
-              DataTable dt_stoneDine = getDataTable("ReportWarrantyMyDataTree",  startDate.ToShortDateString(), endDate.ToShortDateString(),1);
-              DataTable dt_stoneDineShop = getDataTable("ReportWarrantyMyDataTree", startDate.ToShortDateString(), endDate.ToShortDateString(),2);
-            if (dt_stoneDine.Rows.Count > 0)
-            {
-                Console.WriteLine("Record Found = " + dt_stoneDine.Rows.Count.ToString());
-               
-                foreach (DataRow dr in dt_stoneDine.Rows)
+                DataTable dt_stoneDine = getDataTable("ReportWarrantyMyDataTree", startDate.ToShortDateString(), endDate.ToShortDateString(), 1);
+                DataTable dt_stoneDineShop = getDataTable("ReportWarrantyMyDataTree", startDate.ToShortDateString(), endDate.ToShortDateString(), 2);
+                if (dt_stoneDine.Rows.Count > 0)
                 {
-                   Console.WriteLine(DateTime.Now.ToLongTimeString());
-                   add_Order_totxtFile(dr,sw);
-                 
-                   Thread.Sleep(1000);
-                
-               
+                    Console.WriteLine("Record Found = " + dt_stoneDine.Rows.Count.ToString());
+
+                    foreach (DataRow dr in dt_stoneDine.Rows)
+                    {
+                        Console.WriteLine(DateTime.Now.ToLongTimeString());
+                        add_Order_totxtFile(dr, sw);
+
+                        Thread.Sleep(1000);
+
+
+                    }
                 }
-              }
-             else
-            {
-                log.LogToFile("No Record Found for importing data to MyDataTree");
-                Console.WriteLine("No Record Found");
-            }
-            
+                else
+                {
+                    log.LogToFile("No Record Found for importing data to MyDataTree from StoneDine");
+                    Console.WriteLine("No Record Found  on StoneDine");
+                }
+
                 Console.WriteLine("Record Found = " + dt_stoneDineShop.Rows.Count.ToString());
-               if (dt_stoneDineShop.Rows.Count > 0)
-            {
-                foreach (DataRow dr in dt_stoneDineShop.Rows)
+                if (dt_stoneDineShop.Rows.Count > 0)
                 {
-                   Console.WriteLine(DateTime.Now.ToLongTimeString());
-                   add_Order_totxtFile(dr,sw);
-                 
-                   Thread.Sleep(1000);
-                
-               
+                    foreach (DataRow dr in dt_stoneDineShop.Rows)
+                    {
+                        Console.WriteLine(DateTime.Now.ToLongTimeString());
+                        add_Order_totxtFile(dr, sw);
+
+                        Thread.Sleep(1000);
+
+
+                    }
                 }
-              }
-             else
-            {
-                log.LogToFile("No Record Found for importing data to MyDataTree");
-                Console.WriteLine("No Record Found");
-            }
-        
+                else
+                {
+                    log.LogToFile("No Record Found for importing data to MyDataTree  from StoneDineShop");
+                    Console.WriteLine("No Record Found  on StoneDineShop");
+                }
+
 
                 sw.Close();
                 bool upload_status = upload_FTP(fullPathFileName);
 
                 string statusID;
-                if ( upload_status )
+                if (upload_status)
                 {
-                      statusID = "2";
+                    statusID = "2";
                 }
                 else
                 {
-                     statusID = "3";
+                    statusID = "3";
                 }
                 foreach (DataRow dr in dt_stoneDine.Rows)
                 {
@@ -381,6 +384,14 @@ namespace StonedineWarrantyDB_MyDataTree
                 }
 
                 log.LogToFile("Finished Importing data to MyDataTree");
+            }
+            catch (Exception ex)
+            {
+                string error = "FTP ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
+                log.LogToFile(error);
+
+                sendEmailToAdmin(error, "Alert - StoneDine.com - Error generating MyDataTree report.");
+            }
         }
         
         public void add_Order_totxtFile(DataRow dr,StreamWriter  sw  )
@@ -500,11 +511,11 @@ namespace StonedineWarrantyDB_MyDataTree
    
         static void Main(string[] args)
         {            
-            Console.WriteLine("Start Importing data to MyDataTree");
+            Console.WriteLine("Start Importing data to MyDataTree : " + DateTime.Now.ToString()  );
             Batch StartBatch = new Batch();
             DateTime ImportDate = DateTime.Now.AddDays(-1);            
             StartBatch.LoadWarrantyDB_MyDataTree(ImportDate);
-            Console.WriteLine("End Importing data to MyDataTree");
+            Console.WriteLine("End Importing data to MyDataTree : " + DateTime.Now.ToString() );
             
         }
     }

@@ -232,7 +232,7 @@ namespace Com.ConversionSystems.Utility
                 intFlag = -4;
                                 
                 client = new SmtpClient(Helper.SmtpServer);
-                client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                //client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
                 client.Send(oMsg);
                 bResult = true;
             }
