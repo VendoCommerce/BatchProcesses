@@ -387,7 +387,7 @@ namespace StonedineWarrantyDB_MyDataTree
             }
             catch (Exception ex)
             {
-                string error = "FTP ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
+                string error = "ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
                 log.LogToFile(error);
 
                 sendEmailToAdmin(error, "Alert - StoneDine.com - Error generating MyDataTree report.");
