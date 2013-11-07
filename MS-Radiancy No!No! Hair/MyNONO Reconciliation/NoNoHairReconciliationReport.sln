@@ -4,6 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoNoHairReconciliationReport", "NoNoHairReconciliationReport\NoNoHairReconciliationReport.csproj", "{19610670-19DD-4CB4-9BEA-CE02B2F81DEF}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://cs-srcctrl1:8080/tfs/csapps
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NoNoHairReconciliationReport\\NoNoHairReconciliationReport.csproj
+		SccProjectName1 = NoNoHairReconciliationReport
+		SccLocalPath1 = NoNoHairReconciliationReport
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
