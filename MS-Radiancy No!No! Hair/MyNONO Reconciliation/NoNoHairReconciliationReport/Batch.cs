@@ -800,7 +800,7 @@ namespace NoNoHairReconciliationReport
             string date = string.Empty;           
             date = tDate.ToString("MM/dd/yyyy");
 
-            date = "11/01/2013";
+            
 
             startDate = Convert.ToDateTime(date + " 00:00:00");
             endDate = Convert.ToDateTime(date + " 23:59:59");
