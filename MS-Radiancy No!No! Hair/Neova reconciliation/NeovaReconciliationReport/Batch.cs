@@ -143,8 +143,9 @@ namespace NeovaReconciliationReport
                 message.IsBodyHtml = true;
 
                 SmtpClient client;
-                client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
-                client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                //client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
+                //client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                client = new SmtpClient();
                 client.Send(message);
 
             }
@@ -173,8 +174,9 @@ namespace NeovaReconciliationReport
                 message.IsBodyHtml = true;
 
                 SmtpClient client;
-                client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
-                client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                //client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
+                //client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                client = new SmtpClient();
                 client.Send(message);
 
             }
