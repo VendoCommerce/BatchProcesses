@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="MuradBatch.exe" version="1.0.0.2" publicKeyToken="8e1509a14a7672c8" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MuradBatch" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MuradBatch.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Web.Extensions" version="1.0.61025.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BouncyCastle.Crypto.dll" size="1257472">
+      <assemblyIdentity name="BouncyCastle.Crypto" version="1.4.0.0" publicKeyToken="0E99375E54769942" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>Vzf7kNzJMmr0bhgAExZKNp5wsC0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ConversionSystems.Providers.MediaChase.OrderProcessing.dll" size="14336">
+      <assemblyIdentity name="ConversionSystems.Providers.MediaChase.OrderProcessing" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>UCpJfDhJuw+7M6WDKM7Ic3ipUkY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICSharpCode.SharpZipLib.dll" size="126976">
+      <assemblyIdentity name="ICSharpCode.SharpZipLib" version="0.83.1.0" publicKeyToken="1B03E6ACF1164F73" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>v29rrnkXO1qkCd6WrZwAd+lmAkc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="249856">
+      <assemblyIdentity name="log4net" version="1.2.9.0" publicKeyToken="B32731D11CE58905" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>skYf255N+3swd6Pl03kDki5tZTo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.Activation.Client.dll" size="20480">
+      <assemblyIdentity name="Mediachase.Activation.Client" version="1.0.2274.28369" publicKeyToken="65AA496EA1020E2E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>EF5f2NAFV/q44O+WqdJMkxVxbAE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.eCommerce.BusinessLayer.dll" size="618496">
+      <assemblyIdentity name="Mediachase.eCommerce.BusinessLayer" version="4.1.2.16751" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>w28LqpfbMNYVTZwe24E9hExhurg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.eCommerce.DataProvider.dll" size="32768">
+      <assemblyIdentity name="Mediachase.eCommerce.DataProvider" version="4.1.2.16749" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>CMIwIkmi9gDiPkRtI62enFW0psQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.eCommerce.FrameworkConfig.dll" size="20480">
+      <assemblyIdentity name="Mediachase.eCommerce.FrameworkConfig" version="4.1.2.16748" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>2+/1UE9PkIkrFFn7AbGPrl5KyLg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.eCommerce.LicenseProvider.dll" size="24576">
+      <assemblyIdentity name="Mediachase.eCommerce.LicenseProvider" version="4.1.2907.20843" publicKeyToken="65AA496EA1020E2E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>jzEEXIb82fmos1JzWt+sFSoHao8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mediachase.eCommerce.MetaDataPlus.dll" size="118784">
+      <assemblyIdentity name="Mediachase.eCommerce.MetaDataPlus" version="1.6.2986.33229" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>h/NUbZF5hgHzdHcqmitLpZq94dU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Practices.EnterpriseLibrary.Common.dll" size="163840">
+      <assemblyIdentity name="Microsoft.Practices.EnterpriseLibrary.Common" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>w65fIwNhLcrES1R1CXZinOQqUZY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Practices.EnterpriseLibrary.Data.dll" size="90112">
+      <assemblyIdentity name="Microsoft.Practices.EnterpriseLibrary.Data" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>uR4WE0L3NOzL8PTofM7I0bfAI/8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Practices.ObjectBuilder.dll" size="64352">
+      <assemblyIdentity name="Microsoft.Practices.ObjectBuilder" version="1.0.51206.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>SQFaAQruTAcQ46MIbAXN9a/AVa0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MuradBatch.exe" size="81920">
+      <assemblyIdentity name="MuradBatch" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>Zve3gDh0t/lrZmErd+KM6j+fuQw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MuradBatch.exe.config" size="10725">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>hl60p0G6fYj5QxTp3fLeYnb4eAs=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=CS-GAINAR\Aniketh P" issuerKeyHash="264fe850250bbbf6ea91409bd1a7007f7809d3b8" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>D2MsqeAWhwMFKa0g2IidqMgB5Go=</DigestValue></Reference></SignedInfo><SignatureValue>eIdVQmuY2vF9c2r6Sl6PT/9Jl7tADhGEEgE8tveSxJIfY8OBMByX6tVt6d4vCjIjdWYW89ASYtj+iye+QCUrn5DkM8Jwuyg3q6U9r6wPPc8Sy+5Z8I24pyFO43BkhiLdl+MrxU1F3E1IF2Q6OGcjAlPJLO4TFnSs70KjKUxLToU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>jbl30pqeGYyhNSxCbqKqL56VND9uECXaYfCojx6py7Yfl7XFhxqSxtZz1lpq+TWPCrhRTw211zZ7KY9Lo7gtyIV6Ze5wRu7vQ1bm27mvmKtyP6+R+1pfIVrzWO4TVIq1BkGfA7iB/F+i8VB3IpY899791m0re5QLEgzBiRm78cU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="6ae401c8a89d88d820ad2905038716e0a92c630f" Description="" Url=""><as:assemblyIdentity name="MuradBatch.exe" version="1.0.0.2" publicKeyToken="8e1509a14a7672c8" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=CS-GAINAR\Aniketh P</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>Ww+sLaPbZycEXjqkW/fcbinBRqM=</DigestValue></Reference></SignedInfo><SignatureValue>Eelqy5CnBzeU3zyKl53+w2XpydYJQY/VuiKM7/+KQcCjBcWp9vetwUQ/Avzojom9dKzG8zig7kolkPoRrf4gNuEQPQCNNv98u7rKlePuAZ0i9YJvnVgBXa2te5P0KM7l9n6ZIBUs1SKCZc3isBi1kYkvPbhF/z+JlpmUJqnGlP4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>jbl30pqeGYyhNSxCbqKqL56VND9uECXaYfCojx6py7Yfl7XFhxqSxtZz1lpq+TWPCrhRTw211zZ7KY9Lo7gtyIV6Ze5wRu7vQ1bm27mvmKtyP6+R+1pfIVrzWO4TVIq1BkGfA7iB/F+i8VB3IpY899791m0re5QLEgzBiRm78cU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB3TCCAUqgAwIBAgIQXzipbtb2Jo1LEJmg3obolDAJBgUrDgMCHQUAMDExLzAtBgNVBAMeJgBDAFMALQBHAEEASQBOAEEAUgBcAEEAbgBpAGsAZQB0AGgAIABQMB4XDTA5MDcwNjIzNDA0OVoXDTEwMDcwNzA1NDA0OVowMTEvMC0GA1UEAx4mAEMAUwAtAEcAQQBJAE4AQQBSAFwAQQBuAGkAawBlAHQAaAAgAFAwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAI25d9KanhmMoTUsQm6iqi+elTQ/bhAl2mHwqI8eqcu2H5e1xYcaksbWc9Zaavk1jwq4UU8Ntdc2eymPS6O4LciFemXucEbu70NW5tu5r5ircj+vkftaXyFa81juE1SKtQZBnwO4gfxfovFQdyKWPPfe/dZtK3uUCxIMwYkZu/HFAgMBAAEwCQYFKw4DAh0FAAOBgQA8s7XC4b/7YgYy/YLJ3nYMGCG/gVaFc4Ubj8bYM+VSookY50O6vau1EIiBdoIdICztZ0Hyu2X6rs1xrk7eYn2fRsXavKv/4Lnj0kjwoTOsnG7akyr+XAOs7Z2IW2LKbrNKP1S5zCIWqvKv76/lQmb51xYg2ghMX40vgVkD3LzbxQ==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
