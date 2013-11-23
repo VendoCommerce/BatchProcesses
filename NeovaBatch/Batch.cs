@@ -250,6 +250,7 @@ namespace Com.ConversionSystems.GoldCanyon
         }
         public void sendxml1(string verifyflag, string ordernumber)
         {
+            bool IsGiftCardOrder = false;
             _intOrderID = Convert.ToInt32(ordernumber);
             string key1 = System.Configuration.ConfigurationSettings.AppSettings["encryptionkey"];
             string response1 = "";
@@ -443,84 +444,99 @@ namespace Com.ConversionSystems.GoldCanyon
                     MAGIC10CodeApplied = true;
                 }
 
+                
+                IsGiftCardOrder = false;
                 foreach (DataRow r1 in OrderSKU.Rows)
                 {
-                    cnt++;
-                    stc1 = stc;
-                    stc += stb;
-                    stc = stc.Replace("@1", cnt.ToString());
-                    stc = stc.Replace("@2", fixstring(r1["skucode"].ToString()).Replace(" ", ""));
-                    qty1 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
-                    qty2 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
-                    
-                    price1 = Convert.ToDecimal(r1["FullAmount"].ToString());
-                    if (r1["paymentplanid"] != DBNull.Value)
+                    if (r1["GiftCardCode"] != null && (r1["GiftCardCode"].ToString().Length > 1))
                     {
-                        if (r1["paymentplanid"].ToString().Length > 0)
+                        IsGiftCardOrder = true;
+                    }
+                    
+                    if (r1["skuid"].ToString().Contains("571")) // GiftCard Dont add it to Main Order XMl. We have seperate XML for that.
+                    {
+                        Console.WriteLine("Create Separate GiftCard Order : " + IsGiftCardOrder.ToString());
+                    }
+                    else
+                    {
+                        cnt++;
+                        stc1 = stc;
+                        stc += stb;
+                        stc = stc.Replace("@1", cnt.ToString());
+                        stc = stc.Replace("@2", fixstring(r1["skucode"].ToString()).Replace(" ", ""));
+                        qty1 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
+                        qty2 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
+                    
+                        price1 = Convert.ToDecimal(r1["FullAmount"].ToString());
+                        if (r1["paymentplanid"] != DBNull.Value)
                         {
-                            stc = stc.Replace("@paymentplan@", r1["paymentplanid"].ToString());
+                            if (r1["paymentplanid"].ToString().Length > 0)
+                            {
+                                stc = stc.Replace("@paymentplan@", r1["paymentplanid"].ToString());
+                            }
+                            else
+                            {
+                                stc = stc.Replace("@paymentplan@", "0");
+                            }
                         }
                         else
                         {
                             stc = stc.Replace("@paymentplan@", "0");
                         }
-                    }
-                    else
-                    {
-                        stc = stc.Replace("@paymentplan@", "0");
-                    }
-                    if (r1["StandingOrderId"] != DBNull.Value)
-                    {
-                        if (r1["StandingOrderId"].ToString().Length > 0)
+                        if (r1["StandingOrderId"] != DBNull.Value)
                         {
-                            stc = stc.Replace("@7", "<StandingOrder configurationID=[[[@StandingOrder@[[[></StandingOrder>");
-                            stc = stc.Replace("@StandingOrder@", r1["StandingOrderId"].ToString());
+                            if (r1["StandingOrderId"].ToString().Length > 0)
+                            {
+                                stc = stc.Replace("@7", "<StandingOrder configurationID=[[[@StandingOrder@[[[></StandingOrder>");
+                                stc = stc.Replace("@StandingOrder@", r1["StandingOrderId"].ToString());
+                            }
+                            else
+                            {
+                                stc = stc.Replace("@7", "");
+                            }
                         }
                         else
                         {
                             stc = stc.Replace("@7", "");
                         }
-                    }
-                    else
-                    {
-                        stc = stc.Replace("@7", "");
-                    }
 
 
-                    price2b = price1;
-                    coupcode = "";
-                    extra = false;
-                    if (r1["skuid"].ToString().Contains("334"))
-                    {
-                        qty2 = 2;
-                        price1 = 14.95M;
-                    }
-
-                    //Console.WriteLine("total1:" + total1.ToString());
-                    stc = stc.Replace("@3", qty2.ToString());
-
-                    if (r1["skuid"].ToString() == "564" && MAGIC10CodeApplied == true)
-                    {
-                        decimal priceDiscounted = price1 - 10;
-                        stc = stc.Replace("@4", "<UnitPrice>" + fixstring(priceDiscounted.ToString()) + "</UnitPrice>");
-                    }
-                    else
-                    {
-                        if (r1["skuid"].ToString() != "529")
+                        price2b = price1;
+                        coupcode = "";
+                        extra = false;
+                        if (r1["skuid"].ToString().Contains("334"))
                         {
-                            stc = stc.Replace("@4", "<UnitPrice>" + fixstring(price1.ToString()) + "</UnitPrice>");
+                            qty2 = 2;
+                            price1 = 14.95M;
+                        }
+
+                        //Console.WriteLine("total1:" + total1.ToString());
+                        stc = stc.Replace("@3", qty2.ToString());
+
+                        if (r1["skuid"].ToString() == "564" && MAGIC10CodeApplied == true)
+                        {
+                            decimal priceDiscounted = price1 - 10;
+                            stc = stc.Replace("@4", "<UnitPrice>" + fixstring(priceDiscounted.ToString()) + "</UnitPrice>");
                         }
                         else
                         {
-                            stc = stc.Replace("@4", "");
+                            if (r1["skuid"].ToString() != "529")
+                            {
+                                stc = stc.Replace("@4", "<UnitPrice>" + fixstring(price1.ToString()) + "</UnitPrice>");
+                            }
+                            else
+                            {
+                                stc = stc.Replace("@4", "");
+                            }
                         }
-                    }
 
-                    stc = stc.Replace("@5", "");                    
-                    stc = stc.Replace("@6", "");
-                    stc = stc.Replace("[[[", ((char)(34)).ToString());
-                    s1 = s1.Replace("@keyCode@", r1["keyCode"].ToString());
+                        stc = stc.Replace("@5", "");                    
+                        stc = stc.Replace("@6", "");
+                        stc = stc.Replace("[[[", ((char)(34)).ToString());
+                        s1 = s1.Replace("@keyCode@", r1["keyCode"].ToString());
+                    }
                 }
+                
                 if (r["GiftCard"] != null && !r["GiftCard"].ToString().ToLower().Equals("true"))
                 {
                     if (MAGIC10CodeApplied == false && r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1)
@@ -592,6 +608,10 @@ namespace Com.ConversionSystems.GoldCanyon
                                 else
                                 {
                                     runsql("update [order] set orderstatusid = 2, Request1='" + ClearAccents(fixQuot(s1)) + "', Response1 = '" + ClearAccents(fixQuot(response1)) + "' where orderid= " + orderid1);
+
+                                    //Check for GC order.
+                                    if (IsGiftCardOrder)
+                                        new GiftCardOrders().UploadGifTCardToOrderMotion(orderid1);
                                 }
                             }
                             else
@@ -1138,8 +1158,6 @@ namespace Com.ConversionSystems.GoldCanyon
             Console.WriteLine("End - Neova.com Batch - Started");
             Console.WriteLine("Checking Rejected Orders");
             StartBatch.RejectedOrdersCheck();
-
-
 
             UK StartUKBatch = new UK();
             Console.WriteLine("Nono UK Batch - Started");

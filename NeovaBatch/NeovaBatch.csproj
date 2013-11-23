@@ -113,6 +113,7 @@
     <Compile Include="Application_Code\Utility\Helper.cs" />
     <Compile Include="Application_Code\Utility\LogData.cs" />
     <Compile Include="Application_Code\BusinessObjects\Order.cs" />
+    <Compile Include="GiftCardOrders.cs" />
     <Compile Include="UK.cs" />
     <Compile Include="Encryption\PGPEncryption.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
