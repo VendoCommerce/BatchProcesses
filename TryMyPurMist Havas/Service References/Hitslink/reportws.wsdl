@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.hitslink.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.hitslink.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.hitslink.com/">
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportId" type="tns:ReportsEnum" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRows" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartHeight" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ReportsEnum">
+        <s:restriction base="s:string">
+          <s:enumeration value="TopPages" />
+          <s:enumeration value="LatestVisitors" />
+          <s:enumeration value="TrafficDailyHistory" />
+          <s:enumeration value="TrafficHourlyHistory" />
+          <s:enumeration value="TrafficWeeklyHistory" />
+          <s:enumeration value="TrafficMonthlyHistory" />
+          <s:enumeration value="TrafficQuarterlyHistory" />
+          <s:enumeration value="TrafficYearlyHistory" />
+          <s:enumeration value="PageViewHistoryHourly" />
+          <s:enumeration value="PageViewHistoryDaily" />
+          <s:enumeration value="PageViewHistoryWeekly" />
+          <s:enumeration value="PageViewHistoryMonthly" />
+          <s:enumeration value="PageViewHistoryQuarterly" />
+          <s:enumeration value="PageViewHistoryYearly" />
+          <s:enumeration value="UniqueVisitorHistoryHourly" />
+          <s:enumeration value="UniqueVisitorHistoryDaily" />
+          <s:enumeration value="UniqueVisitorHistoryWeekly" />
+          <s:enumeration value="UniqueVisitorHistoryMonthly" />
+          <s:enumeration value="UniqueVisitorHistoryQuarterly" />
+          <s:enumeration value="UniqueVisitorHistoryYearly" />
+          <s:enumeration value="NewVisitorHistoryHourly" />
+          <s:enumeration value="NewVisitorHistoryDaily" />
+          <s:enumeration value="NewVisitorHistoryWeekly" />
+          <s:enumeration value="NewVisitorHistoryMonthly" />
+          <s:enumeration value="NewVisitorHistoryQuarterly" />
+          <s:enumeration value="NewVisitorHistoryYearly" />
+          <s:enumeration value="PageViewTrendDaily" />
+          <s:enumeration value="TopPagesTrend" />
+          <s:enumeration value="LatestPageViews" />
+          <s:enumeration value="VisitorPages" />
+          <s:enumeration value="AveragePageViewsHourly" />
+          <s:enumeration value="AveragePageViewsDaily" />
+          <s:enumeration value="AveragePageViewsWeekly" />
+          <s:enumeration value="AveragePageViewsMonthly" />
+          <s:enumeration value="AveragePageViewsQuarterly" />
+          <s:enumeration value="AveragePageViewsYearly" />
+          <s:enumeration value="VisitorDomainSearch" />
+          <s:enumeration value="VisitorDomains" />
+          <s:enumeration value="VisitorMajorDomains" />
+          <s:enumeration value="NavigationPaths" />
+          <s:enumeration value="NavigationPathsDetail" />
+          <s:enumeration value="EntryPages" />
+          <s:enumeration value="ExitPages" />
+          <s:enumeration value="AverageTimeSpentOnPages" />
+          <s:enumeration value="Reloads" />
+          <s:enumeration value="ReferringSites" />
+          <s:enumeration value="ReferringSitesDetail" />
+          <s:enumeration value="SearchEngines" />
+          <s:enumeration value="SearchEnginesTrendDaily" />
+          <s:enumeration value="SearchKeywords" />
+          <s:enumeration value="SearchKeywordsTrendDaily" />
+          <s:enumeration value="KeywordsBySearchEngine" />
+          <s:enumeration value="KeywordsBySearchEngineTrendDaily" />
+          <s:enumeration value="SearchEngineHistoryDaily" />
+          <s:enumeration value="SearchEngineHistoryWeekly" />
+          <s:enumeration value="SearchEngineHistoryMonthly" />
+          <s:enumeration value="SearchEngineHistoryQuarterly" />
+          <s:enumeration value="SearchEngineHistoryYearly" />
+          <s:enumeration value="ReferringMajorDomains" />
+          <s:enumeration value="VisitorCountries" />
+          <s:enumeration value="ReferringCountries" />
+          <s:enumeration value="HourOfDaySummary" />
+          <s:enumeration value="DayOfWeekSummary" />
+          <s:enumeration value="DayOfMonthSummary" />
+          <s:enumeration value="Browsers" />
+          <s:enumeration value="BrowserVersions" />
+          <s:enumeration value="BrowserVersionsTrend" />
+          <s:enumeration value="OperatingSystems" />
+          <s:enumeration value="OperatingSystemsTrend" />
+          <s:enumeration value="ScreenResolutions" />
+          <s:enumeration value="Palettes" />
+          <s:enumeration value="Languages" />
+          <s:enumeration value="ScriptVersions" />
+          <s:enumeration value="JavaSupport" />
+          <s:enumeration value="CookieSupport" />
+          <s:enumeration value="eCommerceActivitySummary" />
+          <s:enumeration value="eCommerceTransactions" />
+          <s:enumeration value="eCommerceLatestTransactions" />
+          <s:enumeration value="eCommerceTransactionHistoryHourly" />
+          <s:enumeration value="eCommerceTransactionHistoryDaily" />
+          <s:enumeration value="eCommerceTransactionHistoryWeekly" />
+          <s:enumeration value="eCommerceTransactionHistoryMonthly" />
+          <s:enumeration value="eCommerceTransactionHistoryQuarterly" />
+          <s:enumeration value="eCommerceTransactionHistoryYearly" />
+          <s:enumeration value="eCommerceClickHistoryHourly" />
+          <s:enumeration value="eCommerceClickHistoryDaily" />
+          <s:enumeration value="eCommerceClickHistoryWeekly" />
+          <s:enumeration value="eCommerceClickHistoryMonthly" />
+          <s:enumeration value="eCommerceClickHistoryQuarterly" />
+          <s:enumeration value="eCommerceClickHistoryYearly" />
+          <s:enumeration value="eCommerceActivityBySearchEngine" />
+          <s:enumeration value="eCommerceActivityBySearchTerms" />
+          <s:enumeration value="eCommerceActivityBySearchEngineAndTerms" />
+          <s:enumeration value="eCommerceActivityByReferrer" />
+          <s:enumeration value="eCommerceActivityByCountry" />
+          <s:enumeration value="eCommerceActivityByContinent" />
+          <s:enumeration value="eCommerceActivityByEntryPage" />
+          <s:enumeration value="eCommerceTransactionCycleTime" />
+          <s:enumeration value="eCommerceTimeBetweenTransactions" />
+          <s:enumeration value="eCommerceConversionRateHourly" />
+          <s:enumeration value="eCommerceConversionRateDaily" />
+          <s:enumeration value="eCommerceConversionRateWeekly" />
+          <s:enumeration value="eCommerceConversionRateMonthly" />
+          <s:enumeration value="eCommerceConversionRateQuarterly" />
+          <s:enumeration value="eCommerceConversionRateYearly" />
+          <s:enumeration value="eCommerceAverageOrderSizeDaily" />
+          <s:enumeration value="eCommerceAverageOrderSizeWeekly" />
+          <s:enumeration value="eCommerceAverageOrderSizeMonthly" />
+          <s:enumeration value="eCommerceAverageOrderSizeQuarterly" />
+          <s:enumeration value="eCommerceAverageOrderSizeYearly" />
+          <s:enumeration value="eCommerceFirstTimeCustomersDaily" />
+          <s:enumeration value="eCommerceFirstTimeCustomersWeekly" />
+          <s:enumeration value="eCommerceFirstTimeCustomersMonthly" />
+          <s:enumeration value="eCommerceFirstTimeCustomersQuarterly" />
+          <s:enumeration value="eCommerceFirstTimeCustomersYearly" />
+          <s:enumeration value="eCommerceRepeatCustomersDaily" />
+          <s:enumeration value="eCommerceRepeatCustomersWeekly" />
+          <s:enumeration value="eCommerceRepeatCustomersMonthly" />
+          <s:enumeration value="eCommerceRepeatCustomersQuarterly" />
+          <s:enumeration value="eCommerceRepeatCustomersYearly" />
+          <s:enumeration value="PagesBySearchEngine" />
+          <s:enumeration value="PagesByKeywords" />
+          <s:enumeration value="PagesBySearchEngineAndKeywords" />
+          <s:enumeration value="RepeatVisitors" />
+          <s:enumeration value="AverageTimeSpentOnSite" />
+          <s:enumeration value="MarketShareBrowsers" />
+          <s:enumeration value="MarketShareSearchEngines" />
+          <s:enumeration value="eCommerceRepeatClicks" />
+          <s:enumeration value="eCommerceLatestClicks" />
+          <s:enumeration value="eCommerceClicksByCountry" />
+          <s:enumeration value="MarketShareBrowsersTrend" />
+          <s:enumeration value="MarketShareSearchEnginesTrend" />
+          <s:enumeration value="MarketShareOperatingSystems" />
+          <s:enumeration value="MarketShareOperatingSystemsTrend" />
+          <s:enumeration value="SearchTermSuggestions" />
+          <s:enumeration value="LatestVisitorsNoScript" />
+          <s:enumeration value="eCommerceActivityByCity" />
+          <s:enumeration value="ExitLinks" />
+          <s:enumeration value="Downloads" />
+          <s:enumeration value="NavigationPathsDetailFrom" />
+          <s:enumeration value="AccountInfo" />
+          <s:enumeration value="NavigationToUnformatted" />
+          <s:enumeration value="SearchTermsByPageUnformatted" />
+          <s:enumeration value="AverageTimeSpentOnPage" />
+          <s:enumeration value="PageGroups" />
+          <s:enumeration value="PageGroupDetails" />
+          <s:enumeration value="SingleAccessPage" />
+          <s:enumeration value="PageGroupsTraffic" />
+          <s:enumeration value="PageGroupsTrafficDetail" />
+          <s:enumeration value="UsersAccess" />
+          <s:enumeration value="UserGroups" />
+          <s:enumeration value="UserGroupsView" />
+          <s:enumeration value="LatestVisitorsProfile" />
+          <s:enumeration value="LatestVisitorsPlatinum" />
+          <s:enumeration value="FunnelAnalysis" />
+          <s:enumeration value="OperatingSystemGroups" />
+          <s:enumeration value="SearchEngineGroups" />
+          <s:enumeration value="BrowserGroups" />
+          <s:enumeration value="MarketShareResolutions" />
+          <s:enumeration value="MultiVariate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChartURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColumnDefinitions" type="tns:ArrayOfColumnDefinition" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rows" type="tns:ArrayOfRow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfColumnDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ColumnDefinition" nillable="true" type="tns:ColumnDefinition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ColumnDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Align" type="tns:AlignmentTypes" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sortable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataType" type="tns:DataTypes" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AlignmentTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Left" />
+          <s:enumeration value="Right" />
+          <s:enumeration value="Center" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DataTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="DataTypeString" />
+          <s:enumeration value="DataTypeInteger" />
+          <s:enumeration value="DataTypeNumeric" />
+          <s:enumeration value="DataTypeCurrency" />
+          <s:enumeration value="DataTypePercent" />
+          <s:enumeration value="DataTypeDate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfRow">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Row" nillable="true" type="tns:Row" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Row">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Columns" type="tns:ArrayOfColumn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfColumn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Column" nillable="true" type="tns:Column" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Column">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataFromTimeframe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportId" type="tns:ReportsEnum" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeframeType" type="tns:TimeFrameEnum" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRows" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartHeight" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="TimeFrameEnum">
+        <s:restriction base="s:string">
+          <s:enumeration value="Hourly" />
+          <s:enumeration value="Daily" />
+          <s:enumeration value="Weekly" />
+          <s:enumeration value="Monthly" />
+          <s:enumeration value="Quarterly" />
+          <s:enumeration value="Yearly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetDataFromTimeframeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataFromTimeframeResult" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataFromQueryString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartHeight" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="chartWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataFromQueryStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataFromQueryStringResult" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFromTimeframeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataFromTimeframe" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFromTimeframeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataFromTimeframeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFromQueryStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataFromQueryString" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFromQueryStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataFromQueryStringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportWSSoap">
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromTimeframe">
+      <wsdl:input message="tns:GetDataFromTimeframeSoapIn" />
+      <wsdl:output message="tns:GetDataFromTimeframeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromQueryString">
+      <wsdl:input message="tns:GetDataFromQueryStringSoapIn" />
+      <wsdl:output message="tns:GetDataFromQueryStringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportWSSoap" type="tns:ReportWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://www.hitslink.com/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromTimeframe">
+      <soap:operation soapAction="http://www.hitslink.com/GetDataFromTimeframe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromQueryString">
+      <soap:operation soapAction="http://www.hitslink.com/GetDataFromQueryString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportWSSoap12" type="tns:ReportWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://www.hitslink.com/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromTimeframe">
+      <soap12:operation soapAction="http://www.hitslink.com/GetDataFromTimeframe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFromQueryString">
+      <soap12:operation soapAction="http://www.hitslink.com/GetDataFromQueryString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportWS">
+    <wsdl:port name="ReportWSSoap" binding="tns:ReportWSSoap">
+      <soap:address location="http://www.hitslink.com/reportws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportWSSoap12" binding="tns:ReportWSSoap12">
+      <soap12:address location="http://www.hitslink.com/reportws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
