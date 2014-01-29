@@ -476,12 +476,26 @@ namespace Com.ConversionSystems.GoldCanyon
                             }
                             else
                             {
-                                stc = stc.Replace("@paymentplan@", "0");
+                                if (r["GiftCard"] != null && r["GiftCard"].ToString().ToLower().Equals("true"))
+                                {
+                                    stc = stc.Replace("@paymentplan@", "");
+                                }
+                                else
+                                {
+                                    stc = stc.Replace("@paymentplan@", "0");
+                                }
                             }
                         }
                         else
                         {
-                            stc = stc.Replace("@paymentplan@", "0");
+                            if (r["GiftCard"] != null && r["GiftCard"].ToString().ToLower().Equals("true"))
+                            {
+                                stc = stc.Replace("@paymentplan@", "");
+                            }
+                            else
+                            {
+                                stc = stc.Replace("@paymentplan@", "0");
+                            }
                         }
                         if (r1["StandingOrderId"] != DBNull.Value)
                         {
@@ -550,7 +564,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         qty2 = 1;
 
                         price1 = Convert.ToDecimal(r["DiscountAmount"].ToString());
-                        stc = stc.Replace("@paymentplan@", "0");
+                        stc = stc.Replace("@paymentplan@", "");
                         stc = stc.Replace("@7", "");
                         price2b = price1;
                         coupcode = "";
@@ -645,6 +659,8 @@ namespace Com.ConversionSystems.GoldCanyon
             _request.ExpireDate = (fixstring(ds.Tables[0].Rows[0]["creditcardexpiredyear"]) + "" + fixstring(ds.Tables[0].Rows[0]["creditcardexpiredmonth"]).PadLeft(2, '0'));
             _request.RequestType = EBS.IntegrationServices.Providers.PaymentProviders.PaymentRequestType.A;
             _request.Amount = Math.Round(Convert.ToDouble(ds.Tables[0].Rows[0]["totalamount"].ToString()), 2);
+            if (_request.Amount==0)
+                return true;
             _request.FirstName = ClearAccents(ds.Tables[0].Rows[0]["billfirstname"].ToString());
             _request.LastName = ClearAccents(ds.Tables[0].Rows[0]["billlastname"].ToString());
             _request.Address1 = ClearAccents(ds.Tables[0].Rows[0]["billaddress"].ToString());
