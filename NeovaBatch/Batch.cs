@@ -309,7 +309,7 @@ namespace Com.ConversionSystems.GoldCanyon
                 {
                     if (cc2.Equals("1111222233334444"))
                     {
-                        tempPaymentTag += "	<Payment type=[[[16[[[>~";
+                        tempPaymentTag += "	<Payment type=[[[11[[[>~";
                         tempPaymentTag += "		<PaidAmount>@PaidAmount@</PaidAmount>~";
                         tempPaymentTag += "		<GiftCertificateCode>@GiftCertificateCode@</GiftCertificateCode>~";
                         tempPaymentTag += "	</Payment>~";
@@ -326,7 +326,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         tempPaymentTag += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
                         tempPaymentTag += "		<CardTransactionID></CardTransactionID>~";
                         tempPaymentTag += "		<AdditionalPayment>~";
-                        tempPaymentTag += "	<Payment type=[[[16[[[>~";
+                        tempPaymentTag += "	<Payment type=[[[11[[[>~";
                         tempPaymentTag += "		<PaidAmount>@PaidAmount@</PaidAmount>~";
                         tempPaymentTag += "		<GiftCertificateCode>@GiftCertificateCode@</GiftCertificateCode>~";
                         tempPaymentTag += "	</Payment>~";
