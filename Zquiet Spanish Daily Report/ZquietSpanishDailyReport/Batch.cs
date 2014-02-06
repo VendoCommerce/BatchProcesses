@@ -726,7 +726,8 @@ namespace DataExportBatch
             {
                 workSheet.Cells[1, (i+1)] = Tbl.Columns[i].ColumnName;
             }
-
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            string dateString;
             // rows
             for (int i = 0; i < Tbl.Rows.Count; i++)
             {
@@ -735,7 +736,22 @@ namespace DataExportBatch
                 {
                     if (Tbl.Columns[(j )].ColumnName.ToUpper().Equals("numero".ToUpper()))
                         workSheet.Cells[(i + 2), (j + 1)].NumberFormat = "@";
-                    workSheet.Cells[(i + 2), (j + 1)] = Tbl.Rows[i][j].ToString() ;
+                    if (Tbl.Columns[(j)].ColumnName.ToUpper().Equals("date".ToUpper()))
+                    {
+
+                        DateTime temp;
+                       DateTime.TryParse(Tbl.Rows[i][j].ToString(), provider,DateTimeStyles.AdjustToUniversal,out temp);
+                       //string ddpart = temp.ToString("dd");
+                       //string MMpart = temp.ToString("MM");
+                       //string yyyypart = temp.ToString("yyyy");
+                       //string hhpart = temp.ToString("hh");
+                       //string mmpart = temp.ToString("MM");
+                       workSheet.Cells[(i + 2), (j + 1)].NumberFormat = "dd/MM/yyyy HH:mm";
+                       //workSheet.Cells[(i + 2), (j + 1)] = ddpart + "/" + mmpart + "/" + yyyypart + " " + hhpart + ":" + mmpart;
+                       workSheet.Cells[(i + 2), (j + 1)] = temp;
+                    }
+                    else
+                        workSheet.Cells[(i + 2), (j + 1)] = Tbl.Rows[i][j].ToString();
                 }
             }
 
