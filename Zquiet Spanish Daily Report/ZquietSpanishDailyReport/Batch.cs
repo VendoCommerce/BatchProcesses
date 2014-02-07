@@ -514,9 +514,9 @@ namespace DataExportBatch
             //  message.To.Add(new MailAddress(Helper.AppSettings["AdminEmail"]));
             message.To.Add(Helper.AppSettings["AdminEmail"]);
             message.From = new MailAddress("info@ConversionSystems.com");
-
+            
             message.Subject = subject;
-            sb.Append("Brainetics.Com , error sending Icon Media report file. ");
+            sb.Append("Zquiet.Com , error sending  "+ BatchName +" report on " + DateTime.Now.ToString ());
             
 
             string st;
@@ -535,11 +535,11 @@ namespace DataExportBatch
             {
                 StringBuilder _sbEmailMessageBody = new StringBuilder();
                 _sbEmailMessageBody.Append("<html><body><table>");
-                _sbEmailMessageBody.Append("<tr><td><b>ZQuiet.com   - Spanish Daily Report : </b></td></tr>");
+                _sbEmailMessageBody.Append("<tr><td><b>ZQuiet.com   - LUSpanish Daily Report : </b></td></tr>");
                 _sbEmailMessageBody.Append("<tr><td>This report was generated at " + DateTime.Now.ToString("MM/dd/yyyy-HH:mm") + "</td></tr>");
                 _sbEmailMessageBody.Append("<tr><td> Please do not reply to this email.</b></td></tr>");
                 _sbEmailMessageBody.Append("</table></body></html>");
-                MailMessage _oMailMessage = new MailMessage(Helper.AppSettings["FromEmail"].ToString(), Helper.AppSettings["ClientEmail"].ToString(), "ZQuiet - Spanis hDaily Report ", _sbEmailMessageBody.ToString());
+                MailMessage _oMailMessage = new MailMessage(Helper.AppSettings["FromEmail"].ToString(), Helper.AppSettings["ClientEmail"].ToString(), "ZQuiet - LUSpanish Daily Report ", _sbEmailMessageBody.ToString());
                 _oMailMessage.IsBodyHtml = true;
                 _oMailMessage.Body = _sbEmailMessageBody.ToString();
                 Attachment a = new Attachment(path);
@@ -608,7 +608,7 @@ namespace DataExportBatch
                     ExportToExcel(DS.Tables[0], fullPathFileName);
                 SendEmailToClient(fullPathFileName);
 
-                log.LogToFile("Finished Importing data to IconMedia");
+                log.LogToFile("Finished Importing data to " + BatchName );
                 //}
                 //else
                 //{
@@ -624,7 +624,7 @@ namespace DataExportBatch
                 string error = "ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
                 log.LogToFile(error);
 
-                sendEmailToAdmin(error, "Alert - Zquiet.com - Error generating SpanishDailyReport report." + error);
+                sendEmailToAdmin(error, "Alert - Zquiet.com - Error generating "+ BatchName +" report." + error);
             }
         }
         
@@ -761,7 +761,9 @@ namespace DataExportBatch
                 try
                 {
                     workSheet.SaveAs(ExcelFilePath);
+                    excelApp.Workbooks.Close(); 
                     excelApp.Quit();
+                  
                     log.LogToFile("Excel file saved!");
                 }
                 catch (Exception ex)
