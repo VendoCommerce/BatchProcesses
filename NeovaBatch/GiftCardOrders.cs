@@ -328,7 +328,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "		";
             s1 += "	</ShippingInformation>~";
             // s1 += "@@PaymentInfo@@";
-            s1 += "	<Payment type=[[[11[[[>~";
+            s1 += "	<Payment type=[[[16[[[>~";
             s1 += "		<PaidAmount>50</PaidAmount>~";
             s1 += "		<GiftCertificateCode>FREE50</GiftCertificateCode>~";
             s1 += "	</Payment>~";
