@@ -477,14 +477,49 @@ namespace Com.ConversionSystems.GoldCanyon
                     stc = stc.Replace("@4", fixstring(price1.ToString()));
                     stc = stc.Replace("@5", "");
                     stc = stc.Replace("@6", "");
-                    s1 = s1.Replace("@keyCode@", r1["keyCode"].ToString());
+                    if (r["Version"].ToString().ToLower().Contains("uk_print"))
+                    {
+                        s1 = s1.Replace("@keyCode@", "CSYS-DNARPCTY"); 
+                    }
+                    else
+                    {
+                        s1 = s1.Replace("@keyCode@", r1["keyCode"].ToString());    
+                    }
+                    
+                }
+
+                if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1)
+                {
+                    cnt++;
+                    stc1 = stc;
+                    stc += stb;
+                    stc = stc.Replace("@1", cnt.ToString());
+                    stc = stc.Replace("@2", fixstring(r["DiscountCode"].ToString()).Replace(" ", ""));
+                    qty1 = 1;
+                    qty2 = 1;
+
+                    price1 = Convert.ToDecimal(r["DiscountAmount"].ToString());
+                    stc = stc.Replace("@0", "");
+                    stc = stc.Replace("@7", "");
+                    price2b = price1;
+                    coupcode = "";
+                    extra = false;
+                    stc = stc.Replace("@3", qty2.ToString());
+                    stc = stc.Replace("@4", "<UnitPrice>-" + fixstring(price1.ToString()) + "</UnitPrice>");
+                    stc = stc.Replace("@5", "");
+                    stc = stc.Replace("@6", "");
+                    stc = stc.Replace("[[[", ((char)(34)).ToString());
                 }
                 string cardstatus = "";
                 cardstatus = "0";
                 string st1 = "";
                 int cnt39 = 0;
                 string mthCode = "";
-                if (dsCountry.Tables[0].Rows[0]["Code"].ToString().ToLower().Equals("uk"))
+                if (r["Version"].ToString().ToLower().Contains("uk_print") && dsCountry.Tables[0].Rows[0]["Code"].ToString().ToLower().Equals("uk"))
+                {
+                    mthCode = "0";
+                }
+                else if (dsCountry.Tables[0].Rows[0]["Code"].ToString().ToLower().Equals("uk"))
                 {
                     mthCode = "2";                    
                 }
