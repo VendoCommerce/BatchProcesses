@@ -165,6 +165,51 @@ namespace NoNoHairReconciliationReport
 
 
 
+        private DataTable getDataTableByDate_NoNoHairTV(string StoredProcedureName, DateTime startDate, DateTime endDate, int excelsection)
+        {
+            string connstr = System.Configuration.ConfigurationSettings.AppSettings["connectionstring_NoNoHairTV"];
+
+            bool bReturn = false;
+            string strMessage;
+
+            SqlCommand oCmd = null;
+            SqlDataAdapter da;
+
+            DataTable dt = null;
+            try
+            {
+                oCmd = new SqlCommand();
+                oCmd.CommandText = StoredProcedureName;
+                oCmd.CommandType = CommandType.StoredProcedure;
+
+                oCmd.Parameters.Add("@StartDate", SqlDbType.DateTime).Value = startDate;
+                oCmd.Parameters.Add("@EndDate", SqlDbType.DateTime).Value = endDate;
+                oCmd.Parameters.Add("@excelsection", SqlDbType.Int).Value = excelsection;
+
+                oCmd.Connection = new SqlConnection(connstr);
+                oCmd.Prepare();
+                dt = new DataTable();
+                da = new SqlDataAdapter(oCmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                strMessage = "Problem running procedure:  " + oCmd.CommandText + ". Error---" + ex.Message;
+                SendExceptionEmail(ex);
+            }
+            finally
+            {
+                if (oCmd != null)
+                {
+                    oCmd.Parameters.Clear();
+                    oCmd.Connection = null;
+                    oCmd.Dispose();
+                }
+            }
+            oCmd = null;
+            return dt;
+        }
+
         private DataTable getDataTableByDate_TryKyro(string StoredProcedureName, DateTime startDate, DateTime endDate, int excelsection)
         {
             string connstr = System.Configuration.ConfigurationSettings.AppSettings["connectionstring_TryKyro"];
@@ -678,6 +723,31 @@ namespace NoNoHairReconciliationReport
 
 
 
+        void LoadOrder_NoNoHairTV(DateTime startDate, DateTime endDate, string FileDate)
+        {
+            DataTable Dt1 = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 1);
+
+            if (Dt1.Rows.Count > 0)
+            {
+                Console.WriteLine("NoNoHairTV.com Order: " + Dt1.Rows.Count.ToString());
+                string excelFileName = "ReconciliationReport_HTTPBizID_NoNoHairTV_" + FileDate + ".xls";
+                string FUllPAthwithFileName = targetPath + excelFileName;
+
+                //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
+                DataTable dtsummaryBottom = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 2);
+                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                if (flag == true)
+                {
+                    AddDataToTable(FUllPAthwithFileName, excelFileName);
+                }
+            }
+            else
+            {
+                SendZeroRecordFoundEmail("NoNoHairTV : No Order found NoNoHairTV");
+                Console.WriteLine("No Order found NoNoHairTV");
+            }
+        }
+
         void LoadOrder_TryKyro(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
@@ -807,7 +877,7 @@ namespace NoNoHairReconciliationReport
 
             // startDate = Convert.ToDateTime("05/06/2012 00:00:00");
             // endDate = Convert.ToDateTime("05/06/2012 23:59:59");
-            
+
             Console.WriteLine("startDate" + startDate);
             Console.WriteLine("endDate " + endDate); 
            
@@ -922,6 +992,17 @@ namespace NoNoHairReconciliationReport
             catch (Exception ex)
             {
                 BatchNoNoHair1.LogToFile("Start TryKyro.Com " + ex.Message + " StackTrace:: " + ex.StackTrace);
+                SendExceptionEmail(ex);
+            }
+
+            try
+            {
+                BatchNoNoHair1.LogToFile("Start NoNoHairTV.Com Orders");
+                BatchNoNoHair1.LoadOrder_NoNoHairTV(startDate, endDate, startDate.ToString("MMddyyyy"));
+            }
+            catch (Exception ex)
+            {
+                BatchNoNoHair1.LogToFile("Start NoNoHairTV.Com " + ex.Message + " StackTrace:: " + ex.StackTrace);
                 SendExceptionEmail(ex);
             }
 
