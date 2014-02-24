@@ -294,7 +294,7 @@ namespace Com.ConversionSystems.GoldCanyon
             decimal shipping1z;
 
             //<UnitPrice>@4</UnitPrice>
-            string stb = "<LineItem lineNumber=[[[@1[[[>~<PaymentPlanID>@0</PaymentPlanID>~<ItemCode>@2</ItemCode>~<Quantity>@3</Quantity>~<UnitPrice>@4</UnitPrice>~<Recurrence patternID=[[[@5[[[></Recurrence>~</LineItem>";
+            string stb = "<LineItem lineNumber=[[[@1[[[>~<PaymentPlanID>@0</PaymentPlanID>~<ItemCode>@2</ItemCode>~<Quantity>@3</Quantity>~<UnitPrice>@4</UnitPrice>~<Recurrence patternID=[[[@5[[[></Recurrence>~@7</LineItem>";
             stb = stb.Replace("~", ((char)(13)).ToString() + ((char)(10)).ToString());
             stb = stb.Replace("[[[", ((char)(34)).ToString());
 
@@ -442,6 +442,7 @@ namespace Com.ConversionSystems.GoldCanyon
 
                 foreach (DataRow r1 in OrderSKU.Rows)
                 {
+                    decimal pricedb = 0;
                     if (r1["skuid"].ToString().Equals("336"))
                     {
                         continue;
@@ -469,7 +470,20 @@ namespace Com.ConversionSystems.GoldCanyon
                     qty1 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
                     qty2 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
                     price1 = Convert.ToDecimal(r1["FullAmount"].ToString());
-                    price2b = price1;
+
+                    if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 &&
+                        (r["DiscountCode"].ToString().ToUpper().Equals("NEOVA20") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("20NEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("DMNEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TNEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("DMREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TBC")) && !r1["skuid"].ToString().Equals("575") && !r1["skuid"].ToString().Equals("576"))
+                    {
+                        pricedb = (price1 * 20) / 100;
+                    }
+                    price1 = price1 - pricedb;
+                   // price2b = price1;
                     coupcode = "";
                     extra = false;
                     //Console.WriteLine("total1:" + total1.ToString());
@@ -485,10 +499,27 @@ namespace Com.ConversionSystems.GoldCanyon
                     {
                         s1 = s1.Replace("@keyCode@", r1["keyCode"].ToString());    
                     }
+
+                    if (r1["StandingOrderId"] != DBNull.Value)
+                    {
+                        if (r1["StandingOrderId"].ToString().Length > 0)
+                        {
+                            stc = stc.Replace("@7", "<StandingOrder configurationID=[[[@StandingOrder@[[[></StandingOrder>");
+                            stc = stc.Replace("@StandingOrder@", r1["StandingOrderId"].ToString());
+                        }
+                        else
+                        {
+                            stc = stc.Replace("@7", "");
+                        }
+                    }
+                    else
+                    {
+                        stc = stc.Replace("@7", "");
+                    }
                     
                 }
 
-                if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1)
+                if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 && (r["DiscountCode"].ToString().ToUpper().Equals("NEOVA20") || r["DiscountCode"].ToString().ToUpper().Equals("20NEOVA") || r["DiscountCode"].ToString().ToUpper().Equals("DMNEOVA") || r["DiscountCode"].ToString().ToUpper().Equals("TNEOVA") || r["DiscountCode"].ToString().ToUpper().Equals("DMREPAIR") || r["DiscountCode"].ToString().ToUpper().Equals("TREPAIR") || r["DiscountCode"].ToString().ToUpper().Equals("TBC")))
                 {
                     cnt++;
                     stc1 = stc;
@@ -498,14 +529,14 @@ namespace Com.ConversionSystems.GoldCanyon
                     qty1 = 1;
                     qty2 = 1;
 
-                    price1 = Convert.ToDecimal(r["DiscountAmount"].ToString());
+                    price1 = 0;
                     stc = stc.Replace("@0", "");
                     stc = stc.Replace("@7", "");
                     price2b = price1;
                     coupcode = "";
                     extra = false;
                     stc = stc.Replace("@3", qty2.ToString());
-                    stc = stc.Replace("@4", "<UnitPrice>-" + fixstring(price1.ToString()) + "</UnitPrice>");
+                    stc = stc.Replace("@4", price1.ToString("n2"));
                     stc = stc.Replace("@5", "");
                     stc = stc.Replace("@6", "");
                     stc = stc.Replace("[[[", ((char)(34)).ToString());
