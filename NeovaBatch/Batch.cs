@@ -180,7 +180,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "		<OrderID>@orderid@</OrderID>~";
             s1 += "		<OrderDate>@orderdate@</OrderDate>~";
             s1 += "		<OriginType>3</OriginType>~";
-            s1 += "		<StoreCode>www.Neova.com</StoreCode>~";
+            s1 += "		<StoreCode>ConversionSystems</StoreCode>~";
             s1 += "		<SiteID>@siteid@</SiteID>~";
             s1 += "		<CustomerIP></CustomerIP>~"; //ASK KEVIN AB THIS
             s1 += "	</Header>~";
@@ -438,12 +438,17 @@ namespace Com.ConversionSystems.GoldCanyon
 
                 // Added on 11/12/2013 Promo Code: MAGIC10
                 bool MAGIC10CodeApplied = false;
+                bool TAKE20CodeApplied = false;
                 if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 && r["DiscountCode"].ToString().ToUpper().Equals("MAGIC10"))
                 {
                     s1 = s1.Replace("@keyCode@", "CSYS-MAGIC10");
                     MAGIC10CodeApplied = true;
                 }
-
+                else if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 && r["DiscountCode"].ToString().ToUpper().Equals("TAKE20"))
+                {
+                    s1 = s1.Replace("@keyCode@", "CSYS-TAKE20");
+                    TAKE20CodeApplied = true;
+                }
                 
                 IsGiftCardOrder = false;
                 foreach (DataRow r1 in OrderSKU.Rows)
@@ -553,7 +558,7 @@ namespace Com.ConversionSystems.GoldCanyon
                 
                 if (r["GiftCard"] != null && !r["GiftCard"].ToString().ToLower().Equals("true"))
                 {
-                    if (MAGIC10CodeApplied == false && r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1)
+                    if (MAGIC10CodeApplied == false && TAKE20CodeApplied==false && r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1)
                     {
                         cnt++;
                         stc1 = stc;
