@@ -491,7 +491,14 @@ namespace Com.ConversionSystems.GoldCanyon
                     stc = stc.Replace("@4", fixstring(price1.ToString()));
                     stc = stc.Replace("@5", "");
                     stc = stc.Replace("@6", "");
-                    if (r["Version"].ToString().ToLower().Contains("uk_print"))
+                     if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 &&
+                        (r["DiscountCode"].ToString().ToUpper().Equals("NEOVA20") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("20NEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("DMNEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TNEOVA") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("DMREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("TBC")))
                     {
                         s1 = s1.Replace("@keyCode@", "CSYS-DNARPCTY"); 
                     }
