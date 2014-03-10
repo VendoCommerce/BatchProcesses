@@ -478,6 +478,7 @@ namespace Com.ConversionSystems.GoldCanyon
                          r["DiscountCode"].ToString().ToUpper().Equals("TNEOVA") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("DMREPAIR") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("TREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("METNEOVA") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("TBC")) && !r1["skuid"].ToString().Equals("575") && !r1["skuid"].ToString().Equals("576"))
                     {
                         pricedb = (price1 * 20) / 100;
@@ -498,6 +499,7 @@ namespace Com.ConversionSystems.GoldCanyon
                          r["DiscountCode"].ToString().ToUpper().Equals("TNEOVA") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("DMREPAIR") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("TREPAIR") ||
+                         r["DiscountCode"].ToString().ToUpper().Equals("METNEOVA") ||
                          r["DiscountCode"].ToString().ToUpper().Equals("TBC")))
                     {
                         s1 = s1.Replace("@keyCode@", "CSYS-DNARPCTY"); 
