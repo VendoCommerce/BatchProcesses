@@ -22,7 +22,7 @@ namespace DiscountNeovaUK
     class Reports
     {
         LogData log = new LogData();
-        private string targetPath = "C:/BatchFiles/Neova/";
+        private string targetPath = "C:/BatchFiles/NeovaDiscountUK/";
         // private string targetPath = "D:/BatchProcesses/TryElastin/";
 
         static DataSet getsql(string sql)
