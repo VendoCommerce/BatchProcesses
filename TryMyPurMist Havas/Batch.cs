@@ -327,9 +327,11 @@ namespace StonedineWarrantyDB_MyDataTree
                 Data rptData = new ReportWSSoapClient().GetDataFromTimeframe(hitsLinkUserName, hitsLinkPassword, ReportsEnum.eCommerceLatestClicks, TimeFrameEnum.Daily, startDate, endDate, 1000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
-                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[7].Value);
+                    if (!HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()))
+                        HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[7].Value);
                 }
-                DataTable dt_TryMyPurmist = getDataTable(Proc_name, startDate, endDate, 1);
+                DataTable dt_TryMyPurmist = getDataTable(Proc_name, startDate.AddDays(-7), endDate, 1);
+                
                 if (dt_TryMyPurmist.Rows.Count > 0)
                 {
                     Console.WriteLine("Record Found = " + dt_TryMyPurmist.Rows.Count.ToString());
@@ -391,13 +393,40 @@ namespace StonedineWarrantyDB_MyDataTree
                 sb.Append(dr["TimeZone"].ToString() + "|");
                 sb.Append(dr["act"].ToString() + "|");
                 sb.Append(dr["qnt"].ToString() + "|");
-                decimal ttl = Convert.ToDecimal(dr["ttl"].ToString());
+                decimal ttl = 0;
+                if (!dr["ttl"].ToString().Equals(""))
+                {
+                    ttl = Convert.ToDecimal(dr["ttl"].ToString());
+                    
+                }
+                
+                
                 sb.Append(ttl.ToString("0.00") + "|");
                 sb.Append(dr["zpcode"].ToString() + "|");
                 sb.Append( " |");
+
+                if (!dr["acode"].ToString().Equals(""))
+                {
+                    sb.Append(dr["acode"].ToString().Substring(0, 3) + "|");
+                }
+                else
+                {
+                    sb.Append(" |");
+                }
+
+           
+
+                if (!dr["landingUrl"].ToString().Equals(""))
+                {
+                    sb.Append(dr["landingUrl"].ToString() + "|");
+                }
+                else
+                {
+                    sb.Append("http://www.mypurmist.com:81 |");
+                }
                 
-                sb.Append( dr["acode"].ToString().Substring(0,3) + "|");
-                sb.Append(dr["landingUrl"].ToString() + "|");
+                
+                
                 sb.Append(dr["Tag"].ToString() + "|");
                 sb.Append(dr["ProductList"].ToString() );
                
