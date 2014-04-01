@@ -387,6 +387,9 @@ namespace Com.ConversionSystems.GoldCanyon
 
 
                 s1 = s1.Replace("@keycode@", fixstring(r["keycode"]));
+
+                //s1 = s1.Replace("@orderid@", "TESTCS_NEOUK" + fixstring(r["orderid"]));
+                //TODO: uncomment for production
                 s1 = s1.Replace("@orderid@", "NEOUK" + fixstring(r["orderid"]));
 
 
@@ -447,6 +450,12 @@ namespace Com.ConversionSystems.GoldCanyon
                     {
                         continue;
                     }
+                    if (r1["skuid"].ToString().Contains("586")) // Priority processing Dont add it to Main Order XMl. Just change the method code instead 
+                    {
+                        Console.WriteLine("Priority processing added. ");
+                        continue;
+                    }
+
                     cnt++;
                     stc1 = stc;
                     stc += stb;
@@ -566,7 +575,16 @@ namespace Com.ConversionSystems.GoldCanyon
                 else
                 {
                     mthCode = "3";
-                }                
+                }
+
+                foreach (DataRow r1 in OrderSKU.Rows)
+                {
+                    if (r1["skuid"].ToString().Contains("586")) // Pripirrt shipping.
+                    {
+                        mthCode = "5";
+                    }
+                } 
+
                 s1 = s1.Replace("@methodcode@", mthCode);
                 total1z = Convert.ToDecimal(r["totalamount"].ToString());
                 shipping1z = Convert.ToDecimal(r["shippingamount"].ToString());
