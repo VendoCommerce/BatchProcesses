@@ -1,0 +1,10 @@
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Debug\MuradBatch.exe.config
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Debug\MuradBatch.exe.manifest
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Debug\MuradBatch.application
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Debug\MuradBatch.exe
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Debug\MuradBatch.pdb
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Debug\ResolveAssemblyReference.cache
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Debug\MuradBatch.exe.manifest
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Debug\MuradBatch.application
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Debug\MuradBatch.exe
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Debug\MuradBatch.pdb

@@ -1,0 +1,15 @@
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Release\ResolveAssemblyReference.cache
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Debug\ResolveAssemblyReference.cache
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\MediachaseOrderProcessing\ProviderConfiguration\obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+F:\Conversion Systems\ComponentApps\OrderProcessing\DataPak\ProviderConfiguration\bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\OrderProcessing\DataPak\ProviderConfiguration\bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+F:\Conversion Systems\ComponentApps\OrderProcessing\DataPak\ProviderConfiguration\obj\Debug\ResolveAssemblyReference.cache
+F:\Conversion Systems\ComponentApps\OrderProcessing\DataPak\ProviderConfiguration\obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+F:\Conversion Systems\ComponentApps\OrderProcessing\DataPak\ProviderConfiguration\obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb

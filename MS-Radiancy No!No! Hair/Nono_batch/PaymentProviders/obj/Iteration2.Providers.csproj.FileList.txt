@@ -1,0 +1,5 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\Iteration2.Providers.dll
+bin\Debug\Iteration2.Providers.pdb
+obj\Debug\Iteration2.Providers.dll
+obj\Debug\Iteration2.Providers.pdb

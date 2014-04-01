@@ -1,0 +1,30 @@
+W:\SodaStreambatch\MuradBatch\bin\Debug\SodaStream.exe.config
+W:\SodaStreambatch\MuradBatch\bin\Debug\SodaStream.exe.manifest
+W:\SodaStreambatch\MuradBatch\bin\Debug\SodaStream.application
+W:\SodaStreambatch\MuradBatch\bin\Debug\SodaStream.exe
+W:\SodaStreambatch\MuradBatch\bin\Debug\SodaStream.pdb
+W:\SodaStreambatch\MuradBatch\obj\Debug\ResolveAssemblyReference.cache
+W:\SodaStreambatch\MuradBatch\obj\Debug\SodaStream.exe.manifest
+W:\SodaStreambatch\MuradBatch\obj\Debug\SodaStream.application
+W:\SodaStreambatch\MuradBatch\obj\Debug\SodaStream.exe
+W:\SodaStreambatch\MuradBatch\obj\Debug\SodaStream.pdb
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\bin\Debug\SodaStream.exe.config
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\bin\Debug\SodaStream.exe.manifest
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\bin\Debug\SodaStream.application
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\bin\Debug\SodaStream.exe
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\bin\Debug\SodaStream.pdb
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\obj\Debug\ResolveAssemblyReference.cache
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\obj\Debug\SodaStream.exe.manifest
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\obj\Debug\SodaStream.application
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\obj\Debug\SodaStream.exe
+W:\Year 2010\SodastreamBatch\04152010\SodaStream\obj\Debug\SodaStream.pdb
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\bin\Debug\SodaStream.exe.config
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\bin\Debug\SodaStream.exe.manifest
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\bin\Debug\SodaStream.application
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\bin\Debug\SodaStream.exe
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\bin\Debug\SodaStream.pdb
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\obj\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\obj\Debug\SodaStream.exe.manifest
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\obj\Debug\SodaStream.application
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\obj\Debug\SodaStream.exe
+C:\PROJECTS\TRIA Batch\SodaSTream Batch\SodaStream\obj\Debug\SodaStream.pdb

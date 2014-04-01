@@ -1,0 +1,256 @@
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09032013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09162013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09182013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09252013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\09302013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10012013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10042013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10112013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\10152013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11012013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11052013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11052013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11132013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\11142013\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11192013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\11262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12172013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\12262013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01072013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01172014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01232013\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\01242014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\01312014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02042014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\02062014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\02062014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\02272014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\03102014\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year2013\Trynono.Com\03102014_Eve\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll.config
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\CS.ErrorFramework.LogError.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\LogError.csprojResolveAssemblyReference.cache
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.dll
+C:\Projects\Year 2013\Batches\TRynono.com\03202014\Nono_batch\Nono_batch\LogError\LogError\obj\Debug\CS.ErrorFramework.LogError.pdb

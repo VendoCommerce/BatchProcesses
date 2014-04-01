@@ -1,0 +1,10 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+bin\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+obj\Debug\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+obj\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb

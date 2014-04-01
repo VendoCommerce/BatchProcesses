@@ -1,0 +1,10 @@
+F:\Develop\Providers\PaymentProviders\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+F:\Develop\Providers\PaymentProviders\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+F:\Develop\Providers\PaymentProviders\obj\Debug\ResolveAssemblyReference.cache
+F:\Develop\Providers\PaymentProviders\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+F:\Develop\Providers\PaymentProviders\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+F:\Develop\Providers\PaymentProviders\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.dll
+F:\Develop\Providers\PaymentProviders\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+F:\Develop\Providers\PaymentProviders\obj\Release\ResolveAssemblyReference.cache
+F:\Develop\Providers\PaymentProviders\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.dll
+F:\Develop\Providers\PaymentProviders\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.pdb

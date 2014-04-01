@@ -1,0 +1,5 @@
+C:\Develop\PaymentProviders\bin\Debug\FieldServices.IntegrationServices.Providers.PaymentProviders.dll
+C:\Develop\PaymentProviders\bin\Debug\FieldServices.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Develop\PaymentProviders\obj\Debug\ResolveAssemblyReference.cache
+C:\Develop\PaymentProviders\obj\Debug\FieldServices.IntegrationServices.Providers.PaymentProviders.dll
+C:\Develop\PaymentProviders\obj\Debug\FieldServices.IntegrationServices.Providers.PaymentProviders.pdb

@@ -1,0 +1,10 @@
+bin\Debug\Iteration2.IntegrationServices.Providers.PaymentProviders.dll
+bin\Debug\Iteration2.IntegrationServices.Providers.PaymentProviders.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Iteration2.IntegrationServices.Providers.PaymentProviders.dll
+obj\Debug\Iteration2.IntegrationServices.Providers.PaymentProviders.pdb
+bin\Release\Iteration2.IntegrationServices.Providers.PaymentProviders.dll
+bin\Release\Iteration2.IntegrationServices.Providers.PaymentProviders.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\Iteration2.IntegrationServices.Providers.PaymentProviders.dll
+obj\Release\Iteration2.IntegrationServices.Providers.PaymentProviders.pdb

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9890542-4C72-4122-BCA2-EF28BB37531E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NonoBatch</RootNamespace>
+    <AssemblyName>NonoBatch</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>0F1ED81305CF4B3D08C273AFF36ADABC5490E54C</ManifestCertificateThumbprint>
+    <ManifestKeyFile>RubberMaidXMLBatch_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <PublishUrl>C:\PublishTest\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
+    <Reference Include="ConversionSystems.Providers.MediaChase.OrderProcessing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.83.1.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73" />
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
+    <Reference Include="Mediachase.Activation.Client, Version=1.0.2274.28369, Culture=neutral, PublicKeyToken=65aa496ea1020e2e, processorArchitecture=MSIL" />
+    <Reference Include="Mediachase.eCommerce.BusinessLayer, Version=4.1.2.16751, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mediachase.eCommerce.DataProvider, Version=4.1.2.16749, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mediachase.eCommerce.FrameworkConfig, Version=4.1.2.16748, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mediachase.eCommerce.LicenseProvider, Version=4.1.2907.20843, Culture=neutral, PublicKeyToken=65aa496ea1020e2e, processorArchitecture=MSIL" />
+    <Reference Include="Mediachase.eCommerce.MetaDataPlus, Version=1.6.2986.33229, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application_Code\DataAccess\SQLServerNeovaRemarketing.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALGermany.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALSpain.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALFR.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALIreland.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALNoNoSkinUK.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALUK.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALTzone.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerNoNoSkin.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALAcneComplexVersion3.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALAcneComplexVersion2.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALVersionA4.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALJoanSkin.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALGlow.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALDirectMail.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALV2.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDALV3.cs" />
+    <Compile Include="Application_Code\DataAccess\DAL.cs" />
+    <Compile Include="Application_Code\DataAccess\DAO.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDAL.cs" />
+    <Compile Include="Application_Code\DataAccess\SQLServerDAO.cs" />
+    <Compile Include="Application_Code\UI\BasePage.cs" />
+    <Compile Include="Application_Code\Utility\Helper.cs" />
+    <Compile Include="Application_Code\Utility\LogData.cs" />
+    <Compile Include="Application_Code\BusinessObjects\Order.cs" />
+    <Compile Include="NeovaRemarketing.cs" />
+    <Compile Include="GiftCardOrders.cs" />
+    <Compile Include="Germany.cs" />
+    <Compile Include="Spain.cs" />
+    <Compile Include="FR.cs" />
+    <Compile Include="Ireland.cs" />
+    <Compile Include="NonoSkinUK.cs" />
+    <Compile Include="UK.cs" />
+    <Compile Include="NonoSkinBatch.cs" />
+    <Compile Include="Encryption\PGPEncryption.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Batch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Encryption\encryptionkey.asc" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediaChaseProvider\ProviderConfiguration\MediaChaseProvider.csproj">
+      <Project>{C76496E5-4B87-4DDA-A5B9-AF5BD3422929}</Project>
+      <Name>MediaChaseProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrbitalChasePayment\OrbitalChasePaymentAccount\OrbitalChasePayment.csproj">
+      <Project>{AF726A2F-35F0-4422-BDC4-858B2A2FF156}</Project>
+      <Name>OrbitalChasePayment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentProviders\EBS.IntegrationServices.Providers.PaymentProviders.csproj">
+      <Project>{75EC0C74-98B4-4776-B5A8-9AD6A1B9F3D5}</Project>
+      <Name>EBS.IntegrationServices.Providers.PaymentProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WireCardEFT\WireCardEFTAccount\WireCardEFT.csproj">
+      <Project>{EE061AE5-A523-42D4-8C03-BC09F91F4EF3}</Project>
+      <Name>WireCardEFT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

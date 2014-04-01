@@ -1,0 +1,7 @@
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\obj\Release\ResolveAssemblyReference.cache
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Develop\Apps\ZQuietOrphans\ePayAccount\ePayAccount\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb

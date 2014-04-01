@@ -1,0 +1,1326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>paypal_base</name>
+    </assembly>
+    <members>
+        <member name="T:com.paypal.sdk.core.nvp.NVPAPICaller">
+            <summary>
+            Summary description for NVPAPICaller.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.core.APICallerBase">
+            <summary>
+            Main class used to invoke API calls
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerBase.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerBase.GetCertificate(System.String)">
+            <summary>
+            Retrieve the X509 certificate from keystores.
+            </summary>
+            <param name="name">name of the certificate</param>
+            <returns>x509 certificate</returns>
+            <exception cref="T:com.paypal.sdk.exceptions.PayPalException">If the certificate cannot be found</exception>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerBase.SetTrustManager">
+            <summary>
+            To Accept all un-trusted certificate
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerBase.SetupConnection(com.paypal.sdk.profiles.IAPIProfile)">
+            <summary>
+            abstract SetupConnection
+            </summary>
+            <param name="cprofile"></param>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerBase.validateProfile(com.paypal.sdk.profiles.IAPIProfile)">
+            <summary>
+            Validates the profile
+            </summary>
+            <param name="_profile"></param>
+        </member>
+        <member name="P:com.paypal.sdk.core.APICallerBase.Profile">
+            <summary>
+            API profile
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.nvp.NVPAPICaller.Call(System.String)">
+            <summary>
+            Main Call Method that fo API calls
+            </summary>
+            <param name="NvpRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.paypal.sdk.core.nvp.NVPAPICaller.validateProfile(com.paypal.sdk.profiles.IAPIProfile)">
+            <summary>
+            Validate profile
+            </summary>
+            <param name="profile"></param>
+        </member>
+        <member name="M:com.paypal.sdk.core.nvp.NVPAPICaller.SetupConnection(com.paypal.sdk.profiles.IAPIProfile)">
+            <summary>
+            Reading endpoint and certificates are done in SetupConnection
+            </summary>
+            <param name="cprofile"></param>
+        </member>
+        <member name="M:com.paypal.sdk.core.nvp.NVPAPICaller.buildCredentialsNVPString(com.paypal.sdk.profiles.IAPIProfile,System.String)">
+            <summary>
+            Credentials added to the NVP string
+            </summary>
+            <param name="profile"></param>
+            <returns></returns>
+        </member>
+        <member name="F:com.paypal.sdk.core.OAuthException.OauthExpMessage">
+            <summary>
+            Short message
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.OAuthException.OauthExpLongMessage">
+            <summary>
+            Long message
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.OAuthException.OauthExceptionMessage">
+            <summary>
+            Short message.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.OAuthException.OauthExceptionLongMessage">
+            <summary>
+            Long message
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.#ctor(System.String,System.Byte[])">
+            Default Constructor
+            
+            @param consumerKey
+                       - Consumer key shared between PayPal and Consumer (OAuth
+                       consumer)
+            @param consumerSecret
+                       - Secret shared between PayPal and Consumer (OAuth consumer)
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.setToken(System.String)">
+            Sets Token to be used to generate signature.
+            
+            @param token
+                       - String version of Token. The token could be Access or
+                       Request
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.addParameter(System.String,System.String)">
+            Adds Parameter. Parameter could be part of URL, POST data.
+            
+            @param name
+                       parameter name with no URL encoding applied
+            @param value
+                       parameter value with no URL encoding applied
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.setTokenSecret(System.Byte[])">
+            Sets Token secret as received in Token response.
+            
+            @param secret
+                       byte array of token secret
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.setRequestURI(System.String)">
+            Sets URI for signature computation.
+            
+            @param uri
+                       - Script URI which will be normalized to
+                       scheme://authority:port/path if not normalized already.
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.setTokenTimestamp(System.String)">
+            Sets time stamp for signature computation.
+            
+            @param timestamp
+                       - time stamp at which Token request sends.
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.setHTTPMethod(com.paypal.sdk.core.OauthSignature.HTTPMethod)">
+            Sets HTTP Method
+            
+            @param method
+                       HTTP method used for sending OAuth request
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.paypal.sdk.core.OauthSignature.computeV1Signature" -->
+        <member name="M:com.paypal.sdk.core.OauthSignature.verifyV1Signature(System.String)">
+            verifyV1Signature verifies signature against computed signature.
+            
+            @return true if signature verified otherwise false
+            @throws OAuthException
+                        in case there are any failures in signature computation.
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.normalizeURI(System.String)">
+            normalizeURI normalizes the given URI as per OAuth spec
+            
+            @param uri
+            @return normalized URI. URI normalized to scheme://authority:port/path
+            @throws OAuthException
+        </member>
+        <member name="M:com.paypal.sdk.core.OauthSignature.getAuthHeader(System.String,System.String,System.String,System.String,com.paypal.sdk.core.OauthSignature.HTTPMethod,System.String,System.Collections.Hashtable)">
+            getAuthHeader accepts the required parameters and Provides OAuth signature and TimeStamp.
+            
+            @param apiUserName
+                              API User name.
+            @param apiPsw
+                          	 API Password of user.
+            @param accessToken
+            					 Obtained during Permission Request of token.	
+            @param tokenSecret
+            					 Obtained during Permission Request of token.
+            @param httpMethod
+                              HTTP Method (GET,POST etc.) 
+            @param scriptURI
+                              API Server End Point.
+            @param queryParams
+                              Extra 'name/value' parameters if required.
+            @return
+        </member>
+        <member name="T:com.paypal.sdk.core.OauthSignature.Parameter">
+            Inner class for representing Parameter
+            
+        </member>
+        <member name="T:com.paypal.sdk.core.APICallerFactory">
+            <summary>
+            Factory class which makes new profile objects
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.APICallerFactory.createNVPAPICaller">
+            <summary>
+            Create an INVPAPICaller object
+            </summary>
+            <returns>APICallerBase</returns>
+        </member>
+        <member name="T:com.paypal.sdk.core.Config">
+            <summary>
+            Contains application-wide configuration settings.  Singleton class accessed through
+            Config.Instance.  Configuration settings are read from the web.config/Console.exe.config
+            file
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.Config.PAYPAL_TAG">
+            <summary>
+            tag defining paypal config section in web.config/console.exe.config
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.Config.TrustAll">
+            <summary>
+            TrustAll flag.  If true, all certificates are validated.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.Config.MaximumRetries">
+            <summary>
+            MaximumRetries setting.  Number of times SOAP requests are retried.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.Config.GetEndpoint(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="environment"></param>
+            <param name="port"></param>
+            <param name="isThreeToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:com.paypal.sdk.core.Config.ApplicationBase">
+            <summary>
+            ApplicationBase defines directory where web.config is stored.  
+            If you are calling the SDK from COM, you need to set
+            this property. 
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.Config.Instance">
+            <summary>
+            Use this property to access the Config singleton.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.core.ConfigDefaults">
+            <summary>
+            Default config values
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigDefaults.TRUST_ALL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigDefaults.MAXIMUM_RETRIES">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigDefaults.WSDL_VERSION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigDefaults.DELAY_TIME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigDefaults.CONNECTION_TIMEOUT_MS">
+            <summary>
+             The connection timeout in milliseconds
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.core.ConfigSectionHandler">
+            <summary>
+            Used to load custom paypal config section in web.config/console.exe.config
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.ConfigSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Gets the paypal config setting.
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns>simple returns the section argument</returns>
+        </member>
+        <member name="T:com.paypal.sdk.core.ConfigSectionParser">
+            <summary>
+            Parse settings defined in the paypal XML config section.  The results are in the public
+            readonly fields.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigSectionParser.IsTrustAllSpecified">
+            <summary>
+            True if the trustAll tag was defined.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigSectionParser.TrustAll">
+            <summary>
+            The boolean value parsed from the TrustAll tag.  Only read this tag if IsTrustAllSpecified is true
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigSectionParser.IsMaximumRetriesSpecified">
+            <summary>
+            True if the maximumRetries tag was defined.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.core.ConfigSectionParser.MaximumRetries">
+            <summary>
+            The boolean value parsed from the TrustAll tag.  Only read this tag if IsTrustAllSpecified is true
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.ConfigSectionParser.ReadEndpoints(System.Xml.XmlNode)">
+            <summary>
+            Read the API endpoints
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.ConfigSectionParser.NonNull(System.Object[])">
+            <summary>
+            Check a set of objects are non-null
+            </summary>
+            <param name="args">list of objects to check</param>
+            <returns>true if all objects in args are non-null </returns>
+        </member>
+        <member name="T:com.paypal.sdk.core.Endpoint">
+            <summary>
+            Summary description for Endpoint.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.core.Endpoint.#ctor(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="environment"></param>
+            <param name="port"></param>
+            <param name="isThreeToken"></param>
+            <param name="url"></param>
+        </member>
+        <member name="P:com.paypal.sdk.core.Endpoint.Environment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.Endpoint.Port">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.Endpoint.IsThreeToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.Endpoint.Url">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.core.Endpoint.WebHost">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.core.ManualConfig">
+            <summary>
+            Manual config is used when called through COM to configure logging
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.exceptions.FatalException">
+            <summary>
+            Exception that causes the SDK to cease functioning properly
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.exceptions.PayPalException">
+            <summary>
+            Superclass for all PayPal exception classes
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.PayPalException.#ctor">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.PayPalException.#ctor(System.String)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.PayPalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="cause">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.FatalException.#ctor">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.FatalException.#ctor(System.String)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.FatalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="cause">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:com.paypal.sdk.exceptions.TransactionException">
+            <summary>
+            Exception that occurs within the context of a transaction 
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.TransactionException.#ctor">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.TransactionException.#ctor(System.String)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.TransactionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Represents errors that occur during application execution
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="cause">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:com.paypal.sdk.exceptions.WarningException">
+            <summary>
+            SDK Warning
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.WarningException.#ctor">
+            <summary>
+            SDK Warning
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.WarningException.#ctor(System.String)">
+            <summary>
+            SDK Warning
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:com.paypal.sdk.exceptions.WarningException.#ctor(System.String,System.Exception)">
+            <summary>
+            SDK Warning
+            </summary>
+            <param name="message">The message that describes the error</param>
+            <param name="cause">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:com.paypal.sdk.logging.DefaultLogger">
+            <summary>
+            Summary description for DefaultLogger.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.logging.DefaultLogger.LOG">
+            <summary>
+            Central logger used in several places in the SDK.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.logging.DefaultSOAPHandler">
+            <summary>
+            Performs custom actions with web service calls such as logging
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.init">
+            <summary>
+            Initialize the SOAPHandler
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.GetInitializer(System.Web.Services.Protocols.LogicalMethodInfo,System.Web.Services.Protocols.SoapExtensionAttribute)">
+            <summary>
+            When the SOAP extension is accessed for the first time, the XML Web
+            service method it is applied to is accessed to store the file
+            name passed in, using the corresponding SoapExtensionAttribute.
+            </summary>
+            <param name="methodInfo">A LogicalMethodInfo representing the specific function prototype for the XML Web service method to which the SOAP extension is applied.</param>
+            <param name="attribute">The SoapExtensionAttribute applied to the XML Web service method. </param>
+            <returns>null</returns>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.GetInitializer(System.Type)">
+            <param name="type">The type of the class implementing the XML Web service to which the SOAP extension is applied. </param>
+            <returns>null</returns>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.Initialize(System.Object)">
+            <param name="initializer">The Object returned from GetInitializer</param>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.ChainStream(System.IO.Stream)">
+            <summary>
+            ChainStream ensures that SOAP extensions with the highest priority can modify the actual data closest to the SOAP message sent or returned over the wire.
+            </summary>
+            <param name="stream">A memory buffer containing the SOAP request or response.</param>
+            <returns>A Stream representing a new memory buffer that this SOAP extension can modify.</returns>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.ProcessMessage(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+             If the SoapMessageStage is such that the SoapRequest or
+             SoapResponse is still in the SOAP format to be sent or received,
+             save it to the log file.
+            </summary>
+            <param name="message">The SoapMessage to process</param>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.LogSoapEnvelope">
+            <summary>
+            Log the SOAP envelope into the log file if IsDebugEnable is true
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.WriteOutput(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Log the output SOAP envelope if IsDebugEnable is true
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.WriteInput(System.Web.Services.Protocols.SoapMessage)">
+            <summary>
+            Log the input SOAP envelope if IsDebugEnable is true
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.logging.DefaultSOAPHandler.Copy(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Write from one Stream to another
+            </summary>
+            <param name="from">Original Stream</param>
+            <param name="to">Copy to Stream</param>
+        </member>
+        <member name="T:com.paypal.sdk.logging.LogConstants">
+            <summary>
+            Defines PayPal-specific log levels, and maps them to corresponding log4net levels.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.logging.LogConstants.LOG_NONE">
+            <summary>
+            Represents a log level of 'NONE', ie. only major errors
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.logging.LogConstants.LOG_TRANSACTION">
+            <summary>
+            Represents a log level of 'TRANSACTION', ie. web service call details
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.logging.LogConstants.LOG_DEBUG">
+            <summary>
+            Represents a log level of 'DEBUG', ie. all debug statements
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.BaseAPIProfile">
+            <summary>
+            implementation BaseAPIProfile.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.IAPIProfile">
+            <summary>
+            Public interface to the properties that encapsulate details of an entity that utilizes the PayPal SDK.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.APIUsername">
+            <summary>
+            The username this profile uses to access the PayPal API
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.APIPassword">
+            <summary>
+            The password this profile uses to access the PayPal API
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.APISignature">
+            <summary>
+            The signature hash used for three-token authentication
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.PrivateKeyPassword">
+            <summary>
+            The private key password
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.CertificateFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Subject">
+            <summary>
+            The name of the entity on behalf of which this profile is issuing calls
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Environment">
+            <summary>
+             The PayPal environment (Live, Sadnbox)
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Timeout">
+            <summary>
+             The connection timeout in milliseconds
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.MaximumRetries">
+            <summary>
+             The maximum number of retries
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.DelayTime">
+            <summary>
+             The delay time bewteen each retry call in milliseconds
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.getFirstPartyEmail">
+            <summary>
+            To use as Subject for UNIPay EC
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Oauth_Signature">
+            <summary>
+            Permission
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Oauth_Token">
+            <summary>
+            Permission
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.IAPIProfile.Oauth_Timestamp">
+            <summary>
+            Permission
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.apiUsername">
+            <summary>
+            The username used to access the PayPal API
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.apiPassword">
+            <summary>
+            The password used to access the PayPal API
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.subject">
+            <summary>
+            The name of the entity on behalf of which this profile is issuing calls
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.environment">
+            <summary>
+             The PayPal environment (Live, Sadnbox)
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.timeout">
+            <summary>
+             The connection timeout in milliseconds
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.maximumRetries">
+            <summary>
+             The maximum number of retries
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.BaseAPIProfile.delayTime">
+            <summary>
+             The delay time bewteen each retry call in milliseconds
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.profiles.BaseAPIProfile.#ctor">
+            <summary>
+             Default APUI Profile constructor
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.APIUsername">
+            <summary>
+            The username used to access the PayPal API
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.APIPassword">
+            <summary>
+            The password used to access the PayPal API
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Subject">
+            <summary>
+            The name of the entity on behalf of which this profile is issuing calls
+            </summary>
+            <remarks>
+            This is for Third-Party access
+            </remarks>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Environment">
+            <summary>
+            The PayPal environment (Live, Sadnbox) 
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Timeout">
+            <summary>
+             The connection timeout in milliseconds
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.MaximumRetries">
+            <summary>
+             The maximum number of retries
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.DelayTime">
+            <summary>
+             The delay time bewteen each retry call in milliseconds
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.APISignature">
+            <summary>
+            abstract APISignature
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.CertificateFile">
+            <summary>
+            abstract CertificateFile
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.PrivateKeyPassword">
+            <summary>
+            abstract PrivateKeyPassword
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.getFirstPartyEmail">
+            <summary>
+            abstract getFirstPartyEmail
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Oauth_Signature">
+            <summary>
+            Permission Oauth_Signature
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Oauth_Token">
+            <summary>
+            Permission Oauth_Token
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.BaseAPIProfile.Oauth_Timestamp">
+            <summary>
+            Permission Oauth_Timestamp
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.CertificateAPIProfile">
+            <summary>
+            CertificateAPIProfile implementation BaseAPIProfile and IAPIProfile
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.CertificateAPIProfile.certificateFile">
+            <summary>
+            The certificate used to access the PayPal API
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.CertificateAPIProfile.privateKeyPassword">
+            <summary>
+            The privateKeyPassword used
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.CertificateFile">
+            <summary>
+            The file-name of the certificate to be used.
+            Not implemented yet.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.APISignature">
+            <summary>
+            API Signature used to access the PayPal API.  Only used for
+            profiles set to Three-Token Authentication instead of Client-Side SSL Certificates.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.PrivateKeyPassword">
+            <summary>
+            The private key password
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.Oauth_Signature">
+            <summary>
+            Oauth_Signature throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.Oauth_Token">
+            <summary>
+            Oauth_Token throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.CertificateAPIProfile.Oauth_Timestamp">
+            <summary>
+            Oauth_Timestamp throwing custom error
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.PermissionAPIProfile">
+            <summary>
+            PermissionAPIProfile implementation BaseAPIProfile and IAPIProfile
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.PermissionAPIProfile.oauth_Signature">
+            <summary>
+            The API signature used in three-token authentication
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.PermissionAPIProfile.certificateFile">
+            <summary>
+            The certificate used to access the PayPal API
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.PermissionAPIProfile.privateKeyPassword">
+            <summary>
+            The privateKeyPassword used
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.CertificateFile">
+            <summary>
+            The file-name of the certificate to be used.
+            Not implemented yet.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.APISignature">
+            <summary>
+            API Signature used to access the PayPal API.  Only used for
+            profiles set to Three-Token Authentication instead of Client-Side SSL Certificates.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.PrivateKeyPassword">
+            <summary>
+            The private key password
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.Oauth_Signature">
+            <summary>
+            Oauth_Signature implemented
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.Oauth_Token">
+            <summary>
+            Oauth_Token implemented
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.PermissionAPIProfile.Oauth_Timestamp">
+            <summary>
+            Oauth_Timestamp implemented
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.ProfileFactory">
+            <summary>
+            Factory class which makes new profile objects
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.profiles.ProfileFactory.createSSLAPIProfile">
+            <summary>
+            Create an CreateSSLAPIProfile profile object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.paypal.sdk.profiles.ProfileFactory.createSignatureAPIProfile">
+            <summary>
+            Create an CreateSignatureAPIProfile profile object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.SignatureAPIProfile">
+            <summary>
+            SignatureAPIProfile implementation BaseAPIProfile and IAPIProfile
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.SignatureAPIProfile.apiSignature">
+            <summary>
+            The API signature used in three-token authentication
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.CertificateFile">
+            <summary>
+            The file-name of the certificate to be used.  Returns error as this is Signature profile.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.APISignature">
+            <summary>
+            API Signature used to access the PayPal API.  Only used for
+            profiles set to Three-Token Authentication instead of Client-Side SSL Certificates.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.PrivateKeyPassword">
+            <summary>
+            The private key password. Returns error as this is Signature profile.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.Oauth_Signature">
+            <summary>
+            Oauth_Signature throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.Oauth_Token">
+            <summary>
+            Oauth_Token throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.SignatureAPIProfile.Oauth_Timestamp">
+            <summary>
+            Oauth_Timestamp throwing custom error
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.profiles.UniPayAPIProfile">
+            <summary>
+            UniPayAPIProfile implementation BaseAPIProfile and IAPIProfile
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.profiles.UniPayAPIProfile.emailSubject">
+            <summary>
+            The API signature used in three-token authentication
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.CertificateFile">
+            <summary>
+            The file-name of the certificate to be used.  Returns error as this is Signature profile.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.APISignature">
+            <summary>
+            API Signature used to access the PayPal API.  Only used for
+            profiles set to Three-Token Authentication instead of Client-Side SSL Certificates.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.PrivateKeyPassword">
+            <summary>
+            The private key password. Returns error as this is Signature profile.
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.Oauth_Signature">
+            <summary>
+            Oauth_Signature throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.Oauth_Token">
+            <summary>
+            Oauth_Token throwing custom error
+            </summary>
+        </member>
+        <member name="P:com.paypal.sdk.profiles.UniPayAPIProfile.Oauth_Timestamp">
+            <summary>
+            Oauth_Timestamp throwing custom error
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.resources.ResourceHelper">
+            <summary>
+            Summary description for ResourceHelper.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.resources.ResourceHelper.GetResourceStream(System.String)">
+            <summary>
+            Reads an embedded resource within the assembly.
+            </summary>
+            <param name="name">The path to the resource without the Constants.RESOURCE_ROOT prepended</param>
+            <returns>A stream to the resource</returns>
+        </member>
+        <member name="T:com.paypal.sdk.rules.ValidationError">
+            <summary>
+            Contains information regarding something that was wrong when a profile was validated.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationError.#ctor(System.String)">
+            <summary>
+            Constructor provides the error message
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="P:com.paypal.sdk.rules.ValidationError.Key">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.rules.ValidationErrors">
+            <summary>
+            Contains a collection of errors regarding things that was wrong when a profile was validated.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.Add(com.paypal.sdk.rules.ValidationError)">
+            <summary>
+            Add an error to the collection
+            </summary>
+            <param name="error">error to add</param>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.Clear">
+            <summary>
+            Clear all errors from the object
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.IsEmpty">
+            <summary>
+            Verify if this object contains any errors
+            </summary>
+            <returns>True if and only if there are no errors in this object</returns>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.GetEnumerator">
+            <summary>
+            Get an enumerator over the collection of errors
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.IsAccessed">
+            <summary>
+            Determine whether or not get() has been called
+            </summary>
+            <returns>true if get() has been called</returns>
+        </member>
+        <member name="M:com.paypal.sdk.rules.ValidationErrors.Size">
+            <summary>
+            Return the number of errors in this object
+            </summary>
+            <returns>number of errors</returns>
+        </member>
+        <member name="T:com.paypal.sdk.services.NVPCallerServices">
+            <summary>
+            Facade class that implements API caller services
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.services.NVPCallerServices.caller">
+            <summary>
+            NVP API Caller reference makes actual NVP calls
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.services.NVPCallerServices.initialized">
+            <summary>
+            Flag which determines whether or not this object has been initialized
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.services.NVPCallerServices.Initialize">
+            <summary>
+            Initializes the object
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.services.NVPCallerServices.Call(System.String)">
+            <summary>
+            Caller Services
+            </summary>
+            <param name="requestnvp"></param>
+            <returns></returns>
+        </member>
+        <member name="P:com.paypal.sdk.services.NVPCallerServices.APIProfile">
+            <summary>
+            Get/Set the API profile.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.util.Constants">
+            <summary>
+            Summary description for Resource.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Constants.RESOURCE_ROOT">
+            <summary>
+            Defines the Resource root name for resources, which is defined to be the namespace they are embedded in.
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.util.Crypto32API">
+            <summary>
+            Crypto 32 API abstract class.
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.MY_STORE">
+            <summary>
+            MY_STORE
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.ROOT_STORE">
+            <summary>
+            ROOT_STORE 
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CRYPT_USER_KEYSET">
+            <summary>
+            CRYPT_USER_KEYSET
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_FIND_SUBJECT_STR">
+            <summary>
+            CERT_FIND_SUBJECT_STR
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_KEY_PROV_INFO_PROP_ID">
+            <summary>
+            CERT_KEY_PROV_INFO_PROP_ID
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_STORE_ADD_NEW">
+            <summary>
+            CERT_STORE_ADD_NEW
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_SYSTEM_STORE_CURRENT_USER">
+            <summary>
+             CERT_SYSTEM_STORE_CURRENT_USER
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_STORE_READONLY_FLAG">
+            <summary>
+            CERT_STORE_READONLY_FLAG
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_STORE_OPEN_EXISTING_FLAG">
+            <summary>
+            CERT_STORE_OPEN_EXISTING_FLAG
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_SYSTEM_STORE_CURRENT_SERVICE">
+            <summary>
+            CERT_SYSTEM_STORE_CURRENT_SERVICE
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_SYSTEM_STORE_LOCAL_MACHINE">
+            <summary>
+            CERT_SYSTEM_STORE_LOCAL_MACHINE
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_SYSTEM_STORE_MYSUSER_MACHINE">
+            <summary>
+            CERT_SYSTEM_STORE_MYSUSER_MACHINE
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CERT_STORE_PROV_LM_SYSTEM_STORE">
+            <summary>
+            CERT_STORE_PROV_LM_SYSTEM_STORE
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.PFXImportCertStore(com.paypal.sdk.util.Crypto32API.CryptoDataBlob@,System.String,System.UInt32)">
+            <summary>
+            PFXImportCertStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.PFXIsPFXBlob(com.paypal.sdk.util.Crypto32API.CryptoDataBlob@)">
+            <summary>
+            PFXIsPFXBlob
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertOpenSystemStore(System.IntPtr,System.String)">
+            <summary>
+            CertOpenSystemStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertOpenStore(System.IntPtr,System.UInt32,System.IntPtr,System.UInt32,System.String)">
+            <summary>
+            CertOpenStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertCloseStore(System.IntPtr,System.UInt32)">
+            <summary>
+            CertCloseStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertEnumCertificatesInStore(System.IntPtr,System.IntPtr)">
+            <summary>
+            CertEnumCertificatesInStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertAddCertificateContextToStore(System.IntPtr,System.IntPtr,System.UInt32,System.IntPtr)">
+            <summary>
+            CertAddCertificateContextToStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertFreeCertificateContext(System.IntPtr)">
+            <summary>
+            CertFreeCertificateContext
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CertFindCertificateInStore(System.IntPtr,System.UInt32,System.UInt32,System.UInt32,System.String,System.IntPtr)">
+            <summary>
+            CertFindCertificateInStore
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.ReadPFXCertificateFile(System.String)">
+            <summary>
+            ReadPFXCertificateFile
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.CopyByteToCryptoBlob(System.Byte[])">
+            <summary>
+            CopyByteToCryptoBlob
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Crypto32API.IsValidPFXCertificate(com.paypal.sdk.util.Crypto32API.CryptoDataBlob)">
+            <summary>
+            IsValidPFXCertificate
+            </summary>
+        </member>
+        <member name="T:com.paypal.sdk.util.Crypto32API.CryptoDataBlob">
+            <summary>
+            CryptoDataBlob
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CryptoDataBlob.cbData">
+            <summary>
+            cbData
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.Crypto32API.CryptoDataBlob.pbData">
+             <summary>
+            pbData
+             </summary>
+        </member>
+        <member name="T:com.paypal.sdk.util.MessageResources">
+            <summary>
+            Utility class used for internationalization
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.MessageResources.ResourceBundle">
+            <summary>
+            Resource bundle
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.MessageResources.GetMessage(System.String)">
+            <summary>
+            Get a localized message
+            </summary>
+            <param name="message">key to reference in resource bundle</param>
+            <returns>localized string</returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.MessageResources.SetLocale(System.String,System.String)">
+            <summary>
+            Set the locale
+            </summary>
+            <param name="language">language, eg. "EN"</param>
+            <param name="country">country, eg. "US"</param>
+        </member>
+        <member name="T:com.paypal.sdk.util.NVPCodec">
+            <summary>
+            Helper class to encode/decode NVP strings
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.NVPCodec.Encode">
+            <summary>
+            Returns the built NVP string of all name/value pairs in the Hashtable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.NVPCodec.Decode(System.String)">
+            <summary>
+            Decoding the string
+            </summary>
+            <param name="nvpstring"></param>
+        </member>
+        <member name="P:com.paypal.sdk.util.NVPCodec.Item(System.String,System.Int32)">
+            <summary>                        </summary>        </member>
+        <member name="T:com.paypal.sdk.util.TestConnection">
+            <summary>
+            Summary description for NVPCodec.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.TestConnection.testServerConnection(com.paypal.sdk.profiles.IAPIProfile)">
+            <summary>
+            Testing the connection
+            </summary>
+            <param name="pProfile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.paypal.sdk.util.TrustAllCertificatePolicy">
+            <summary>
+            This class is used to provide custom security certificate validation for an application
+            </summary>
+        </member>
+        <member name="F:com.paypal.sdk.util.TrustAllCertificatePolicy.Instance">
+            <summary>
+            Public instance of this singleton.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.TrustAllCertificatePolicy.CheckValidationResult(System.Net.ServicePoint,System.Security.Cryptography.X509Certificates.X509Certificate,System.Net.WebRequest,System.Int32)">
+            <summary>
+            Returns true
+            </summary>
+            <param name="sp">The ServicePoint that will use the certificate. </param>
+            <param name="cert">The certificate to validate</param>
+            <param name="request">The request that received the certificate.</param>
+            <param name="problem">The request that received the certificate.</param>
+            <returns>For this SDK it will always return TRUE</returns>
+        </member>
+        <member name="T:com.paypal.sdk.util.Utils">
+            <summary>
+            Global helper methods.
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.Utils.CreateXmlNode(System.IO.Stream)">
+            <summary>
+            Creates an XmlElement from a stream
+            </summary>
+            <param name="stream"></param>
+            <returns>XmlElement pointing to the root of the XML</returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.Utils.IsEmpty(System.String)">
+            <summary>
+            Returns if a string is empty or null
+            </summary>
+            <param name="s">the string</param>
+            <returns>true if the string is not null and is not empty or just whitespace</returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.Utils.CreateXmlNode(System.IO.StreamReader)">
+            <summary>
+            Creates an XmlElement from a StreamReader
+            </summary>
+            <param name="streamReader">the xml input</param>
+            <returns>XmlElement pointing to the root of the XML</returns>
+        </member>
+        <member name="T:com.paypal.sdk.util.XMLSerializer">
+            <summary>
+            Serializes request and response templates
+            </summary>
+        </member>
+        <member name="M:com.paypal.sdk.util.XMLSerializer.ToXMLTemplate(System.Object)">
+            <summary>
+            Create an XML template for an obbject
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.XMLSerializer.ToXML(System.Object)">
+            <summary>
+            Turns an object into its XML representation
+            </summary>
+            <param name="obj">object to serialize</param>
+            <returns>XML representation of the object</returns>
+        </member>
+        <member name="M:com.paypal.sdk.util.XMLSerializer.FromXML(System.String,System.Type)">
+            <summary>
+            Turns XML into an object
+            </summary>
+            <param name="type">type of object to create</param>
+            <param name="xml">xml representation of object</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

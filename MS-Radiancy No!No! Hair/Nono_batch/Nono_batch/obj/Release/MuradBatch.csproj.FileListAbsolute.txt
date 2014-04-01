@@ -1,0 +1,60 @@
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\bin\Release\MuradBatch.application
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+C:\Documents and Settings\Dudes\My Documents\muradnew_with_DirectMail\muradnew_with_DirectMail\muradnew\MuradBatch\obj\Release\MuradBatch.pdb
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Release\MuradBatch.pdb
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Release\MuradBatch.application
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+W:\muradnew_with_DirectMail_Glow\muradnew_with_DirectMail_Glow\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11042009\muradnew\muradnew\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\bin\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11062009\muradnew\MuradBatch\obj\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\bin\Release\MuradBatch.exe.config
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\bin\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\bin\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\bin\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\bin\Release\MuradBatch.pdb
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\obj\Release\MuradBatch.exe.manifest
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\obj\Release\MuradBatch.application
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\obj\Release\MuradBatch.exe
+C:\Documents and Settings\Aniketh P\Desktop\Murad Batch Oct 20-2009\11242009\muradnew\MuradBatch\obj\Release\MuradBatch.pdb

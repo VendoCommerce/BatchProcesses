@@ -1,0 +1,9 @@
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.LitleCorp.dll
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.LitleCorp.pdb
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.dll
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\bin\Release\ConversionSystems.Providers.MediaChase.OrderProcessing.pdb
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.LitleCorp.dll
+C:\Projects\Year2012\Zquiet.Com\Zquiet.Com_Litle\LitleCorp\LitleCorp\obj\Release\EBS.IntegrationServices.Providers.PaymentProviders.LitleCorp.pdb

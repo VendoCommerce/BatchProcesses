@@ -1,0 +1,28 @@
+C:\Develop\Providers\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Develop\Providers\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Develop\Providers\ePayAccount\ePayAccount\obj\Debug\ResolveAssemblyReference.cache
+C:\Develop\Providers\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Develop\Providers\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Develop\Providers\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Develop\Providers\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\ZQuietOrphans\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\ZQuiet.com_Batch\New Implementation\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.dll
+C:\Projects\Year 2011\Trynono.com_Batch\Trynono.com_UK\ePayAccount\ePayAccount\obj\Debug\EBS.IntegrationServices.Providers.PaymentProviders.ePay.pdb
