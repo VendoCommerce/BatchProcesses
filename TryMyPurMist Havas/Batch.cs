@@ -17,7 +17,7 @@ using System.Threading;
 using System.Configuration ;
 using CSWeb.HitLinks;
 
-using Tamir.SharpSsh;
+////using Tamir.SharpSsh;
 
 namespace StonedineWarrantyDB_MyDataTree
 {
@@ -307,10 +307,14 @@ namespace StonedineWarrantyDB_MyDataTree
                 DateTime startDate;
                 startDate = ImportDate; //the -900 is for testing
                 //DateTime.TryParse("6/28/2013",out startDate); //one time only for all orders back to 6/28/13
-                startDate = GetEastCoastStartDate(startDate);
-                DateTime endDate = GetEastCoastDate(DateTime.Today.AddDays (-5));
+                //startDate = GetEastCoastStartDate(startDate);
+                //DateTime endDate = GetEastCoastDate(DateTime.Today.AddDays (-7));
+                //TODO: remove this line and untag top line
+                startDate = new DateTime(2014, 2, 24);
+                DateTime endDate = new DateTime(2014, 3, 3);
+                //DateTime endDate = GetEastCoastDate(startDate.AddDays(+2));
 
-
+                
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + startDate.ToString());
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + endDate.ToString());
 
@@ -324,13 +328,13 @@ namespace StonedineWarrantyDB_MyDataTree
                 StreamWriter sw = new StreamWriter(fullPathFileName,false);
                 //write_file_header(sw);
 
-                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe(hitsLinkUserName, hitsLinkPassword, ReportsEnum.eCommerceLatestClicks, TimeFrameEnum.Daily, startDate, endDate, 1000000, 0, 0);
-                for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
-                {
-                    if (!HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()))
-                        HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[7].Value);
-                }
-                DataTable dt_TryMyPurmist = getDataTable(Proc_name, startDate.AddDays(-7), endDate, 1);
+                ////////Data rptData = new ReportWSSoapClient().GetDataFromTimeframe(hitsLinkUserName, hitsLinkPassword, ReportsEnum.eCommerceLatestClicks, TimeFrameEnum.Daily, startDate, endDate, 1000000, 0, 0);
+                ////////for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
+                ////////{
+                ////////    if (!HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()))
+                ////////        HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[7].Value);
+                ////////}
+                DataTable dt_TryMyPurmist = getDataTable(Proc_name, startDate, endDate, 1);
                 
                 if (dt_TryMyPurmist.Rows.Count > 0)
                 {
@@ -338,10 +342,10 @@ namespace StonedineWarrantyDB_MyDataTree
                     log.LogToFile("Records Found on TryMyPurMist = " + dt_TryMyPurmist.Rows.Count.ToString()); 
                     foreach (DataRow dr in dt_TryMyPurmist.Rows)
                     {
-                        Console.WriteLine(DateTime.Now.ToLongTimeString());
+                       // Console.WriteLine(DateTime.Now.ToLongTimeString());
                         add_Order_totxtFile(dr, sw);
 
-                        Thread.Sleep(10);
+                        //Thread.Sleep(10);
 
 
                     }
@@ -356,17 +360,17 @@ namespace StonedineWarrantyDB_MyDataTree
 
 
                 sw.Close();
-                bool upload_status = upload_FTP(fullPathFileName);
+                ////bool upload_status = upload_FTP(fullPathFileName);
 
-                string statusID;
-                if (upload_status)
-                {
-                    statusID = "2";
-                }
-                else
-                {
-                    statusID = "3";
-                }
+                ////string statusID;
+                ////if (upload_status)
+                ////{
+                ////    statusID = "2";
+                ////}
+                ////else
+                ////{
+                ////    statusID = "3";
+                ////}
                
 
                 log.LogToFile("Finished Importing TryMyPurMist data to Havas");
@@ -388,22 +392,22 @@ namespace StonedineWarrantyDB_MyDataTree
                 StringBuilder sb = new StringBuilder("");
                 sb.Clear();
                 DateTime odate = Convert.ToDateTime(dr["odate"].ToString());
-                sb.Append(dr["orderid"].ToString() + "|");
+                //sb.Append(dr["orderid"].ToString() + "|");
                 sb.Append( odate.ToString("MM/dd/yyyy hh:mm:ss") + "|");
                 sb.Append(dr["TimeZone"].ToString() + "|");
                 sb.Append(dr["act"].ToString() + "|");
                 sb.Append(dr["qnt"].ToString() + "|");
                 decimal ttl = 0;
-                if (!dr["ttl"].ToString().Equals(""))
+                if (!dr["subtotal"].ToString().Equals(""))
                 {
-                    ttl = Convert.ToDecimal(dr["ttl"].ToString());
+                    ttl = Convert.ToDecimal(dr["subtotal"].ToString());
                     
                 }
                 
                 
                 sb.Append(ttl.ToString("0.00") + "|");
-                sb.Append(dr["zpcode"].ToString() + "|");
-                sb.Append( " |");
+                sb.Append(dr["zipcode"].ToString() + "|");
+                sb.Append(dr["IpAddress"].ToString() + "|");
 
                 if (!dr["acode"].ToString().Equals(""))
                 {
@@ -485,52 +489,52 @@ namespace StonedineWarrantyDB_MyDataTree
 
             return val;
         }
-        public bool upload_FTP(string fullPathFileName)
-        {
-            // Get the objects used to communicate with the server.
-            bool response;
-            string FTP_Site = Helper.AppSettings["sFTPsite"].ToString();
-            string FTP_username = Helper.AppSettings["FTPusername"].ToString();
-            string FTP_pass = Helper.AppSettings["FTPpassword"].ToString();
-            string FTP_folder = Helper.AppSettings["FTPsiteFolder"].ToString();
-            string Chk_folder = Helper.AppSettings["ChkFolder"].ToString();
-            try
-            {
-               // Use 
-                Sftp sftpClient = new Sftp(FTP_Site, FTP_username, FTP_pass);
+        ////////public bool upload_FTP(string fullPathFileName)
+        ////////{
+        ////////    // Get the objects used to communicate with the server.
+        ////////    bool response;
+        ////////    string FTP_Site = Helper.AppSettings["sFTPsite"].ToString();
+        ////////    string FTP_username = Helper.AppSettings["FTPusername"].ToString();
+        ////////    string FTP_pass = Helper.AppSettings["FTPpassword"].ToString();
+        ////////    string FTP_folder = Helper.AppSettings["FTPsiteFolder"].ToString();
+        ////////    string Chk_folder = Helper.AppSettings["ChkFolder"].ToString();
+        ////////    try
+        ////////    {
+        ////////       // Use 
+        ////////        Sftp sftpClient = new Sftp(FTP_Site, FTP_username, FTP_pass);
                
-                sftpClient.Connect();
-                 string absoluteFileName = Path.GetFileName(fullPathFileName);
-                 sftpClient.Put(@fullPathFileName, FTP_folder + "/" + absoluteFileName);
-                 ArrayList post_response = sftpClient.GetFileList(FTP_folder);
-                 if (post_response.IndexOf(absoluteFileName) >= 0)
-                 {
-                     string dest = Chk_folder + "\\" + "chkd_" + absoluteFileName;
-                     string source = "/" + FTP_folder + "/" + absoluteFileName;
-                     sftpClient.Get(source, @dest);
-                     response = true;
-                 }
-                     else
-                 {
-                     response = false;
+        ////////        sftpClient.Connect();
+        ////////         string absoluteFileName = Path.GetFileName(fullPathFileName);
+        ////////         sftpClient.Put(@fullPathFileName, FTP_folder + "/" + absoluteFileName);
+        ////////         ArrayList post_response = sftpClient.GetFileList(FTP_folder);
+        ////////         if (post_response.IndexOf(absoluteFileName) >= 0)
+        ////////         {
+        ////////             string dest = Chk_folder + "\\" + "chkd_" + absoluteFileName;
+        ////////             string source = "/" + FTP_folder + "/" + absoluteFileName;
+        ////////             sftpClient.Get(source, @dest);
+        ////////             response = true;
+        ////////         }
+        ////////             else
+        ////////         {
+        ////////             response = false;
                      
-                 }
-                return response ;
-            }
+        ////////         }
+        ////////        return response ;
+        ////////    }
 
            
-            catch (Exception ex)
-            {
+        ////////    catch (Exception ex)
+        ////////    {
                 
-                string error =  "FTP ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
-                log.LogToFile(error);
+        ////////        string error =  "FTP ERROR: Catch Block " + ex.Message + " StackTrace :: " + ex.StackTrace;
+        ////////        log.LogToFile(error);
               
-                sendEmailToAdmin(error, "Alert - TryMyPurMist.com - Error uploading data to Havas FTP.");
+        ////////        sendEmailToAdmin(error, "Alert - TryMyPurMist.com - Error uploading data to Havas FTP.");
             
-                return false;
-            }
+        ////////        return false;
+        ////////    }
         
-        }
+        ////////}
            
 
         
@@ -539,7 +543,7 @@ namespace StonedineWarrantyDB_MyDataTree
         {            
             Console.WriteLine("Start Importing TryMyPurMist Data : " + DateTime.Now.ToString()  );
             Batch StartBatch = new Batch();
-            DateTime ImportDate = DateTime.Today.AddDays(-3);
+            DateTime ImportDate = DateTime.Today;
             StartBatch.Load_HavasData(ImportDate);
             Console.WriteLine("End Importing data to TryMyPurMist : " + DateTime.Now.ToString());
             
