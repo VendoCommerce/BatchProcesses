@@ -14,41 +14,56 @@ using System.Net.Mail;
 using System.IO;
 using System.Collections;
 using System.Globalization;
-using Com.ConversionSystems.DataAccess;
-using Com.ConversionSystems.Utility;
+//using Com.ConversionSystems.DataAccess;
+//using Com.ConversionSystems.Utility;
 using CSBusiness.OrderManagement;
 using CSBusiness;
 using CSCore.Utils;
+using CSBusiness.Payment;
+using CSPaymentProvider;
+using CSPaymentProvider.Providers;
 
-
-
-namespace Com.ConversionSystems
+namespace VOIDBatch
 {
     public class Batch : Com.ConversionSystems.UI.BasePage
     {
+        /// <summary>
+        /// Process all transactions
+        /// </summary>
+        /// <returns></returns>
         public bool DoBatch()
         {
             bool _breturn = false;
-           
-            Hashtable SkyesInventory = new Hashtable();
-            
+            CSMasterDataSet.VoidQueueDataTable tblVoidQueue = new CSMasterDataSet.VoidQueueDataTable();
+            CSMasterDataSetTableAdapters.VoidQueueTableAdapter adpVoidQueue = new CSMasterDataSetTableAdapters.VoidQueueTableAdapter();
+            IPaymentProvider pProvider = VOIDBatch.Application_Code.DataAccess.ClientDAL.GetDefaultProvider();
             try
             {
-                Hashtable AllItems = new OrderManager().GetBatchProcessOrders();
-                List<Order> orders = (List<Order>)AllItems["allOrders"];
-                foreach (Order orderItem in orders)
+                adpVoidQueue.Fill(tblVoidQueue);
+                foreach (var item in tblVoidQueue.Rows)
                 {
-                    try
+                    CSMasterDataSet.VoidQueueRow voidItem = (CSMasterDataSet.VoidQueueRow)item;
+                    CSPaymentProvider.Request request = GetVoidRequestFromOrderRow(voidItem);
+                    CSPaymentProvider.Response response = pProvider.PerformVoidRequest(request);
+                    voidItem.Request = response.GatewayRequestRaw;
+                    if (voidItem.IsRequestNull()) voidItem.Request = "NULL";
+                    voidItem.Response = response.GatewayResponseRaw;
+                    switch (response.ResponseType)
                     {
-                        
-                            CommonHelper.HttpPost(Helper.AppSettings["SiteUrl"] + orderItem.VersionName + "/authorizeorder.aspx?oid=" + orderItem.OrderId, "");    
-                        
-                        
+                        case CSPaymentProvider.TransactionResponseType.Approved:
+                            voidItem.Succeeded = true;
+                            break;
+                        case CSPaymentProvider.TransactionResponseType.Denied:
+                            voidItem.Succeeded = false;
+                            break;
+                        case CSPaymentProvider.TransactionResponseType.Error:
+                            voidItem.Succeeded = false;
+                            if (voidItem.IsCommentsNull()) voidItem.Comments = string.Empty;
+                            voidItem.Comments = string.Format("{0} --- {1} : {2}", voidItem.Comments, DateTime.Now.ToString(), response.ReasonText);
+                            break;
                     }
-                    catch (Exception e)
-                    {   
-                    }
-                }   
+                    SaveTransaction(voidItem);
+                }
             }
             catch (Exception e)
             {
@@ -56,13 +71,39 @@ namespace Com.ConversionSystems
             }
             return _breturn;
         }
+
+        /// <summary>
+        /// Create a Request object from transaction data
+        /// </summary>
+        /// <param name="voidItem"></param>
+        /// <returns></returns>
+        public CSPaymentProvider.Request GetVoidRequestFromOrderRow(CSMasterDataSet.VoidQueueRow voidItem)
+        {
+            CSPaymentProvider.Request request = new CSPaymentProvider.Request();
+            request.TransactionID = voidItem.TransactionID;
+            request.AuthCode = voidItem.TransactionNumber;
+            request.InvoiceNumber = voidItem.OrderID.ToString();
+            return request;
+        }
+
+        /// <summary>
+        /// Save this transaction in db
+        /// </summary>
+        /// <param name="voidItem"></param>
+        /// <returns></returns>
+        public int SaveTransaction(CSMasterDataSet.VoidQueueRow voidItem)
+        {
+            CSMasterDataSetTableAdapters.VoidQueueTableAdapter adpVoidQueue = new CSMasterDataSetTableAdapters.VoidQueueTableAdapter();
+            return adpVoidQueue.SaveTransaction(voidItem.Request, voidItem.Response, voidItem.Succeeded, voidItem.Comments, voidItem.VoidId);            
+        }
+
         public static void Main(string[] args)
         {   
             Batch StartBatch = new Batch();
-            Console.WriteLine("MaxiVision Batch - Started");
+            Console.WriteLine("Void queue processing - Started");
             Console.WriteLine("Please Wait - ");
             StartBatch.DoBatch();
-            Console.WriteLine("MaxiVision Batch  - End");
+            Console.WriteLine("Void queue processing  - End");
             Console.WriteLine("Task Completed - ");
             
         }
