@@ -397,15 +397,15 @@ namespace StonedineWarrantyDB_MyDataTree
                 sb.Append(dr["TimeZone"].ToString() + "|");
                 sb.Append(dr["act"].ToString() + "|");
                 sb.Append(dr["qnt"].ToString() + "|");
-                decimal ttl = 0;
+                string ttl = "00";
                 if (!dr["subtotal"].ToString().Equals(""))
                 {
-                    ttl = Convert.ToDecimal(dr["subtotal"].ToString());
+                    ttl = dr["subtotal"].ToString();
                     
                 }
                 
                 
-                sb.Append(ttl.ToString("0.00") + "|");
+                sb.Append(ttl + "|");
                 sb.Append(dr["zipcode"].ToString() + "|");
                 sb.Append(dr["IpAddress"].ToString() + "|");
 
