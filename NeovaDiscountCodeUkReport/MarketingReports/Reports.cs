@@ -22,8 +22,8 @@ namespace DiscountNeovaUK
     class Reports
     {
         LogData log = new LogData();
-        private string targetPath = "C:/BatchFiles/NeovaDiscountUK/";
-        // private string targetPath = "D:/BatchProcesses/TryElastin/";
+        //private string targetPath = "C:/BatchFiles/NeovaDiscountUK/";
+        private string targetPath = @"C:\BatchFiles\NeovaDiscountUK\";
 
         static DataSet getsql(string sql)
         {
@@ -336,7 +336,15 @@ namespace DiscountNeovaUK
                 StreamWriter sw = new StreamWriter(strFilePath, false);
                 int iColCount = dt.Columns.Count;
 
-                
+                foreach (DataColumn col in dt.Columns)
+                {
+                            sw.Write(col.ColumnName);
+                            sw.Write(",");
+                    
+                }
+
+                sw.Write(sw.NewLine);
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     for (int i = 0; i < iColCount; i++)
@@ -453,48 +461,28 @@ namespace DiscountNeovaUK
         {
             try
             {
-                int CurrentHour = DateTime.Now.Hour;
+                //int CurrentHour = DateTime.Now.Hour;
                 DateTime? startdate = new DateTime();
                 DateTime? enddate = new DateTime();
-                if (DateTime.Now.DayOfWeek.ToString().ToUpper().Equals("MONDAY"))
+                string excelFileName = string.Empty;
+                ReportDate = ReportDate.AddDays(-1);
+                //Load and send daily file
+                excelFileName = "NeovaUKDiscounts_" + ReportDate.ToString("yyyyMMdd") + ".csv";
+                startdate = GetEastCoastStartDate(ReportDate);
+                enddate = GetEastCoastDate(ReportDate);
+                CreateFileAndEmail(startdate, enddate, excelFileName,"Daily");
+
+                //Load and send weekly report on every Monday
+                if (ReportDate.AddDays(1).DayOfWeek.ToString().ToUpper().Equals("MONDAY"))
                 {
-                    startdate = GetEastCoastStartDate(DateTime.Today.AddDays(-7));
-                    enddate = GetEastCoastDate(DateTime.Today);
+                    startdate = GetEastCoastStartDate(ReportDate.AddDays(-7));
+                    enddate = GetEastCoastDate(ReportDate);
+                    excelFileName = "Weekly_NeovaUKDiscounts_" + ReportDate.ToString("yyyyMMdd") + ".csv";
+                    CreateFileAndEmail(startdate, enddate, excelFileName,"Weekly");
                 }
-                else
-                {
-                    startdate = GetEastCoastStartDate(DateTime.Today);
-                    enddate = GetEastCoastDate(DateTime.Today);
-                }
+
                 
 
-                Console.WriteLine("Generating  Daily Lead Reports");                
-                string excelFileName = "NeovaUKDiscounts" + ReportDate.ToString("yyyyMMddmmHH") + ".csv"; 
-                string FUllPAthwithFileName = targetPath + excelFileName;
-
-                DataTable DT = getDataTable("GetDiscountDetailsByDate_UK", startdate, enddate);
-                if (DT.Rows.Count > 0)
-                {
-                    Console.WriteLine("Rows " + DT.Rows.Count.ToString());                    
-                    bool flag = CreateCSVFile(DT, FUllPAthwithFileName);
-                        // Excel_FromDataTable(DT, FUllPAthwithFileName);
-                    if (flag == true)
-                    {
-                        Console.WriteLine("CSV Report for Daily Leads Created");
-                    }
-                }
-                else
-                {
-                    bool flag = CreateCSVFile(FUllPAthwithFileName);
-                    // Excel_FromDataTable(DT, FUllPAthwithFileName);
-                    if (flag == true)
-                    {
-                        Console.WriteLine("CSV Report for Daily Leads Created");
-                    }
-                }
-
-                SendEmailToClient(FUllPAthwithFileName);
-                // SendEmailToAdmin();
             }
             catch(Exception ex)
             {
@@ -503,17 +491,48 @@ namespace DiscountNeovaUK
             
         }
 
-        public void SendEmailToClient(string path)
+        private void CreateFileAndEmail(DateTime? startdate, DateTime? enddate, string excelFileName,string period)
+        {
+            Console.WriteLine("Generating  Daily Lead Reports");
+            string FUllPAthwithFileName = targetPath + excelFileName;
+
+            DataTable DT = getDataTable("GetDiscountDetailsByDate_UK", startdate, enddate);
+            if (DT.Rows.Count > 0)
+            {
+                Console.WriteLine("Rows " + DT.Rows.Count.ToString());
+                bool flag = CreateCSVFile(DT, FUllPAthwithFileName);
+                // Excel_FromDataTable(DT, FUllPAthwithFileName);
+                if (flag == true)
+                {
+                    Console.WriteLine("CSV Report for Daily Leads Created");
+                }
+            }
+            else
+            {
+                bool flag = CreateCSVFile(FUllPAthwithFileName);
+                // Excel_FromDataTable(DT, FUllPAthwithFileName);
+                if (flag == true)
+                {
+                    Console.WriteLine("CSV Report for Daily Leads Created");
+                }
+            }
+
+            SendEmailToClient(FUllPAthwithFileName,period);
+            // SendEmailToAdmin();
+
+        }
+
+        public void SendEmailToClient(string path,string period)
         {
             try
             {
                 StringBuilder _sbEmailMessageBody = new StringBuilder();
                 _sbEmailMessageBody.Append("<html><body><table>");
-                _sbEmailMessageBody.Append("<tr><td><b>MyNeova.co.UK   - Discount Daily Report: </b></td></tr>");
+                _sbEmailMessageBody.Append(string.Format("<tr><td><b>MyNeova.co.UK   - Discount {0} Report: </b></td></tr>",period));
                 _sbEmailMessageBody.Append("<tr><td>This report was generated at " + DateTime.Now.ToString("MM/dd/yyyy-HH:mm") + "</td></tr>");
                 _sbEmailMessageBody.Append("<tr><td> Please do not reply to this email.</b></td></tr>");
                 _sbEmailMessageBody.Append("</table></body></html>");
-                MailMessage _oMailMessage = new MailMessage(System.Configuration.ConfigurationSettings.AppSettings["FromEmail"], System.Configuration.ConfigurationSettings.AppSettings["ClientEmail"] , "MyNeova.co.UK   - Discount Daily Report", _sbEmailMessageBody.ToString());
+                MailMessage _oMailMessage = new MailMessage(System.Configuration.ConfigurationSettings.AppSettings["FromEmail"], System.Configuration.ConfigurationSettings.AppSettings["ClientEmail"] ,string.Format( "MyNeova.co.UK   - Discount {0} Report",period), _sbEmailMessageBody.ToString());
                 _oMailMessage.IsBodyHtml = true;
                 _oMailMessage.Body = _sbEmailMessageBody.ToString();
                 Attachment a = new Attachment(path);
@@ -567,7 +586,8 @@ namespace DiscountNeovaUK
             Console.WriteLine("Start Lead Reports XtracNow.com");
             Reports DailyReports = new Reports();
 
-            DateTime ReportDate = DateTime.Now;
+            DateTime ReportDate = DateTime.Today;
+            //DateTime ReportDate = Convert.ToDateTime("4/2/2014");
             DailyReports.LoadDailySales(ReportDate);
 
 
