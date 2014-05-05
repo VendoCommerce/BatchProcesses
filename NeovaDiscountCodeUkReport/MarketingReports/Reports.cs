@@ -586,8 +586,8 @@ namespace DiscountNeovaUK
             Console.WriteLine("Start Lead Reports XtracNow.com");
             Reports DailyReports = new Reports();
 
-            DateTime ReportDate = DateTime.Today;
-            //DateTime ReportDate = Convert.ToDateTime("4/2/2014");
+           // DateTime ReportDate = DateTime.Today;
+            DateTime ReportDate = Convert.ToDateTime("4/2/2014");
             DailyReports.LoadDailySales(ReportDate);
 
 
