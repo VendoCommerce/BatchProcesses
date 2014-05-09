@@ -521,12 +521,12 @@ namespace StonedineWarrantyDB_MyDataTree
             DateTime ImportDate = DateTime.Today;
             string fullPathFilename = StartBatch.Load_HavasData(ImportDate);
             //Upload to ftp server if batch file was successfully craeted.
-            //////if (fullPathFilename.Length > 0)
-            //////{
-            //////    Console.WriteLine("Start Uploading To FTP Server : " + DateTime.Now.ToString());
-            //////    StartBatch.upload_FTP(fullPathFilename);
-            //////    Console.WriteLine("End Uploading To FTP Server : " + DateTime.Now.ToString());
-            //////}
+            if (fullPathFilename.Length > 0)
+            {
+                Console.WriteLine("Start Uploading To FTP Server : " + DateTime.Now.ToString());
+                StartBatch.upload_FTP(fullPathFilename);
+                Console.WriteLine("End Uploading To FTP Server : " + DateTime.Now.ToString());
+            }
             Console.WriteLine("End Importing data to TryMyPurMist : " + DateTime.Now.ToString());
             Environment.Exit(0);
         }
