@@ -317,11 +317,11 @@ namespace StonedineWarrantyDB_MyDataTree
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + startDate.ToString());
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + endDate.ToString());
 
-                String DatePartS = startDate.ToString("yyyyMMdd", CultureInfo.InvariantCulture);
-                String DatePartE =endDate.ToString("yyyyMMdd", CultureInfo.InvariantCulture);
+                //String DatePartS = startDate.ToString("yyyyMMdd", CultureInfo.InvariantCulture);
+                String DatePartE =endDate.ToString("MMdd", CultureInfo.InvariantCulture);
                 string SavePath = Helper.AppSettings["FileDirectoryPath"].ToString();
                 string Proc_name = Helper.AppSettings["Proc_name"].ToString();
-                string fullPathFileName = SavePath + "\\" + DatePartS + "_" + DatePartE + ".txt";
+                string fullPathFileName = SavePath + "\\VAWAPO" + DatePartE + ".txt";
                 StreamWriter sw = new StreamWriter(fullPathFileName,false);
                 //write_file_header(sw);
 
@@ -398,19 +398,19 @@ namespace StonedineWarrantyDB_MyDataTree
 
            
 
-                if (!dr["landingUrl"].ToString().Equals(""))
-                {
-                    sb.Append(dr["landingUrl"].ToString() + "|");
-                }
-                else
-                {
-                    sb.Append("http://www.mypurmist.com:81 |");
-                }
+                //if (!dr["landingUrl"].ToString().Equals(""))
+                //{
+                //    sb.Append(dr["landingUrl"].ToString() + "|");
+                //}
+                //else
+                //{
+                //    sb.Append("http://www.mypurmist.com:81 |");
+                //}
                 
                 
                 
-                sb.Append(dr["Tag"].ToString() + "|");
-                sb.Append(dr["ProductList"].ToString() );
+                //sb.Append(dr["Tag"].ToString());// + "|");
+                //sb.Append(dr["ProductList"].ToString() );
                
                 sw.WriteLine(sb.ToString());
                 sb.Clear();
@@ -521,12 +521,12 @@ namespace StonedineWarrantyDB_MyDataTree
             DateTime ImportDate = DateTime.Today;
             string fullPathFilename = StartBatch.Load_HavasData(ImportDate);
             //Upload to ftp server if batch file was successfully craeted.
-            if (fullPathFilename.Length > 0)
-            {
-                Console.WriteLine("Start Uploading To FTP Server : " + DateTime.Now.ToString());
-                StartBatch.upload_FTP(fullPathFilename);
-                Console.WriteLine("End Uploading To FTP Server : " + DateTime.Now.ToString());
-            }
+            //////if (fullPathFilename.Length > 0)
+            //////{
+            //////    Console.WriteLine("Start Uploading To FTP Server : " + DateTime.Now.ToString());
+            //////    StartBatch.upload_FTP(fullPathFilename);
+            //////    Console.WriteLine("End Uploading To FTP Server : " + DateTime.Now.ToString());
+            //////}
             Console.WriteLine("End Importing data to TryMyPurMist : " + DateTime.Now.ToString());
             Environment.Exit(0);
         }
