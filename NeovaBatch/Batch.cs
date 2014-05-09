@@ -436,6 +436,11 @@ namespace Com.ConversionSystems.GoldCanyon
                     s1 = s1.Replace("@keyCode@", "NEOVA50");
                 }
 
+                if (r["version"].ToString().ToLower().Contains("/silcsheer_rm1"))
+                {
+                    s1 = s1.Replace("@keyCode@", "CSYS-NVRMRKT");
+                }
+
                 // Added on 11/12/2013 Promo Code: MAGIC10
                 bool MAGIC10CodeApplied = false;
                 bool TAKE20CodeApplied = false;
@@ -586,13 +591,20 @@ namespace Com.ConversionSystems.GoldCanyon
                 string st1 = "";
                 int cnt39 = 0;
                 method1 = "4";
+
+                if (r["version"].ToString().ToLower().Contains("/silcsheer_rm1"))
+                {
+                    method1 = "0";
+                }
                 
                 total1z = Convert.ToDecimal(r["totalamount"].ToString());
                 shipping1z = Convert.ToDecimal(r["shippingamount"].ToString());
                 if (shipping1z > 1)
                 {
                     method1 = "1";
-                } 
+                }
+
+                
 
                 s1 = s1.Replace("@methodcode@", method1);
                 s1 = s1.Replace("@siteid@", "");
