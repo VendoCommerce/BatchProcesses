@@ -307,11 +307,11 @@ namespace StonedineWarrantyDB_MyDataTree
                 log.LogToFile("Start Importing data to Havas: Date " + DateTime.Now.ToString());
                 
                 //DateTime.TryParse("6/28/2013",out startDate); //one time only for all orders back to 6/28/13
-                DateTime startDate = GetEastCoastStartDate(ImportDate.AddDays(-8));
+                DateTime startDate = GetEastCoastStartDate(ImportDate.AddDays(-7));
                 DateTime endDate = GetEastCoastDate(ImportDate.AddDays(-1));
                 //TODO: remove this line and untag top line
-                //startDate = new DateTime(2014, 2, 24);
-                //DateTime endDate = new DateTime(2014, 3, 3);
+                //DateTime startDate = new DateTime(2014, 4, 28);
+                //DateTime endDate = new DateTime(2014, 5, 5);
                 //DateTime endDate = GetEastCoastDate(startDate.AddDays(+2));
 
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + startDate.ToString());
@@ -395,6 +395,7 @@ namespace StonedineWarrantyDB_MyDataTree
                 {
                     sb.Append(" |");
                 }
+                sb.Append(" | |");
 
            
 
