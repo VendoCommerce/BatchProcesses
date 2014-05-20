@@ -22,6 +22,7 @@ using CSCore.Utils;
 using CSBusiness.Payment;
 using CSPaymentProvider;
 using CSPaymentProvider.Providers;
+using CSBusiness.Resolver;
 
 namespace VOIDBatch
 {
@@ -37,16 +38,18 @@ namespace VOIDBatch
             CSMasterDataSet.VoidQueueDataTable tblVoidQueue = new CSMasterDataSet.VoidQueueDataTable();
             CSMasterDataSetTableAdapters.VoidQueueTableAdapter adpVoidQueue = new CSMasterDataSetTableAdapters.VoidQueueTableAdapter();
             IPaymentProvider pProvider = VOIDBatch.Application_Code.DataAccess.ClientDAL.GetDefaultProvider();
-            try
-            {
+            //try
+            //{
                 adpVoidQueue.Fill(tblVoidQueue);
                 foreach (var item in tblVoidQueue.Rows)
                 {
                     CSMasterDataSet.VoidQueueRow voidItem = (CSMasterDataSet.VoidQueueRow)item;
                     CSPaymentProvider.Request request = GetVoidRequestFromOrderRow(voidItem);
                     CSPaymentProvider.Response response = pProvider.PerformVoidRequest(request);
-                    voidItem.Request = response.GatewayRequestRaw;
-                    if (voidItem.IsRequestNull()) voidItem.Request = "NULL";
+                        voidItem.Request = response.GatewayRequestRaw;
+                    if (voidItem.IsRequestNull()) 
+                        voidItem.Request = "NULL";
+
                     voidItem.Response = response.GatewayResponseRaw;
                     switch (response.ResponseType)
                     {
@@ -58,18 +61,27 @@ namespace VOIDBatch
                             break;
                         case CSPaymentProvider.TransactionResponseType.Error:
                             voidItem.Succeeded = false;
-                            if (voidItem.IsCommentsNull()) voidItem.Comments = string.Empty;
-                            voidItem.Comments = string.Format("{0} --- {1} : {2}", voidItem.Comments, DateTime.Now.ToString(), response.ReasonText);
+                             SetOrderAsRejected(voidItem.OrderID);
+                           //if (voidItem.IsCommentsNull()) voidItem.Comments = string.Empty;
+                            //voidItem.Comments = string.Format("{0} --- {1} : {2}", voidItem.Comments, DateTime.Now.ToString(), response.ReasonText);
                             break;
                     }
                     SaveTransaction(voidItem);
                 }
-            }
-            catch (Exception e)
-            {
-                return _breturn;
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message + " ----- " + e.InnerException.Message);
+
+            //    return _breturn;
+            //}
             return _breturn;
+        }
+
+        private void SetOrderAsRejected(int orderId)
+        {
+            OrderManager manager = new OrderManager();
+            manager.UpdateOrderStatus(orderId, 7);
         }
 
         /// <summary>
@@ -80,8 +92,8 @@ namespace VOIDBatch
         public CSPaymentProvider.Request GetVoidRequestFromOrderRow(CSMasterDataSet.VoidQueueRow voidItem)
         {
             CSPaymentProvider.Request request = new CSPaymentProvider.Request();
-            request.TransactionID = voidItem.TransactionID;
-            request.AuthCode = voidItem.TransactionNumber;
+            request.TransactionID = voidItem.TransactionNumber;
+            request.AuthCode =voidItem.TransactionID; 
             request.InvoiceNumber = voidItem.OrderID.ToString();
             return request;
         }
@@ -93,6 +105,7 @@ namespace VOIDBatch
         /// <returns></returns>
         public int SaveTransaction(CSMasterDataSet.VoidQueueRow voidItem)
         {
+            if (voidItem.IsCommentsNull()) voidItem.Comments = string.Empty;
             CSMasterDataSetTableAdapters.VoidQueueTableAdapter adpVoidQueue = new CSMasterDataSetTableAdapters.VoidQueueTableAdapter();
             return adpVoidQueue.SaveTransaction(voidItem.Request, voidItem.Response, voidItem.Succeeded, voidItem.Comments, voidItem.VoidId);            
         }

@@ -35,7 +35,7 @@
               <Mapping SourceColumn="DateProcessed" DataSetColumn="DateProcessed" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="CSMasterConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SaveTransaction" Modifier="Public" Name="SaveTransaction" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SaveTransaction">
+              <DbSource ConnectionRef="CSMasterConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SaveTransaction" Modifier="Public" Name="SaveTransaction" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SaveTransaction">
                 <UpdateCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.pr_update_voidQueue</CommandText>
@@ -60,7 +60,7 @@
   <xs:element name="CSMasterDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CSMasterDataSet" msprop:Generator_UserDSName="CSMasterDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="VoidQueue" msprop:Generator_TableClassName="VoidQueueDataTable" msprop:Generator_TableVarName="tableVoidQueue" msprop:Generator_TablePropName="VoidQueue" msprop:Generator_RowDeletingName="VoidQueueRowDeleting" msprop:Generator_RowChangingName="VoidQueueRowChanging" msprop:Generator_RowEvHandlerName="VoidQueueRowChangeEventHandler" msprop:Generator_RowDeletedName="VoidQueueRowDeleted" msprop:Generator_UserTableName="VoidQueue" msprop:Generator_RowChangedName="VoidQueueRowChanged" msprop:Generator_RowEvArgName="VoidQueueRowChangeEvent" msprop:Generator_RowClassName="VoidQueueRow">
+        <xs:element name="VoidQueue" msprop:Generator_TableClassName="VoidQueueDataTable" msprop:Generator_TableVarName="tableVoidQueue" msprop:Generator_RowChangedName="VoidQueueRowChanged" msprop:Generator_TablePropName="VoidQueue" msprop:Generator_RowDeletingName="VoidQueueRowDeleting" msprop:Generator_RowChangingName="VoidQueueRowChanging" msprop:Generator_RowEvHandlerName="VoidQueueRowChangeEventHandler" msprop:Generator_RowDeletedName="VoidQueueRowDeleted" msprop:Generator_RowClassName="VoidQueueRow" msprop:Generator_UserTableName="VoidQueue" msprop:Generator_RowEvArgName="VoidQueueRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="VoidId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVoidId" msprop:Generator_ColumnPropNameInRow="VoidId" msprop:Generator_ColumnPropNameInTable="VoidIdColumn" msprop:Generator_UserColumnName="VoidId" type="xs:int" />
