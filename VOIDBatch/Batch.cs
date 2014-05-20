@@ -54,6 +54,7 @@ namespace VOIDBatch
                     switch (response.ResponseType)
                     {
                         case CSPaymentProvider.TransactionResponseType.Approved:
+                             SetOrderAsRejected(voidItem.OrderID);
                             voidItem.Succeeded = true;
                             break;
                         case CSPaymentProvider.TransactionResponseType.Denied:
@@ -61,7 +62,6 @@ namespace VOIDBatch
                             break;
                         case CSPaymentProvider.TransactionResponseType.Error:
                             voidItem.Succeeded = false;
-                             SetOrderAsRejected(voidItem.OrderID);
                            //if (voidItem.IsCommentsNull()) voidItem.Comments = string.Empty;
                             //voidItem.Comments = string.Format("{0} --- {1} : {2}", voidItem.Comments, DateTime.Now.ToString(), response.ReasonText);
                             break;
