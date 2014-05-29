@@ -114,6 +114,7 @@ namespace StonedineWarrantyDB_MyDataTree
                 oCmd = new SqlCommand();
                 oCmd.CommandText = StoredProcedureName; // 
                 oCmd.CommandType = CommandType.StoredProcedure;
+                oCmd.CommandTimeout = int.MaxValue;
 
                 SqlParameter[] para = new SqlParameter[2];
                 para[0] = new SqlParameter("@startdate", SqlDbType.DateTime);
@@ -310,8 +311,8 @@ namespace StonedineWarrantyDB_MyDataTree
                 DateTime startDate = GetEastCoastStartDate(ImportDate.AddDays(-7));
                 DateTime endDate = GetEastCoastDate(ImportDate.AddDays(-1));
                 //TODO: remove this line and untag top line
-                //DateTime startDate = new DateTime(2014, 4, 28);
-                //DateTime endDate = new DateTime(2014, 5, 5);
+                ////DateTime startDate = new DateTime(2014, 5, 5);
+                ////DateTime endDate = new DateTime(2014, 5, 12);
                 //DateTime endDate = GetEastCoastDate(startDate.AddDays(+2));
 
                 log.LogToFile("Loading TryMyPurMist to Havas Date: " + startDate.ToString());
@@ -372,7 +373,7 @@ namespace StonedineWarrantyDB_MyDataTree
                 sb.Clear();
                 DateTime odate = Convert.ToDateTime(dr["odate"].ToString());
                 //sb.Append(dr["orderid"].ToString() + "|");
-                sb.Append( odate.ToString("MM/dd/yyyy hh:mm:ss") + "|");
+                sb.Append( odate.ToString("MM/dd/yyyy HH:mm:ss") + "|");
                 sb.Append(dr["TimeZone"].ToString() + "|");
                 sb.Append(dr["act"].ToString() + "|");
                 sb.Append(dr["qnt"].ToString() + "|");
