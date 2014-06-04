@@ -440,6 +440,20 @@ namespace Com.ConversionSystems.GoldCanyon
                 {
                     s1 = s1.Replace("@keyCode@", "CSYS-NVRMRKT");
                 }
+                bool EmailRemarket = false;
+
+                foreach (DataRow r1 in OrderSKU.Rows)
+                {
+                    if (r1["paymentplanid"].ToString().ToUpper().Equals("CSYS-NVRMRKT"))
+                    {
+                        EmailRemarket = true;
+                    }
+                }
+
+                if (EmailRemarket)
+                {
+                    s1 = s1.Replace("@keyCode@", "CSYS-NVRMRKT");
+                }
 
                 // Added on 11/12/2013 Promo Code: MAGIC10
                 bool MAGIC10CodeApplied = false;
@@ -593,6 +607,12 @@ namespace Com.ConversionSystems.GoldCanyon
                 method1 = "4";
 
                 if (r["version"].ToString().ToLower().Contains("/silcsheer_rm1"))
+                {
+                    method1 = "0";
+                }
+
+
+                if (EmailRemarket)
                 {
                     method1 = "0";
                 }

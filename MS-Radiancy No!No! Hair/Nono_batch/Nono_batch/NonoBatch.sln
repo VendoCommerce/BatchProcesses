@@ -18,6 +18,35 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogError", "..\LogError\LogError\LogError.csproj", "{84B178B8-6BD4-4EE0-9BAF-A4DE6F4DB3C9}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://cs-srcctrl1:8080/tfs/csapps
+		SccProjectUniqueName0 = NonoBatch.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\OrbitalChasePayment\\OrbitalChasePaymentAccount\\OrbitalChasePayment.csproj
+		SccProjectName1 = ../OrbitalChasePayment/OrbitalChasePaymentAccount
+		SccLocalPath1 = ..\\OrbitalChasePayment\\OrbitalChasePaymentAccount
+		SccProjectUniqueName2 = ..\\PaymentProviders\\EBS.IntegrationServices.Providers.PaymentProviders.csproj
+		SccProjectName2 = ../PaymentProviders
+		SccLocalPath2 = ..\\PaymentProviders
+		SccProjectUniqueName3 = ..\\WireCardEFT\\WireCardEFTAccount\\WireCardEFT.csproj
+		SccProjectName3 = ../WireCardEFT/WireCardEFTAccount
+		SccLocalPath3 = ..\\WireCardEFT\\WireCardEFTAccount
+		SccProjectUniqueName4 = ..\\PayPalExpress\\PayPalExpress.csproj
+		SccProjectName4 = ../PayPalExpress
+		SccLocalPath4 = ..\\PayPalExpress
+		SccProjectUniqueName5 = ..\\WireCardRisk\\WireCardRiskAccount\\WireCardRisk.csproj
+		SccProjectName5 = ../WireCardRisk/WireCardRiskAccount
+		SccLocalPath5 = ..\\WireCardRisk\\WireCardRiskAccount
+		SccLocalPath6 = .
+		SccProjectUniqueName7 = ..\\MediaChaseProvider\\ProviderConfiguration\\MediaChaseProvider.csproj
+		SccProjectName7 = ../MediaChaseProvider/ProviderConfiguration
+		SccLocalPath7 = ..\\MediaChaseProvider\\ProviderConfiguration
+		SccProjectUniqueName8 = ..\\LogError\\LogError\\LogError.csproj
+		SccProjectName8 = ../LogError/LogError
+		SccLocalPath8 = ..\\LogError\\LogError
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
