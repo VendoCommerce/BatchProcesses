@@ -333,12 +333,16 @@ namespace Com.ConversionSystems.GoldCanyon
                             {
                                 ord.ProductID_AdCode = "MPTV11"; // triple_g1 triple_g2 ps_triple_g1 ps_triple_g2 H2, H3 PS_H2 PS_H3
                             }
+                            else if ( skuList.Contains("671"))
+                            {
+                                   ord.ProductID_AdCode = "MPTV12";
+                            }
 
                             if (_drOrder["BankAccountName"].ToString().ToLower().Contains("/f3/"))
                             {
                                 ord.ProductID_AdCode = "MPTV04";
                             }
-                            else if (_drOrder["BankAccountName"].ToString().ToLower().Contains("/h2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/pt1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/h3/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/h4/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h3/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h4/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/triple_g1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/triple_g2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_triple_g1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_triple_g2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/facebook/"))
+                            else if (_drOrder["BankAccountName"].ToString().ToLower().Contains("/h2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/pt1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/h3/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/h4/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h3/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_h4/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/triple_g1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/triple_g2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_triple_g1/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_triple_g2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/facebook/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/l2/") || _drOrder["BankAccountName"].ToString().ToLower().Contains("/ps_l2/"))
                             {
                                 ord.ProductID_AdCode = "MPTV11";
                             }                            
@@ -747,7 +751,7 @@ namespace Com.ConversionSystems.GoldCanyon
             count2 = LineCount(file2);
             //count3 = LineCount(file3);
 
-            sendemail(file1, file2, count1-1, count2-1);
+            ////sendemail(file1, file2, count1-1, count2-1);
 
             Console.WriteLine("Task Completed - ");            
             
