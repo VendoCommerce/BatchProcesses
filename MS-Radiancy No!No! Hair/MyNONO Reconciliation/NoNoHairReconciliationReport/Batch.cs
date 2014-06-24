@@ -255,6 +255,48 @@ namespace NoNoHairReconciliationReport
             return dt;
         }
 
+        private DataTable getDataTableByDate_Kyrobak_UK(string StoredProcedureName, DateTime startDate, DateTime endDate, int excelsection)
+        {
+            string connstr = System.Configuration.ConfigurationSettings.AppSettings["connectionstring_Kyrobak.Co.Uk"];
+            bool bReturn = false;
+            string strMessage;
+            SqlCommand oCmd = null;
+            SqlDataAdapter da;
+            DataTable dt = null;
+            try
+            {
+                oCmd = new SqlCommand();
+                oCmd.CommandText = StoredProcedureName;
+                oCmd.CommandType = CommandType.StoredProcedure;
+
+                oCmd.Parameters.Add("@StartDate", SqlDbType.DateTime).Value = startDate;
+                oCmd.Parameters.Add("@EndDate", SqlDbType.DateTime).Value = endDate;
+                oCmd.Parameters.Add("@excelsection", SqlDbType.Int).Value = excelsection;
+
+                oCmd.Connection = new SqlConnection(connstr);
+                oCmd.Prepare();
+                dt = new DataTable();
+                da = new SqlDataAdapter(oCmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                strMessage = "Problem running procedure:  " + oCmd.CommandText + ". Error---" + ex.Message;
+                SendExceptionEmail(ex);
+            }
+            finally
+            {
+                if (oCmd != null)
+                {
+                    oCmd.Parameters.Clear();
+                    oCmd.Connection = null;
+                    oCmd.Dispose();
+                }
+            }
+            oCmd = null;
+            return dt;
+        }
+
         private DataTable getDataTableByDate_MYNONO_LTK(string StoredProcedureName, DateTime startDate, DateTime endDate, int excelsection)
         {
             string connstr = System.Configuration.ConfigurationSettings.AppSettings["connectionstring_LTK_MyNoNo"];
@@ -775,6 +817,33 @@ namespace NoNoHairReconciliationReport
             }
         }
 
+        void LoadOrder_Kyrobak_UK(DateTime startDate, DateTime endDate, string FileDate)
+        {
+            // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
+
+            DataTable Dt1 = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 1);
+
+            if (Dt1.Rows.Count > 0)
+            {
+                Console.WriteLine("KyroBack_UK Order: " + Dt1.Rows.Count.ToString());
+                string excelFileName = "ReconciliationReport_HTTPBizID_Kyrobak_UK_" + FileDate + ".xls";
+                string FUllPAthwithFileName = targetPath + excelFileName;
+
+                //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
+                DataTable dtsummaryBottom = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 2);
+                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                if (flag == true)
+                {
+                    AddDataToTable(FUllPAthwithFileName, excelFileName);
+                }
+            }
+            else
+            {
+                SendZeroRecordFoundEmail("No No Hair : No Order found TryKyro");
+                Console.WriteLine("No Order found TryKyro");
+            }
+        }
+
         void LoadOrder_MyNONO_LTK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
@@ -992,6 +1061,17 @@ namespace NoNoHairReconciliationReport
             catch (Exception ex)
             {
                 BatchNoNoHair1.LogToFile("Start TryKyro.Com " + ex.Message + " StackTrace:: " + ex.StackTrace);
+                SendExceptionEmail(ex);
+            }
+
+            try
+            {
+                BatchNoNoHair1.LogToFile("Start KyroBack_UK Orders");
+                BatchNoNoHair1.LoadOrder_Kyrobak_UK(startDate, endDate, startDate.ToString("MMddyyyy"));
+            }
+            catch (Exception ex)
+            {
+                BatchNoNoHair1.LogToFile("Start KyroBack_UK " + ex.Message + " StackTrace:: " + ex.StackTrace);
                 SendExceptionEmail(ex);
             }
 
