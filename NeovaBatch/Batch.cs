@@ -174,7 +174,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "		<Parameter key=[[[UDIAuthToken[[[>6fac904d01af3048310bda400be25912ebe37bcecb47025b104ee40b9780a4236358cef42d2806c103e7d0451c0a1b10809be3260eb195c6e43a00a7504ddd0b1aa061d150305ce0663a82e30f64804ff20b9fa0bb172fd58640d6915f840a6f604b820befe0e71b77d98b072c10b45b0e8f1049810b9ea074eb3b0cf201766</Parameter>~";            
             s1 += "		<Parameter key=[[[Keycode[[[>@keyCode@</Parameter>~";
             s1 += "		<Parameter key=[[[VerifyFlag[[[>" + verifyflag + "</Parameter>~";
-            s1 += "		<Parameter key=[[[QueueFlag[[[>False</Parameter>~";
+            s1 += "		<Parameter key=[[[QueueFlag[[[>True</Parameter>~";
             s1 += "	</UDIParameter>~";
             s1 += "	<Header>~";
             s1 += "		<OrderID>@orderid@</OrderID>~";
