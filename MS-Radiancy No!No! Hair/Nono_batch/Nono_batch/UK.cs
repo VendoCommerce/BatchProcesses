@@ -303,7 +303,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "	<CustomFields>~";
             s1 += "	    <Report>~";
             s1 += "		    <Field fieldName=[[[OriginalOrderDate[[[>@OrderDateFormat@</Field>~";
-            s1 += "		    <Field fieldName=[[[URL[[[>www.trynono.com</Field>~";
+            s1 += "		    <Field fieldName=[[[URL[[[>www.trynono.co.uk</Field>~";
             s1 += "		    <Field fieldName=[[[AffiliateID[[[>@AffiliateID@</Field>~";
             s1 += "		    <Field fieldName=[[[CustomerIP[[[>@CustomerIP@</Field>~";
             s1 += "		    <Field fieldName=[[[BillingAgreementID[[[>@PayPalBillingAgreementID@</Field>~";
@@ -414,12 +414,7 @@ namespace Com.ConversionSystems.GoldCanyon
                 }
                 else
                     s1 = s1.Replace("@WebChatResponse@", "");
-
-
-
-
-
-
+                
                 FirstName = r["billfirstname"].ToString();
                 LastName = r["billlastname"].ToString();
                 s1 = s1.Replace("@billfirstname@", ClearAccents(fixstring(r["billfirstname"])));
@@ -526,6 +521,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         || r1["skuid"].ToString().Equals("771")
                         || r1["skuid"].ToString().Equals("773")
                         || r1["skuid"].ToString().Equals("775")
+                        || r1["skuid"].ToString().Equals("818")
 
                         || r1["skuid"].ToString().Equals("797")
                         || r1["skuid"].ToString().Equals("799")
@@ -544,7 +540,15 @@ namespace Com.ConversionSystems.GoldCanyon
                     }
                     else
                     {
-                        stc = stc.Replace("@2", fixstring(r1["skucode"].ToString()).Replace(" ", "").Replace("-", ""));
+                        if (skuMapping != null && skuMapping.ContainsKey(r1["skucode"].ToString().ToLower()))
+                        {
+                            stc = stc.Replace("@2", fixstring(skuMapping[r1["skucode"].ToString().ToLower()].ToString()).Replace(" ", "").Replace("-", ""));
+                        }
+                        else
+                        {
+                            stc = stc.Replace("@2", fixstring(r1["skucode"].ToString()).Replace(" ", "").Replace("-", ""));
+                        }
+                       // stc = stc.Replace("@2", fixstring(r1["skucode"].ToString()).Replace(" ", "").Replace("-", ""));
                     }
                     qty1 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
                     qty2 = Convert.ToInt32(r1["OrderSkuQuantity"].ToString());
@@ -597,6 +601,23 @@ namespace Com.ConversionSystems.GoldCanyon
                     stc = stc.Replace("@4", fixstring("0".ToString()));
                     stc = stc.Replace("@5", "");
                 }
+
+                if (s1.Contains("CSYS-LTBST1"))
+                {
+                    if ((PaymentPlanSKU.Contains("770") || PaymentPlanSKU.Contains("772")))
+                    {
+                        cnt++;
+                        stc += stb;
+                        stc = stc.Replace("@0", "0");
+                        stc = stc.Replace("@1", cnt.ToString());
+                        stc = stc.Replace("@2", fixstring("3YRWARFREE".ToString()).Replace(" ", "").Replace("-", ""));
+                        stc = stc.Replace("@3", "1".ToString());
+                        stc = stc.Replace("@4", fixstring("0".ToString()));
+                        stc = stc.Replace("@5", "");
+                    }
+                }
+
+                
                 string cardstatus = "";
                 cardstatus = "0";
                 string st1 = "";
@@ -616,7 +637,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         || PaymentPlanSKU.Contains("771")
                         || PaymentPlanSKU.Contains("773")
                         || PaymentPlanSKU.Contains("775")
-
+                        || PaymentPlanSKU.Contains("818")
                         )
                     {
                         mthCode = "1";
@@ -676,7 +697,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         }
                     }
                 }
-                if (s1.Contains("CSYS-LTRACK1") || s1.Contains("CSYS-LTRACK2"))
+                if (s1.Contains("CSYS-LTRACK1") || s1.Contains("CSYS-LTRACK2") || s1.Contains("CSYS-LTBST1") || s1.Contains("CSYS-LTBST2") || s1.Contains("CSYS-LTBST3"))
                     mthCode = "5";
                 s1 = s1.Replace("@methodcode@", mthCode);
                 total1z = Convert.ToDecimal(r["totalamount"].ToString());
@@ -829,6 +850,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     {
                         if (_drOrder["OrderId"].ToString() != null)
                         {
+                            Console.WriteLine("Order ID =" + _drOrder["OrderId"].ToString());
                             sendxml1("True", _drOrder["OrderId"].ToString());
                             if (_drOrder["Authorizationcode"] != null)
                             {
@@ -869,7 +891,9 @@ namespace Com.ConversionSystems.GoldCanyon
 
                         _dtOrderSKU = null;
                     }
-                    catch (Exception e) { }
+                    catch (Exception e) {
+                        Console.WriteLine("Error while uploading orders -- " + e.Message);
+                    }
 
                 }
             }
@@ -998,6 +1022,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try
@@ -1021,6 +1046,7 @@ namespace Com.ConversionSystems.GoldCanyon
             try
             { // get the response
                 WebResponse webResponse = webRequest.GetResponse();
+                
                 if (webResponse == null)
                 { return null; }
                 StreamReader sr = new StreamReader(webResponse.GetResponseStream());

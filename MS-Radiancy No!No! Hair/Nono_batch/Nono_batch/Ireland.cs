@@ -346,6 +346,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     strPayment += "		<RealTimeCreditCardProcessing>False</RealTimeCreditCardProcessing>~";
                     strPayment += "		<CardStatus>11</CardStatus>~";
                     strPayment += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
+                    strPayment += "		<CardTransactionID>@TranasactionID@</CardTransactionID>~";
                     strPayment += "	</Payment>~";
                 }
                 strPayment = strPayment.Replace("[[[", ((char)(34)).ToString());
@@ -881,6 +882,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try

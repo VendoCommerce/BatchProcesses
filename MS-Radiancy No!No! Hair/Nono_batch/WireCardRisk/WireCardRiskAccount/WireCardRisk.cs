@@ -658,6 +658,10 @@ namespace EBS.IntegrationServices.Providers.PaymentProviders.WireCardRisk
                     }
                 }
             }
+            else
+            {
+                response.ResponseType = TransactionResponseType.Denied;
+            }
             return response;
 
         }

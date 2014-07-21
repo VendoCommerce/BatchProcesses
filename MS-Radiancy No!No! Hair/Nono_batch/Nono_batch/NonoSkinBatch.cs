@@ -813,6 +813,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try

@@ -408,7 +408,7 @@ namespace Com.ConversionSystems.GoldCanyon
                             {
                                 if (dsKeyCode.Tables[0].Rows[0]["CreditCheckResponse"] != null)
                                 {
-                                    if (dsKeyCode.Tables[0].Rows[0]["CreditCheckResponse"].ToString().ToLower().Contains("risk-response"))
+                                    if (dsKeyCode.Tables[0].Rows[0]["CreditCheckResponse"].ToString().ToLower().Contains("risk-response") || dsKeyCode.Tables[0].Rows[0]["CreditCheckResponse"].ToString().ToLower().Contains("riskresponse"))
                                         KeyCode = "WEB-GR8800CC";
                                 }
                             }
@@ -1105,6 +1105,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try

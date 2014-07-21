@@ -303,6 +303,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "			<State>@shipstate@</State>~";
             s1 += "			<ZIP>@shipzip@</ZIP>~";
             s1 += "			<TLD>@shipcountry@</TLD>~";
+            s1 += "			<Email>@2@</Email>~";
             s1 += "		</Address>~";
             s1 += "		<MethodCode>@methodcode@</MethodCode>~";
             s1 += "		<MethodName></MethodName>~";
@@ -795,6 +796,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try

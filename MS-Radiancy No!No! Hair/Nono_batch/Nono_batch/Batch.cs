@@ -315,6 +315,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "			<State>@shipstate@</State>~";
             s1 += "			<ZIP>@shipzip@</ZIP>~";
             s1 += "			<TLD>@shipcountry@</TLD>~";
+            s1 += "			<Email>@2@</Email>~";
             s1 += "		</Address>~";
             s1 += "		<MethodCode>@methodcode@</MethodCode>~";
             s1 += "		<MethodName></MethodName>~";
@@ -395,6 +396,11 @@ namespace Com.ConversionSystems.GoldCanyon
                 || PaymentPlanSKU.Contains("598")
                 || PaymentPlanSKU.Contains("599")
 
+                || PaymentPlanSKU.Contains("826")
+                || PaymentPlanSKU.Contains("827")
+                || PaymentPlanSKU.Contains("828")
+                || PaymentPlanSKU.Contains("829")
+
                 || PaymentPlanSKU.Contains("787")
                 || PaymentPlanSKU.Contains("788")
 
@@ -406,6 +412,15 @@ namespace Com.ConversionSystems.GoldCanyon
 
                 || PaymentPlanSKU.Contains("783")
                 || PaymentPlanSKU.Contains("784")
+
+                || PaymentPlanSKU.Contains("809")
+                || PaymentPlanSKU.Contains("810")
+
+                || PaymentPlanSKU.Contains("813")
+                || PaymentPlanSKU.Contains("814")
+
+                || PaymentPlanSKU.Contains("820")
+                || PaymentPlanSKU.Contains("821")
 
                 || PaymentPlanSKU.Contains("615")
                 || PaymentPlanSKU.Contains("616")
@@ -760,6 +775,11 @@ namespace Com.ConversionSystems.GoldCanyon
                         || PaymentPlanSKU.Contains("598")
                         || PaymentPlanSKU.Contains("599")
 
+                        || PaymentPlanSKU.Contains("826")
+                || PaymentPlanSKU.Contains("827")
+                || PaymentPlanSKU.Contains("828")
+                || PaymentPlanSKU.Contains("829")
+
                         || PaymentPlanSKU.Contains("787")
                         || PaymentPlanSKU.Contains("788")
 
@@ -772,11 +792,27 @@ namespace Com.ConversionSystems.GoldCanyon
                         || PaymentPlanSKU.Contains("784")
                         || PaymentPlanSKU.Contains("783")
 
+                         || PaymentPlanSKU.Contains("809")
+                        || PaymentPlanSKU.Contains("810")
+
+                        || PaymentPlanSKU.Contains("813")
+                        || PaymentPlanSKU.Contains("814")
+
+                        || PaymentPlanSKU.Contains("820")
+                        || PaymentPlanSKU.Contains("821")
+
                         || PaymentPlanSKU.Contains("611")
                         || PaymentPlanSKU.Contains("612")
 
                         || PaymentPlanSKU.Contains("785")
                         || PaymentPlanSKU.Contains("786")
+
+                        || PaymentPlanSKU.Contains("811")
+                        || PaymentPlanSKU.Contains("812")
+                        || PaymentPlanSKU.Contains("815")
+                        || PaymentPlanSKU.Contains("816")
+                        || PaymentPlanSKU.Contains("822")
+                        || PaymentPlanSKU.Contains("823")
 
                         || PaymentPlanSKU.Contains("614")
 
@@ -987,6 +1023,13 @@ namespace Com.ConversionSystems.GoldCanyon
                         || r1["skuid"].ToString().Equals("598")
                         || r1["skuid"].ToString().Equals("599")
 
+                        || r1["skuid"].ToString().Equals("826")
+                        || r1["skuid"].ToString().Equals("827")
+                        || r1["skuid"].ToString().Equals("828")
+                        || r1["skuid"].ToString().Equals("829")
+
+                        
+
                         || r1["skuid"].ToString().Equals("787")
                         || r1["skuid"].ToString().Equals("788")
 
@@ -998,6 +1041,15 @@ namespace Com.ConversionSystems.GoldCanyon
 
                         || r1["skuid"].ToString().Equals("783")
                         || r1["skuid"].ToString().Equals("784")
+
+                        || r1["skuid"].ToString().Equals("809")
+                        || r1["skuid"].ToString().Equals("810")
+
+                        || r1["skuid"].ToString().Equals("813")
+                        || r1["skuid"].ToString().Equals("814")
+
+                        || r1["skuid"].ToString().Equals("820")
+                        || r1["skuid"].ToString().Equals("821")
 
                         || r1["skuid"].ToString().Equals("613")
                         || r1["skuid"].ToString().Equals("614")
@@ -1143,6 +1195,11 @@ namespace Com.ConversionSystems.GoldCanyon
                     || PaymentPlanSKU.Contains("596")
                     || PaymentPlanSKU.Contains("598")
 
+                   
+                || PaymentPlanSKU.Contains("827")
+                || PaymentPlanSKU.Contains("828")
+                
+
                     || PaymentPlanSKU.Contains("787")
                     || PaymentPlanSKU.Contains("806")
 
@@ -1202,6 +1259,14 @@ namespace Com.ConversionSystems.GoldCanyon
                 || PaymentPlanSKU.Contains("762")
 
                 || PaymentPlanSKU.Contains("766")
+                    || PaymentPlanSKU.Contains("809")
+                    || PaymentPlanSKU.Contains("811")
+                    || PaymentPlanSKU.Contains("813")
+                    || PaymentPlanSKU.Contains("815")
+                    || PaymentPlanSKU.Contains("820")
+                    || PaymentPlanSKU.Contains("822")
+                    || PaymentPlanSKU.Contains("783")
+                    || PaymentPlanSKU.Contains("785")
 
                     )
                 {
@@ -1269,6 +1334,11 @@ namespace Com.ConversionSystems.GoldCanyon
                         || PaymentPlanSKU.Contains("596")
                         || PaymentPlanSKU.Contains("598")
 
+                       
+                || PaymentPlanSKU.Contains("827")
+                || PaymentPlanSKU.Contains("828")
+                
+
                         || PaymentPlanSKU.Contains("787")
                         || PaymentPlanSKU.Contains("806")
 
@@ -1277,6 +1347,15 @@ namespace Com.ConversionSystems.GoldCanyon
 
                         || PaymentPlanSKU.Contains("783")
                         || PaymentPlanSKU.Contains("784")
+
+                        || PaymentPlanSKU.Contains("809")
+                        || PaymentPlanSKU.Contains("810")
+
+                        || PaymentPlanSKU.Contains("813")
+                        || PaymentPlanSKU.Contains("814")
+
+                        || PaymentPlanSKU.Contains("820")
+                        || PaymentPlanSKU.Contains("821")
 
                         || PaymentPlanSKU.Contains("615")
                         || PaymentPlanSKU.Contains("616")
@@ -1803,6 +1882,7 @@ namespace Com.ConversionSystems.GoldCanyon
             //Commenting out above required change to App.Config
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+            webRequest.Timeout = System.Threading.Timeout.Infinite;
             byte[] bytes = Encoding.ASCII.GetBytes(parameters);
             Stream os = null;
             try
