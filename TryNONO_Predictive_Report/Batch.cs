@@ -19,8 +19,7 @@ namespace TryNONO_Predictive_Report
     class ReportBatch
     {
         private  List<string> versions = new List<string> ();
-        ///////////static string Report_name = "NoNo_Predictive_Report";
-        static string Report_name = "NoNo_Predictive_Report_By_Day";
+        static string Report_name = "NoNo_Predictive_Report";
         //enum ReportTypes : uint
         //{
         //    Daily = 1,
@@ -36,7 +35,6 @@ namespace TryNONO_Predictive_Report
             bool result = false;
             try
             {
-                HitLinkVisitor = new Hashtable();
                 DataTable reportData;
                 DAL dal = new DAL();
                 //get the versionSummary data from db , using OrderManager
@@ -59,6 +57,7 @@ namespace TryNONO_Predictive_Report
                         dataRow["Visits"] = HitLinkVisitor[versionName].ToString().ToLower();
                     else
                         dataRow["Visits"] = "0";
+                    //dataRow["Revenue"]
                     dataRow["Date"] = startDate.ToString("dd-MMM-yy");
                 }
                 try
@@ -277,40 +276,38 @@ namespace TryNONO_Predictive_Report
             try
             {
                 // Create the CSV file.
-                StreamWriter sw = new StreamWriter(strFilePath, true);
+                StreamWriter sw = new StreamWriter(strFilePath, false);
                 int iColCount = dt.Columns.Count;
 
                 // First we will write the headers.
                 //DataTable dt = m_dsProducts.Tables[0];
-                ////////////////////////for (int i = 0; i < iColCount; i++)
-                ////////////////////////for (int i = 1; i < iColCount; i++)
-                ////////////////////////{
-                ////////////////////////    sw.Write(dt.Columns[i]);
-                ////////////////////////    if (i < iColCount - 1)
-                ////////////////////////    {
-                ////////////////////////        sw.Write(",");
-                ////////////////////////    }
-                ////////////////////////}
-                ////////////////////////sw.Write(sw.NewLine);
+                for (int i = 0; i < iColCount; i++)
+                {
+                    sw.Write(dt.Columns[i]);
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
                 string value = "";
                 string fomattedValue = "";
                 int length = 0;
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                        for (int i = 0; i < iColCount; i++)
+                    for (int i = 0; i < iColCount; i++)
+                    {
+                        if (!Convert.IsDBNull(dr[i]))
                         {
-                            if (!Convert.IsDBNull(dr[i]))
-                            {
-                                sw.Write(dr[i].ToString());
-                            }
-                            if (i < iColCount - 1)
-                            {
-                                sw.Write(",");
-                            }
+                            sw.Write(dr[i].ToString());
                         }
-                        sw.Write(sw.NewLine);
-                    length++;
+                        if (i < iColCount - 1)
+                        {
+                            sw.Write(",");
+                        }
+                    }
+                    sw.Write(sw.NewLine);
                 }
                 sw.Close();
                 CSVCreated = true;
@@ -341,36 +338,27 @@ namespace TryNONO_Predictive_Report
             try
             {
                 //TODO: Remove for prod
-                ///////////DateTime StartDate = StartOfDay(ReportDate);
-                ///////////DateTime Enddate = EndOfDay(ReportDate);
-                DateTime StartDate = new DateTime(2014,3,31);
-                DateTime Enddate = new DateTime(2014, 7, 20);
+                DateTime StartDate = StartOfDay(ReportDate);
+                DateTime Enddate = EndOfDay(ReportDate);
+                //DateTime StartDate = new DateTime(2014,3,31);
+                //DateTime Enddate = new DateTime(2014, 7, 20);
 
                 // File name format = PSWmmdd (ex. PSW0115.txt)                
                 string reportFileName = Enddate.ToString("yyyyMMdd") + "_" + Report_name  ;
           
                 targetPath = targetPath.Replace("\\\\", "\\");
                 string FUllPAthwithFileName = targetPath + reportFileName+ report_filetype ;
-
-
-                ///////////////////
-                DateTime myDate=StartDate;
-                while (myDate <= Enddate)
+                bool flag = GenerateReport(StartDate, Enddate, FUllPAthwithFileName);
+       
+                if (flag == true)
                 {
-                    //bool flag = GenerateReport(StartDate, Enddate, FUllPAthwithFileName);
-                    GenerateReport(myDate, myDate, FUllPAthwithFileName);
-                    myDate = myDate.AddDays(1);
-                }
-                ////////////////////////
-                ////////if (flag == true)
-                ////////{
                     Console.WriteLine(Report_name+" created");
                     LogToFile(Report_name+" created: " + FUllPAthwithFileName);
-                ////////}
-                ////////////else
-                ////////////{
+                }
+                else
+                {
                     LogToFile("Excel Report Created False");
-                //////////}
+                }
             }
             catch (Exception ex)
             {
@@ -390,7 +378,7 @@ namespace TryNONO_Predictive_Report
             
             //---------
             
-            DateTime ReportDate=DateTime.Now.AddDays(-2);
+            DateTime ReportDate=DateTime.Now.AddDays(-1);
 
 
             //if (report_type == ReportTypes.Daily)
