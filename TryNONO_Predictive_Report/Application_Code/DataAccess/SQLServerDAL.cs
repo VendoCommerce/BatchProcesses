@@ -288,7 +288,17 @@ namespace Com.ConversionSystems.DataAccess
             return bReturn;
         }
 
-        public bool GetOrdersForDailyReport(DateTime start, DateTime end, out DataTable dt)        
+        public bool GetOrdersForPredictive(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("pr_report_order_predictiveFile", start, end,out dt);
+        }
+
+        public bool GetOrdersForVersion(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("pr_report_order_predictive_versionReport_ByDay", start, end, out dt);
+        }
+
+        public bool GetOrders (string spName, DateTime start, DateTime end, out DataTable dt)        
         {            
             bool bReturn = false;
             int intPhase = -1;
@@ -303,7 +313,7 @@ namespace Com.ConversionSystems.DataAccess
             {
                 //intPhase = 0;
                 oCmd = new SqlCommand();
-                oCmd.CommandText = "pr_report_order_predictiveFile";
+                oCmd.CommandText = spName;
                 oCmd.CommandType = CommandType.StoredProcedure;
 
                 // set the parameters
