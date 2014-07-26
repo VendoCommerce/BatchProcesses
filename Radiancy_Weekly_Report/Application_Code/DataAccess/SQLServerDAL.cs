@@ -20,10 +20,10 @@ namespace Com.ConversionSystems.DataAccess
 
         public bool Get_NoNo_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
-            return GetOrders("Get_NoNo_Web_Report", start, end, out dt);
+            return GetOrders("Get_NoNo_Web_Report", "NoNoSkin_ConnectionString", start, end, out dt);
         }
 
-        public bool GetOrders (string spName, DateTime start, DateTime end, out DataTable dt)        
+        public bool GetOrders (string spName,string connectionName, DateTime start, DateTime end, out DataTable dt)        
         {            
             bool bReturn = false;
             int intPhase = -1;
@@ -49,7 +49,7 @@ namespace Com.ConversionSystems.DataAccess
                 oCmd.Parameters.Add(endParam);
 
 
-                oCmd.Connection = this.Connection;
+                oCmd.Connection = GetConnection(connectionName);
                 oCmd.Prepare();
 
                 dt = new DataTable();

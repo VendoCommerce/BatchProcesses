@@ -33,7 +33,7 @@ namespace Radiancy_Weekly_Report
             Predictive = 1,
             Version = 2
         }
-         const string report_filetype=".csv";
+        const string report_filetype = ".csv";
         private static string targetPath = System.Configuration.ConfigurationSettings.AppSettings["targetPath"];
 
         DAL dal = new DAL();
@@ -45,7 +45,7 @@ namespace Radiancy_Weekly_Report
 
             Reports reports = new Reports();
             DataTable reportTable;
-            string fileNameTrailer =  startDate.ToString("M.dd") + " - " + endDate.ToString("M.dd.yyyy");
+            string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.ToString("M.dd.yyyy");
             string reportFileName;
             string reportName;
 
@@ -57,8 +57,8 @@ namespace Radiancy_Weekly_Report
             //reportTable= reports.Get_NoNo_Web_Report(startDate, endDate);
             if (reportTable != null)
             {
-                CreateCSVFile(reportTable, targetPath +reportFileName, true);
-                SendFileasAttachment(targetPath +reportFileName, reportFileName, reportName);
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
             }
             return true;
             //}
@@ -79,11 +79,8 @@ namespace Radiancy_Weekly_Report
             bool bResult = false;
             try
             {
-                //client = new SmtpClient();
-                //client.Send(oMsg);                
-                client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
-                client.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                client.Send(oMsg);
+                client = new SmtpClient();
+                client.Send(oMsg);                
                 bResult = true;
             }
             catch (Exception ex)
@@ -116,7 +113,7 @@ namespace Radiancy_Weekly_Report
         //    }
         //}
 
-        private bool SendFileasAttachment(string ReportFileName, string fileNameOnly,string reportName)
+        private bool SendFileasAttachment(string ReportFileName, string fileNameOnly, string reportName)
         {
             bool sendemail = false;
             try
@@ -132,7 +129,7 @@ namespace Radiancy_Weekly_Report
                 if (File.Exists(ReportFileName))
                 {
                     Attachment attachment1 = new Attachment(ReportFileName); //create the attachment
-                    attachment1.Name = fileNameOnly+report_filetype;
+                    attachment1.Name = fileNameOnly + report_filetype;
                     message.Attachments.Add(attachment1);
                 }
                 message.Subject = reportName + " Reporting";
@@ -140,11 +137,7 @@ namespace Radiancy_Weekly_Report
                 message.Body = "Please see attached report for: " + reportName;
                 message.IsBodyHtml = true;
 
-                SmtpClient client;
-                client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
-                client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
-                client.Send(message);
-                sendemail = true;
+                sendemail = SendMail(message);
             }
             catch (System.Exception ex)
             {
@@ -156,7 +149,7 @@ namespace Radiancy_Weekly_Report
             return sendemail;
         }
 
-        private static bool CreateCSVFile(DataTable dt, string strFilePath,bool appendHeader)
+        private static bool CreateCSVFile(DataTable dt, string strFilePath, bool appendHeader)
         {
             bool CSVCreated = false;
             try
@@ -208,18 +201,15 @@ namespace Radiancy_Weekly_Report
             }
             return CSVCreated;
         }
-        
-        public static void WriteFile(string content , string apath)
+
+        public static void WriteFile(string content, string apath)
         {
             string path = @apath;
-
-           
-                // Create a file to write to. 
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(content);
-
-                }
+            // Create a file to write to. 
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                sw.WriteLine(content);
+            }
         }
 
         static void Main(string[] args)
@@ -237,9 +227,9 @@ namespace Radiancy_Weekly_Report
 
             Radiancy_Weekly_Report.ReportBatch reportBatch = new Radiancy_Weekly_Report.ReportBatch();
 
-            Logging.LogToFile(string.Format( "Start {0} @ {1}",_report_Name , DateTime.Now.ToString()));
+            Logging.LogToFile(string.Format("Start {0} @ {1}", _report_Name, DateTime.Now.ToString()));
 
-            bool flag = reportBatch.GenerateReport(ReportDateFrom,ReportDateTo);
+            bool flag = reportBatch.GenerateReport(ReportDateFrom, ReportDateTo);
 
             if (flag == true)
             {

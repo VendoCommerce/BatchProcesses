@@ -54,7 +54,48 @@ namespace Com.ConversionSystems.DataAccess
                 {
                     this.ClearErrors();
                     intPhase = -1;
-                    if (_Connection == null) { _Connection = new SqlConnection(this.ConnectionString); }
+                    string strConnectionString = this.AppSettings[this.Mode];
+
+                    if (_Connection == null) { _Connection = new SqlConnection(strConnectionString); }
+                    intPhase = -2;
+                    if (_Connection.State != ConnectionState.Open) { _Connection.Open(); }
+                }
+                catch (Exception ex)
+                {
+                    string strMessage = "ConnectionString: " + this.ConnectionString;
+                    switch (intPhase)
+                    {
+                        case -1:
+                            strMessage += "\n\rProblem creating database connection.";
+                            break;
+                        case -2:
+                            strMessage += "\n\rProblem opening a database connection.";
+                            break;
+                        default:
+                            strMessage += "\n\rProblem with database detected.";
+                            break;
+                    }
+                    // may consider logging here.
+
+                    Err = new LogData(Helper.AppName, _FILENAME, "Connection", intPhase, strMessage, ex);
+                    this.AddError(Err); Err.LogToDatabase(ex);
+                    throw ex;
+                }
+                return _Connection;
+            }
+        }
+
+        public SqlConnection GetConnection(string connectionName)
+        {
+                int intPhase = 0;
+                LogData Err;
+                try
+                {
+                    this.ClearErrors();
+                    intPhase = -1;
+                    string strConnectionString = this.AppSettings[connectionName];
+
+                    if (_Connection == null) { _Connection = new SqlConnection(strConnectionString); }
                     intPhase = -2;
                     if (_Connection.State != ConnectionState.Open) { _Connection.Open(); }
                 }
@@ -80,7 +121,6 @@ namespace Com.ConversionSystems.DataAccess
                     throw ex;
                 }
                 return _Connection;
-            }
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
