@@ -19,7 +19,7 @@ namespace TryNONO_Predictive_Report
     class ReportBatch
     {
          const string _predictive_Report_Name = "NoNo_Predictive_Report";
-         const string _version_Report_Name = "NONOHairROIRadioReport";
+         const string _version_Report_Name = "NONO_Hair_ROI_RadioReport";
         //enum ReportPeriods : uint
         //{
         //    Daily = 1,
@@ -267,14 +267,14 @@ namespace TryNONO_Predictive_Report
                     attachment1.Name = fileNameOnly+report_filetype;
                     message.Attachments.Add(attachment1);
                 }
-                message.Subject = reportName + " Reporting";
+                message.Subject = reportName.Replace("_"," ");
                 // message.Body = "Please see attached Euro Report.";
-                message.Body = "Please see attached report for: " + reportName;
+                message.Body = "Please see attached report for: " + reportName.Replace("_", " ");
                 message.IsBodyHtml = true;
 
-                SmtpClient client;
-                client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
-                client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                SmtpClient client = new SmtpClient();
+                //client = new SmtpClient(System.Configuration.ConfigurationSettings.AppSettings["SmtpServer"]);
+                //client.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
                 client.Send(message);
                 sendemail = true;
             }
