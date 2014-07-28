@@ -20,7 +20,12 @@ namespace Com.ConversionSystems.DataAccess
 
         public bool Get_NoNo_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
-            return GetOrders("Get_NoNo_Web_Report", "NoNoSkin_ConnectionString", start, end, out dt);
+            return GetOrders("Get_NoNo_Web_Report", "TryNoNo_ConnectionString", start, end, out dt);
+        }
+
+        public bool Get_NoNo_Skin_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("Get_NoNo_Skin_Web_Report", "NoNoSkin_ConnectionString", start, end, out dt);
         }
 
         public bool GetOrders (string spName,string connectionName, DateTime start, DateTime end, out DataTable dt)        

@@ -13,6 +13,7 @@ using System.Collections;
 using System.Globalization;
 using Radiancy_Weekly_Report.HitsLinks;
 using Com.ConversionSystems.DataAccess;
+using System.Configuration;
 
 namespace Radiancy_Weekly_Report
 {
@@ -48,14 +49,23 @@ namespace Radiancy_Weekly_Report
             string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.ToString("M.dd.yyyy");
             string reportFileName;
             string reportName;
-
-            ///// *********   NoNo Predictive Report  *********////////
+            bool reportSuccess = false;
+            ///// *********   NoNo Web Report  *********////////
             reportName = "NoNo Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
-            //reportTable= reports.Get_NoNo_Web_Report(startDate, endDate);
-            if (reportTable != null)
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
+            ///// *********   NoNo Skin Web Report  *********////////
+            reportName = "NoNo Skin Web Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = reports.Get_NoNo_Skin_Web_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+
+            if (reportSuccess && reportTable != null)
             {
                 CreateCSVFile(reportTable, targetPath + reportFileName, true);
                 SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
@@ -118,23 +128,22 @@ namespace Radiancy_Weekly_Report
             bool sendemail = false;
             try
             {
-                string ToEmail = System.Configuration.ConfigurationSettings.AppSettings["clientemail"];
-                string ToEmailcc = System.Configuration.ConfigurationSettings.AppSettings["sendemailtocc"];
+                string ToEmail = ConfigurationSettings.AppSettings[reportName + "_List"];
+                string ToEmailcc = ConfigurationSettings.AppSettings["sendemailtocc"];
                 StringBuilder sb = new StringBuilder();
                 MailMessage message = new MailMessage();
 
                 message.To.Add(ToEmail);
                 message.CC.Add(ToEmailcc);
-                message.From = new MailAddress("info@conversionsystems.com");
+                message.From = new MailAddress(ConfigurationSettings.AppSettings["fromEmail"]);
                 if (File.Exists(ReportFileName))
                 {
                     Attachment attachment1 = new Attachment(ReportFileName); //create the attachment
                     attachment1.Name = fileNameOnly + report_filetype;
                     message.Attachments.Add(attachment1);
                 }
-                message.Subject = reportName + " Reporting";
-                // message.Body = "Please see attached Euro Report.";
-                message.Body = "Please see attached report for: " + reportName;
+                message.Subject = ConfigurationSettings.AppSettings[reportName + "_Subject"];
+                message.Body = "Please see attached reports for the previous week.<br>Thank you, <br>Conversion Systems";
                 message.IsBodyHtml = true;
 
                 sendemail = SendMail(message);
@@ -217,11 +226,10 @@ namespace Radiancy_Weekly_Report
 
             DateTime ReportDateFrom = DateTime.Today.AddDays(-8);
             DateTime ReportDateTo = DateTime.Today.AddDays(-1);
-            //if (_reportType == ReportTypes.Version)
-            //{
-            //    ReportDateFrom = DateTime.Today.AddDays(-8);
-            //    ReportDateTo = DateTime.Today.AddDays(-1);
-            //}
+
+            //TODO: Comment for prod
+            ReportDateFrom = DateTime.Today.AddDays(-128);
+            ReportDateTo = DateTime.Today.AddDays(-1);
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
