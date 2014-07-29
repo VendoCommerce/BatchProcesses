@@ -18,7 +18,7 @@ namespace TryNONO_Predictive_Report
 {
     class ReportBatch
     {
-         const string _predictive_Report_Name = "NoNo_Predictive_Report";
+        const string _predictive_Report_Name = "NoNo_Conversion_Sys";
          const string _version_Report_Name = "NONO_Hair_ROI_RadioReport";
         //enum ReportPeriods : uint
         //{
@@ -40,16 +40,20 @@ namespace TryNONO_Predictive_Report
 
         private bool GenerateReport(DateTime startDate, DateTime endDate, string FUllPAthwithFileName,string reportFileName)
         {
+            bool reportResult;
             if (_reportType == ReportTypes.Predictive)
-                return GeneratePredictiveReport(startDate, endDate, FUllPAthwithFileName);
+            {
+                reportResult = GeneratePredictiveReport(startDate, endDate, FUllPAthwithFileName);
+                if (reportResult)
+                    UploadToFtp(FUllPAthwithFileName);
+            }
             else
             {
-                bool reportResult = GenerateVersionReport(startDate, endDate, FUllPAthwithFileName);
+                reportResult = GenerateVersionReport(startDate, endDate, FUllPAthwithFileName);
                 if (reportResult)
                     SendFileasAttachment(FUllPAthwithFileName, reportFileName, _version_Report_Name);
-                return reportResult;
             }
-
+            return reportResult;
         }
         protected bool GenerateVersionReport(DateTime startDate, DateTime endDate, string FUllPAthwithFileName)
         {
@@ -425,7 +429,7 @@ namespace TryNONO_Predictive_Report
                 //ReportDateTo = new DateTime(2014, 7, 20);
 
                 if (_reportType == ReportTypes.Predictive)
-                    reportFileName = ReportDateTo.ToString("yyyyMMdd") + "_" + _predictive_Report_Name;
+                    reportFileName = _predictive_Report_Name + ReportDateTo.ToString("-yyyy-MM-dd");
                 else
                     reportFileName = _version_Report_Name + "_" +ReportDateTo.ToString("MMddyyyy") ;
 
@@ -459,9 +463,12 @@ namespace TryNONO_Predictive_Report
             //ReportTypes report_type = ReportTypes.Daily;
 
             SetReportType(args);
-
+            //Test
+            //DateTime ReportDateFrom = DateTime.Today.AddDays(-7);
+            //DateTime ReportDateTo = DateTime.Today.AddDays(-7);
+            //Prod
             DateTime ReportDateFrom = DateTime.Today.AddDays(-1);
-            DateTime ReportDateTo = DateTime.Today;
+            DateTime ReportDateTo = DateTime.Today.AddDays(-1);
             if (_reportType == ReportTypes.Version)
             {
                 ReportDateFrom = DateTime.Today.AddDays(-8);
@@ -516,6 +523,42 @@ namespace TryNONO_Predictive_Report
                 }
             }
             _reportType = ReportTypes.Version;
+        }
+
+        private static void UploadToFtp(string filePath)
+        {
+            try
+            {
+                string FTPAddress="ftp://www.ftp-directory.com/";
+                string username="ConvSys"; 
+                string password="c0nV$ys";
+                //Create FTP request
+                FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(FTPAddress + "/Radiancy/" + Path.GetFileName(filePath));
+
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+                request.Credentials = new NetworkCredential(username, password);
+                request.UsePassive = true;
+                request.UseBinary = true;
+                request.KeepAlive = false;
+
+                //Load the file
+                FileStream stream = File.OpenRead(filePath);
+                byte[] buffer = new byte[stream.Length];
+
+                stream.Read(buffer, 0, buffer.Length);
+                stream.Close();
+
+                //Upload file
+                Stream reqStream = request.GetRequestStream();
+                reqStream.Write(buffer, 0, buffer.Length);
+                reqStream.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                //sendemail(filePath);
+            }
+
         }
     }
 }
