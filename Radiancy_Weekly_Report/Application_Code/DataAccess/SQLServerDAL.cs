@@ -28,6 +28,26 @@ namespace Com.ConversionSystems.DataAccess
             return GetOrders("Get_NoNo_Skin_Web_Report", "NoNoSkin_ConnectionString", start, end, out dt);
         }
 
+        public bool Get_Neova_Insert_Report_Table(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("Get_Neova_Insert_Report", "Neova_ConnectionString", start, end, out dt);
+        }
+        
+        public bool Get_MBI_Neova_Report_Table(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("Get_MBI_Neova_Report", "Neova_ConnectionString", start, end, out dt);
+        }
+
+        public bool Get_MBI_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("Get_MBI_Web_Report", "TryNoNo_ConnectionString", start, end, out dt);
+        }
+
+        public bool Get_Kyrobak_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
+        {
+            return GetOrders("Get_Kyrobak_Web_Report", "TryKyro_ConnectionString", start, end, out dt);
+        }
+        
         public bool GetOrders (string spName,string connectionName, DateTime start, DateTime end, out DataTable dt)        
         {            
             bool bReturn = false;

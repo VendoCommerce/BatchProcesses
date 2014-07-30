@@ -60,10 +60,59 @@ namespace Radiancy_Weekly_Report
                 CreateCSVFile(reportTable, targetPath + reportFileName, true);
                 SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
             }
+
             ///// *********   NoNo Skin Web Report  *********////////
             reportName = "NoNo Skin Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
             reportSuccess = reports.Get_NoNo_Skin_Web_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
+
+            //TODO: should get proper visitor list 
+            ///// *********  Neova Insert Report  *********////////
+            reportName = "Neova Insert Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = reports.Get_Neova_Insert_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
+
+            //TODO: should get proper visitor list 
+            ///// *********  Neova Insert Report  *********////////
+            reportName = "MBI Neova Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = reports.Get_MBI_Neova_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
+
+            //TODO: Should get proper versions based version report
+            ///// *********  MBI WebReport *********////////
+            reportName = "MBI Web Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = dal.SQLServer.Get_MBI_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
+
+            //TODO: should get proper visitor list 
+            ///// *********  Kyrobak Web Report   *********////////
+            reportName = "Kyrobak Web Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = reports.Get_Kyrobak_Web_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -228,8 +277,8 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today.AddDays(-1);
 
             //TODO: Comment for prod
-            ReportDateFrom = DateTime.Today.AddDays(-128);
-            ReportDateTo = DateTime.Today.AddDays(-1);
+            //ReportDateFrom = DateTime.Today.AddDays(-28);
+            //ReportDateTo = DateTime.Today.AddDays(-1);
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
