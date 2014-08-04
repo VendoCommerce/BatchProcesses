@@ -149,6 +149,21 @@ namespace DoloventEmailDirect
             }
         }
 
+        void getAllPublicationList()
+        {
+            string EmailDirectAPIKey = System.Configuration.ConfigurationSettings.AppSettings["ed-apikey"];
+            try
+            {
+                List<PublicationDetails> PublicationDetailsList = new List<PublicationDetails>();
+                PublicationDetailsList = EDWrapper.PublicationManager.GetAllPublications();
+                Console.WriteLine(PublicationDetailsList.Count);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error get All List Details EmailDirect");
+            }
+        }
+
         void getAllList()
         {
             string EmailDirectAPIKey = System.Configuration.ConfigurationSettings.AppSettings["ed-apikey"];
@@ -235,6 +250,7 @@ namespace DoloventEmailDirect
                     EDWrapper.Models.SubscriberDetails emailSubscriber = new SubscriberDetails();
                     emailSubscriber.EmailAddress = emailAddress;
                     emailSubscriber.Lists = new List<int>() { 20 };   // "CS Signup List" 20 LIST ID
+                    emailSubscriber.Publications = new List<int>() { 2 }; // Publication “Linpharma, Inc. – Newsletter” (API ID: 2)
                     emailSubscriber.SourceID = Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings["SOURCEID"]);
 
                     List<EDWrapper.Models.CustomField> CustomFieldLists = new List<EDWrapper.Models.CustomField>();
@@ -327,6 +343,7 @@ namespace DoloventEmailDirect
             Batch StartBatch = new Batch();
             // StartBatch.AddNewList("CS Signup List", "Conversion Systems Sign Up List"); // List ID 20
             // StartBatch.getAllList();             
+            // StartBatch.getAllPublicationList();
             //  StartBatch.LoadEmailOnly("abc@email.com");
                         
             StartBatch.LoadSubscribeEmailToDirectEmail();
