@@ -150,6 +150,20 @@ namespace PetaDolexEmailDirect
             }
         }
 
+        void getAllPublicationList()
+        {
+            string EmailDirectAPIKey = System.Configuration.ConfigurationSettings.AppSettings["ed-apikey"];
+            try
+            {
+                List<PublicationDetails> PublicationDetailsList = new List<PublicationDetails>();
+                PublicationDetailsList = EDWrapper.PublicationManager.GetAllPublications();
+                Console.WriteLine(PublicationDetailsList.Count);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error get All List Details EmailDirect");
+            }
+        }
         void getAllList()
         {
             string EmailDirectAPIKey = System.Configuration.ConfigurationSettings.AppSettings["ed-apikey"];
@@ -246,6 +260,7 @@ namespace PetaDolexEmailDirect
                     EDWrapper.Models.SubscriberDetails emailSubscriber = new SubscriberDetails();
                     emailSubscriber.EmailAddress = emailAddress;
                     emailSubscriber.Lists = new List<int>() { 21 };   // "CS Signup Petadolex" 21 LIST ID
+                    emailSubscriber.Publications = new List<int>() { 2 }; // Publication “Linpharma, Inc. – Newsletter” (API ID: 2)
                     emailSubscriber.SourceID = Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings["SOURCEID"]);
 
                     List<EDWrapper.Models.CustomField> CustomFieldLists = new List<EDWrapper.Models.CustomField>();
@@ -339,6 +354,7 @@ namespace PetaDolexEmailDirect
             Batch StartBatch = new Batch();
             // StartBatch.AddNewList("CS Signup Petadolex", "Conversion Systems Sign Up List for Petadolex"); // List ID 21
             // StartBatch.getAllList();             
+            // StartBatch.getAllPublicationList();
             //  StartBatch.LoadEmailOnly("abc@email.com");
             StartBatch.LoadSubscribeEmailToDirectEmail();
             Console.WriteLine("End Data Imported to Email Direct Petadolex");
