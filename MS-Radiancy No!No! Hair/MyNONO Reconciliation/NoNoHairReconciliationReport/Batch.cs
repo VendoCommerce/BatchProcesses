@@ -713,8 +713,10 @@ namespace NoNoHairReconciliationReport
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 1);            
-            
+            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 1);
+            //Update for GOM8800 sku
+            Dt1.Columns["EM8800"].ColumnName = "GOM8800";
+            //
             if (Dt1.Rows.Count > 0)
             {                
                 Console.WriteLine("US_Canada Order: " + Dt1.Rows.Count.ToString());
@@ -723,6 +725,13 @@ namespace NoNoHairReconciliationReport
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
                 DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 2);
+                //Update for GOM8800 sku
+                foreach (DataRow r in dtsummaryBottom.Rows)
+                {
+                    if (r["key"].ToString() == "EM8800")
+                        r["Value"] = r["Value"].ToString().Replace("EM8800", "GOM8800");
+                }
+                //
                 bool flag =  Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
                 if (flag == true)
                 {
@@ -944,8 +953,9 @@ namespace NoNoHairReconciliationReport
             startDate = Convert.ToDateTime(date + " 00:00:00");
             endDate = Convert.ToDateTime(date + " 23:59:59");
 
-            // startDate = Convert.ToDateTime("05/06/2012 00:00:00");
-            // endDate = Convert.ToDateTime("05/06/2012 23:59:59");
+            //TODO: comment for prod
+            //startDate = Convert.ToDateTime("2014/08/01 00:00:00");
+            //endDate = Convert.ToDateTime("2014/08/07 23:59:59");
 
             Console.WriteLine("startDate" + startDate);
             Console.WriteLine("endDate " + endDate); 
