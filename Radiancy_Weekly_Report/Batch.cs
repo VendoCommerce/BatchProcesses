@@ -64,7 +64,7 @@ namespace Radiancy_Weekly_Report
             ///// *********   NoNo Skin Web Report  *********////////
             reportName = "NoNo Skin Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_NoNo_Skin_Web_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_NoNo_Skin_Web_Report(startDate, endDate, out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -76,7 +76,7 @@ namespace Radiancy_Weekly_Report
             ///// *********  Neova Insert Report  *********////////
             reportName = "Neova Insert Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_Neova_Insert_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_Neova_Insert_Report(startDate, endDate, out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -88,7 +88,7 @@ namespace Radiancy_Weekly_Report
             ///// *********  Neova Insert Report  *********////////
             reportName = "MBI Neova Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_MBI_Neova_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_MBI_Neova_Report(startDate, endDate, out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -112,7 +112,7 @@ namespace Radiancy_Weekly_Report
             ///// *********  Kyrobak Web Report   *********////////
             reportName = "Kyrobak Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_Kyrobak_Web_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate, out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -277,8 +277,8 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today.AddDays(-1);
 
             //TODO: Comment for prod
-            //ReportDateFrom = DateTime.Today.AddDays(-28);
-            //ReportDateTo = DateTime.Today.AddDays(-1);
+            //ReportDateFrom = DateTime.Parse("7/21/2014");
+            //ReportDateTo = DateTime.Parse("7/27/2014");
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
