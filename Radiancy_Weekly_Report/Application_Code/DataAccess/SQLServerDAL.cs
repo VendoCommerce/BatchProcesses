@@ -81,7 +81,7 @@ namespace Com.ConversionSystems.DataAccess
                 da = new SqlDataAdapter(oCmd);
                 da.Fill(dt);
 
-                bReturn = Helper.HasData(dt);
+                bReturn = true;// Helper.HasData(dt);
 
             }
             catch (Exception ex)
