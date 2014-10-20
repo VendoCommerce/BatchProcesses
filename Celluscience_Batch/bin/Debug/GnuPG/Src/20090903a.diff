@@ -1,0 +1,118 @@
+[scripts]
+2009-09-03  Werner Koch  <wk@g10code.com>
+
+	* w32installer.nsi: Set the final OutPath to Doc/.
+
+[include]
+2009-09-03  Werner Koch  <wk@g10code.com>
+
+	* util.h (xtryvasprintf): New.
+
+[util]
+2009-09-03  Werner Koch  <wk@g10code.com>
+ 
+	* ttyio.c (tty_printf) [_WIN32]: s/xtryasprintf/xtryvasprint/
+	* strgutil.c (xtryvasprintf): New.
+
+
+
+Index: scripts/w32installer.nsi
+===================================================================
+--- scripts/w32installer.nsi	(revision 5139)
++++ scripts/w32installer.nsi	(working copy)
+@@ -352,7 +352,7 @@
+   ;;
+ 
+   # Set the Outpath pack so that the README file can be displayed.
+-  SetOutPath "$INSTDIR"
++  SetOutPath "$INSTDIR\Doc"
+ 
+ SectionEnd ; "-Finish"
+ 
+Index: include/util.h
+===================================================================
+--- include/util.h	(revision 5139)
++++ include/util.h	(working copy)
+@@ -20,9 +20,7 @@
+ #ifndef G10_UTIL_H
+ #define G10_UTIL_H
+ 
+-#if defined (_WIN32) || defined (__CYGWIN32__)
+ #include <stdarg.h>
+-#endif
+ 
+ #include "types.h"
+ #include "errors.h"
+@@ -245,6 +243,7 @@
+ /*-- strgutil.c --*/
+ char *xasprintf (const char *fmt, ...);
+ char *xtryasprintf (const char *fmt, ...);
++char *xtryvasprintf (const char *fmt, va_list arg_ptr);
+ 
+ 
+ /*-- pka.c --*/
+Index: util/argparse.c
+===================================================================
+--- util/argparse.c	(revision 5139)
++++ util/argparse.c	(working copy)
+@@ -917,7 +917,7 @@
+         break;
+       case 11: p = "foo"; break;
+       case 13: p = "0.0"; break;
+-      case 14: p = "Copyright (C) 2008 Free Software Foundation, Inc."; break;
++      case 14: p = "Copyright (C) 2009 Free Software Foundation, Inc."; break;
+       case 15: p =
+ "This is free software: you are free to change and redistribute it.\n"
+ "There is NO WARRANTY, to the extent permitted by law.\n"; 
+Index: util/ttyio.c
+===================================================================
+--- util/ttyio.c	(revision 5139)
++++ util/ttyio.c	(working copy)
+@@ -243,9 +243,9 @@
+         int n;
+ 	DWORD nwritten;
+ 
+-	buf = xtryasprintf(fmt, arg_ptr);
++	buf = xtryvasprintf(fmt, arg_ptr);
+ 	if (!buf)
+-          log_bug("xtryasprintf() failed\n");
++          log_bug("xtryvasprintf() failed\n");
+         n = strlen (buf);
+         
+ 	if (!WriteConsoleA (con.out, buf, n, &nwritten, NULL))
+@@ -291,9 +291,9 @@
+         int n;
+ 	DWORD nwritten;
+ 
+-	buf = xtryasprintf (fmt, arg_ptr);
++	buf = xtryvasprintf (fmt, arg_ptr);
+ 	if (!buf)
+-          log_bug ("xtryasprintf() failed\n");
++          log_bug ("xtryvasprintf() failed\n");
+         n = strlen (buf);
+         
+ 	if (!WriteConsoleA (con.out, buf, n, &nwritten, NULL))
+Index: util/strgutil.c
+===================================================================
+--- util/strgutil.c	(revision 5139)
++++ util/strgutil.c	(working copy)
+@@ -1153,6 +1153,19 @@
+ }
+ 
+ 
++char *
++xtryvasprintf (const char *fmt, va_list arg_ptr)
++{
++  int rc;
++  char *buf;
++
++  rc = estream_vasprintf (&buf, fmt, arg_ptr);
++  if (rc < 0)
++    return NULL;
++  return buf;
++}
++
++
+ /****************************************************
+  ******** locale insensitive ctype functions ********
+  ****************************************************/
