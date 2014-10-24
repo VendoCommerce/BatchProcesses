@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Text.RegularExpressions;
 using Com.ConversionSystems.DataAccess;
 using Radiancy_Weekly_Report.HitsLinks;
 using System.Collections;
@@ -204,13 +205,13 @@ namespace Radiancy_Weekly_Report
 
                 //get hitslink data using hitslink service , and update the versionSummary data accordingly 
                 ReportWSSoapClient hitslinkWS = new ReportWSSoapClient();
-                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate, endDate, 100000000, 0, 0);
+                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
                     HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
                 }
                 //get hitslink data for the url list using hitslink service
-                rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro2", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate, endDate, 100000000, 0, 0);
+                rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro2", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
                     string versionName = rptData.Rows[i].Columns[0].Value.ToLower();
@@ -252,6 +253,60 @@ namespace Radiancy_Weekly_Report
                 }
 
                 returnTable = reportData;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string loginfo = "Report generation status:" + result + Environment.NewLine + ex.Message.ToString();
+                Logging.LogToFile(loginfo);
+                Console.WriteLine(ex.ToString());
+                returnTable = null;
+                return false;
+            }
+        }
+
+        public bool Get_NoNo_Web_Report_Report(DateTime startDate, DateTime endDate, out DataTable returnTable)
+        {
+            bool result = false;
+           
+
+            try
+            {
+               
+                DataTable reportData;
+                List<string> OrderPresentKey = new List<string>();
+                DAL dal = new DAL();
+                //get the versionSummary data from db , using OrderManager
+                dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportData);
+
+
+
+                DataTable returnTable1 = reportData.Clone();
+                try
+                {
+                   
+                    foreach (DataRow dataRow in reportData.Rows)
+                    {
+                        string _url =  dataRow["URL"].ToString().ToLower();
+                        double _num;
+                        //string _url_checkNumber = _url.Substring(_url.IndexOf(".com", System.StringComparison.Ordinal) - 3, 3);
+                        //bool isNum = double.TryParse(_url_checkNumber, out _num);
+                        Regex re = new Regex(@"(?:nono|nonopro)+\d+.com");
+                        Match m = re.Match(_url);
+                        if (m.Success)
+                        {
+                            returnTable1.ImportRow(dataRow);
+                            
+                        }
+                    }
+                }
+                catch
+                {}
+
+                
+                //for Items which are not part of order
+
+                returnTable = returnTable1;
                 return true;
             }
             catch (Exception ex)

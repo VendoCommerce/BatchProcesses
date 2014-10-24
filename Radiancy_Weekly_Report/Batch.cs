@@ -20,15 +20,7 @@ namespace Radiancy_Weekly_Report
     class ReportBatch
     {
         const string _report_Name = "Radiancy Weekly Report";
-        //enum ReportPeriods : uint
-        //{
-        //    Daily = 1,
-        //    Weekly = 2,
-        //    Monthly = 3
-        //}
-
-        //static ReportTypes _reportType;
-
+        
         enum ReportTypes : uint
         {
             Predictive = 1,
@@ -41,9 +33,7 @@ namespace Radiancy_Weekly_Report
 
         private bool GenerateReport(DateTime startDate, DateTime endDate)
         {
-            //try
-            //{
-
+            
             Reports reports = new Reports();
             DataTable reportTable;
             string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.ToString("M.dd.yyyy");
@@ -53,7 +43,8 @@ namespace Radiancy_Weekly_Report
             ///// *********   NoNo Web Report  *********////////
             reportName = "NoNo Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_NoNo_Web_Report_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+           // reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -120,16 +111,6 @@ namespace Radiancy_Weekly_Report
                 SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
             }
             return true;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Error " + reportFileName + " " + ex.Message);
-            //    Console.WriteLine("Error : " + ex.Message + " StackTrace : " + ex.StackTrace);
-            //    //SendEmailToAdmin(ex.Message);
-            //    LogToFile(ex.Message);
-            //    LogToFile(ex.StackTrace);
-            //}
-
         }
 
         public static bool SendMail(MailMessage oMsg)
@@ -147,30 +128,6 @@ namespace Radiancy_Weekly_Report
             }
             return bResult;
         }
-
-        //public void SendEmailToAdmin(string ErrorMessage)
-        //{
-        //    try
-        //    {
-        //        StringBuilder _sbEmailMessageBody = new StringBuilder();
-        //        _sbEmailMessageBody.Append("<html><body><table>");
-        //        _sbEmailMessageBody.Append("<tr><td><b>" + Report_name +" Report Batch :</b></td></tr>");
-        //        _sbEmailMessageBody.Append("<tr><td>This report was generated at " + DateTime.Now.ToString("MM/dd/yyyy-HH:mm") + "</td></tr>");
-        //        _sbEmailMessageBody.Append("<tr><td>" + ErrorMessage + "</td></tr>");
-        //        _sbEmailMessageBody.Append("<tr><td> Please do not reply to this email.</b></td></tr>");
-        //        _sbEmailMessageBody.Append("</table></body></html>");
-        //        string AdminEmail = System.Configuration.ConfigurationSettings.AppSettings["AdminEmail"];
-        //        string fromEmail = System.Configuration.ConfigurationSettings.AppSettings["fromEmail"];
-        //        MailMessage _oMailMessage = new MailMessage(fromEmail, AdminEmail,  Report_name +" Report Generation Status", _sbEmailMessageBody.ToString());
-        //        _oMailMessage.IsBodyHtml = true;
-        //        _oMailMessage.Body = _sbEmailMessageBody.ToString();
-        //        SendMail(_oMailMessage);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        // log.LogToFile("Error sending email---" + e.Message);
-        //    }
-        //}
 
         private bool SendFileasAttachment(string ReportFileName, string fileNameOnly, string reportName)
         {
@@ -273,8 +230,8 @@ namespace Radiancy_Weekly_Report
         static void Main(string[] args)
         {
 
-            DateTime ReportDateFrom = DateTime.Today.AddDays(-8);
-            DateTime ReportDateTo = DateTime.Today.AddDays(-1);
+            DateTime ReportDateFrom = DateTime.Today.AddDays(-7);//.AddHours(-3);
+            DateTime ReportDateTo = DateTime.Today;//.AddHours(-3);
 
             //TODO: Comment for prod
             //ReportDateFrom = DateTime.Parse("8/4/2014");
