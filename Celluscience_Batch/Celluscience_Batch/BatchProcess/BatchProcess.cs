@@ -94,7 +94,7 @@ namespace ConversionSystems.Celluscience.BatchProcess
             {
                 Directory.CreateDirectory(_srtPath);
             }
-            Actualfilename = EmployeeNumber + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+            Actualfilename = EmployeeNumber + DateTime.Now.ToString("yyyyMMdd") + ".csv";
             //Previousfilename = EmployeeNumber + DateTime.Now.AddDays(-1).ToString("yyyyMMdd") + ".txt";
             txtfilename = _srtPath + "\\" + Actualfilename ;
             //txtPreviousfilename = _srtPath + "\\" + Previousfilename;
