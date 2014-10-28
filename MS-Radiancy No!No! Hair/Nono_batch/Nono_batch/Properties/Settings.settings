@@ -1,6 +1,9 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NonoBatch.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NonoBatch_targusinfo_Client" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://webapp.targusinfo.com/ws-getdata/query.asmx</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

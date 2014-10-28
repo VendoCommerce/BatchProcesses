@@ -18,9 +18,7 @@ using Com.ConversionSystems.Utility;
 using Com.ConversionSystems.GoldCanyon;
 using ConversionSystems.Providers;
 using ConversionSystems.Providers.MediaChase.OrderProcessing;
-
-
-
+using NonoBatch;
 
 
 namespace Com.ConversionSystems.GoldCanyon
@@ -187,7 +185,7 @@ namespace Com.ConversionSystems.GoldCanyon
                 catch (Exception e) { }
             }
         }
-        public string getomxml(string verifyflag, string orderid1, string versionInfo)
+        public string getomxml(string verifyflag, string orderid1, string versionInfo, bool isPro)
         {
             _intOrderID = Convert.ToInt32(orderid1);
             string s1 = "";
@@ -396,6 +394,15 @@ namespace Com.ConversionSystems.GoldCanyon
                 || PaymentPlanSKU.Contains("598")
                 || PaymentPlanSKU.Contains("599")
 
+                 || PaymentPlanSKU.Contains("833")
+                        || PaymentPlanSKU.Contains("834")
+                        || PaymentPlanSKU.Contains("835")
+                        || PaymentPlanSKU.Contains("836")
+                        || PaymentPlanSKU.Contains("837")
+                        || PaymentPlanSKU.Contains("838")
+                        || PaymentPlanSKU.Contains("839")
+                        || PaymentPlanSKU.Contains("840")
+
                 || PaymentPlanSKU.Contains("826")
                 || PaymentPlanSKU.Contains("827")
                 || PaymentPlanSKU.Contains("828")
@@ -542,6 +549,10 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "";
             s1 += "	<CustomFields>~";
             s1 += "	    <Report>~";
+            if (isPro && verifyflag.Equals("False"))
+            {
+                s1 += "		    <Field fieldName=[[[Initial Phone Number Invalid[[[>@PhoneNumberValid@</Field>~";
+            }
             s1 += "		    <Field fieldName=[[[OriginalOrderDate[[[>@OrderDateFormat@</Field>~";
             s1 += "		    <Field fieldName=[[[FirstHear[[[>@FirstHear@</Field>~";
             s1 += "		    <Field fieldName=[[[URL[[[>www.trynono.com</Field>~";
@@ -573,14 +584,30 @@ namespace Com.ConversionSystems.GoldCanyon
 
             DataSet ds = new DataSet();
             ds = getsql("exec getorders4 " + orderid1.ToString());
+            DataSet ds1 = new DataSet();
+            
+            ds1 = getsql("select v.CategoryId from [Order] o (nolock) inner join [VersionInfo] v (nolock) on o.VersionId = v.VersionID where OrderId =" + orderid1.ToString());
+            bool isPro = false;
+            foreach (DataRow r in ds1.Tables[0].Rows)
+            {
+                if (r["CategoryID"].ToString().Equals("16") || r["CategoryID"].ToString().Equals("20") || r["CategoryID"].ToString().Equals("21") ||
+                    r["CategoryID"].ToString().Equals("24") || r["CategoryID"].ToString().Equals("27") || r["CategoryID"].ToString().Equals("28")
+                    || r["CategoryID"].ToString().Equals("29") || r["CategoryID"].ToString().Equals("30") || r["CategoryID"].ToString().Equals("31")
+                    || r["CategoryID"].ToString().Equals("34") || r["CategoryID"].ToString().Equals("35") || r["CategoryID"].ToString().Equals("36"))
+                {
+                    isPro = true;
+                }
+                
 
-            string s1a = getomxml(verifyflag, orderid1, ds.Tables[0].Rows[0]["BankAccountName"].ToString());
+                
+            }
+            string s1a = getomxml(verifyflag, orderid1, ds.Tables[0].Rows[0]["BankAccountName"].ToString(),isPro);
 
             decimal total1z;
             decimal shipping1z=0;
 
             //<UnitPrice>@4</UnitPrice>
-            string stb = "<LineItem lineNumber=[[[@1[[[>~<ItemCode>@2</ItemCode>@PayPlan<Quantity>@3</Quantity>~<UnitPrice>@4</UnitPrice>~<Recurrence patternID=[[[@5[[[></Recurrence>~</LineItem>";
+            string stb = "<LineItem lineNumber=[[[@1[[[>~<ItemCode>@2</ItemCode>@PayPlan<Quantity>@3</Quantity>~<UnitPrice>@4</UnitPrice>~<Recurrence patternID=[[[@5[[[></Recurrence>~@7~</LineItem>";
             stb = stb.Replace("~", ((char)(13)).ToString() + ((char)(10)).ToString());
             stb = stb.Replace("[[[", ((char)(34)).ToString());
 
@@ -644,6 +671,10 @@ namespace Com.ConversionSystems.GoldCanyon
                 s1 = s1.Replace("@cardexpmonth@", fixstring(r["creditcardexpiredmonth"]));
                 s1 = s1.Replace("@cardexpyear@", fixstring(r["creditcardexpiredyear"]));
                 s1 = s1.Replace("@1@", fixstring(r["phonenumber"]));
+                if (isPro && verifyflag.Equals("False"))
+                {
+                    s1 = s1.Replace("@PhoneNumberValid@", Neustar.Validate(fixstring(r["phonenumber"])));
+                }
                 s1 = s1.Replace("@2@", fixstring(r["email"]));
                 if (r["ipaddress"] != null)
                 {
@@ -685,6 +716,25 @@ namespace Com.ConversionSystems.GoldCanyon
                     stc1 = stc;
                     stc += stb;
                     stc = stc.Replace("@1", cnt.ToString());
+
+
+                    if (r1["StandingOrderId"] != DBNull.Value)
+                    {
+                        if (r1["StandingOrderId"].ToString().Length > 0)
+                        {
+                            stc = stc.Replace("@7", "<StandingOrder configurationID=[[[@StandingOrder@[[[></StandingOrder>");
+                            stc = stc.Replace("@StandingOrder@", r1["StandingOrderId"].ToString());
+                            stc = stc.Replace("[[[", ((char)(34)).ToString());
+                        }
+                        else
+                        {
+                            stc = stc.Replace("@7", "");
+                        }
+                    }
+                    else
+                    {
+                        stc = stc.Replace("@7", "");
+                    }
                     if (r1["skucode"].ToString().Equals("CONTINUITY"))
                     {
                         stc = stc.Replace("@2", "");
@@ -777,6 +827,19 @@ namespace Com.ConversionSystems.GoldCanyon
 
                         || PaymentPlanSKU.Contains("826")
                 || PaymentPlanSKU.Contains("827")
+
+
+                        || PaymentPlanSKU.Contains("833")
+                        || PaymentPlanSKU.Contains("834")
+                        || PaymentPlanSKU.Contains("835")
+                        || PaymentPlanSKU.Contains("836")
+                        || PaymentPlanSKU.Contains("837")
+                        || PaymentPlanSKU.Contains("838")
+                        || PaymentPlanSKU.Contains("839")
+                        || PaymentPlanSKU.Contains("840")
+                
+
+
                 || PaymentPlanSKU.Contains("828")
                 || PaymentPlanSKU.Contains("829")
 
@@ -1023,6 +1086,16 @@ namespace Com.ConversionSystems.GoldCanyon
                         || r1["skuid"].ToString().Equals("598")
                         || r1["skuid"].ToString().Equals("599")
 
+                        || r1["skuid"].ToString().Equals("833")
+                        || r1["skuid"].ToString().Equals("834")
+                        || r1["skuid"].ToString().Equals("835")
+                        || r1["skuid"].ToString().Equals("836")
+                        || r1["skuid"].ToString().Equals("837")
+                        || r1["skuid"].ToString().Equals("838")
+                        || r1["skuid"].ToString().Equals("839")
+                        || r1["skuid"].ToString().Equals("840")
+                
+
                         || r1["skuid"].ToString().Equals("826")
                         || r1["skuid"].ToString().Equals("827")
                         || r1["skuid"].ToString().Equals("828")
@@ -1195,6 +1268,15 @@ namespace Com.ConversionSystems.GoldCanyon
                     || PaymentPlanSKU.Contains("596")
                     || PaymentPlanSKU.Contains("598")
 
+                     || PaymentPlanSKU.Contains("833")
+                        
+                        || PaymentPlanSKU.Contains("835")
+                        
+                        || PaymentPlanSKU.Contains("837")
+                        
+                        || PaymentPlanSKU.Contains("839")
+                        
+
                    
                 || PaymentPlanSKU.Contains("827")
                 || PaymentPlanSKU.Contains("828")
@@ -1277,6 +1359,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     stc = stc.Replace("@3", "1".ToString());
                     stc = stc.Replace("@4", fixstring("0".ToString()));
                     stc = stc.Replace("@5", "");
+                    stc = stc.Replace("@7", "");
                     if (PaymentPlanSKU.Contains("327") || PaymentPlanSKU.Contains("330") || PaymentPlanSKU.Contains("331") || PaymentPlanSKU.Contains("332") || PaymentPlanSKU.Contains("380") || PaymentPlanSKU.Contains("381") || PaymentPlanSKU.Contains("383") || PaymentPlanSKU.Contains("384") || PaymentPlanSKU.Contains("361") || PaymentPlanSKU.Contains("362") || PaymentPlanSKU.Contains("462") || PaymentPlanSKU.Contains("463") || PaymentPlanSKU.Contains("466") || PaymentPlanSKU.Contains("467") || PaymentPlanSKU.Contains("468") || PaymentPlanSKU.Contains("469") || PaymentPlanSKU.Contains("470") || PaymentPlanSKU.Contains("471") || PaymentPlanSKU.Contains("473") || PaymentPlanSKU.Contains("475")
                         || PaymentPlanSKU.Contains("513")
                         || PaymentPlanSKU.Contains("514")
@@ -1333,6 +1416,15 @@ namespace Com.ConversionSystems.GoldCanyon
                         || PaymentPlanSKU.Contains("594")
                         || PaymentPlanSKU.Contains("596")
                         || PaymentPlanSKU.Contains("598")
+
+                         || PaymentPlanSKU.Contains("833")
+                       
+                        || PaymentPlanSKU.Contains("835")
+                       
+                        || PaymentPlanSKU.Contains("837")
+                       
+                        || PaymentPlanSKU.Contains("839")
+                       
 
                        
                 || PaymentPlanSKU.Contains("827")
@@ -1471,8 +1563,8 @@ namespace Com.ConversionSystems.GoldCanyon
                 }
                 catch
                 {
-                    
-                    
+
+
                 }
                 
 
@@ -1888,7 +1980,7 @@ namespace Com.ConversionSystems.GoldCanyon
             try
             { // send the Post
                 webRequest.ContentLength = bytes.Length;   //Count bytes to send
-                webRequest.Timeout = 100000;
+                //webRequest.Timeout = 100000;
                 os = webRequest.GetRequestStream();
                 os.Write(bytes, 0, bytes.Length);         //Send it
             }
@@ -2205,7 +2297,8 @@ namespace Com.ConversionSystems.GoldCanyon
             Mediachase.eCF.BusLayer.Common.Configuration.FrameworkConfig.EncryptionPrivateKey = key1;
             em = new Mediachase.eCF.BusLayer.Common.Util.EncryptionManager();
 
-
+            //Neustar newBatch = new Neustar();
+            //newBatch.Validate();
             Batch StartBatch = new Batch();
             Console.WriteLine("TryNono Batch - Started");
             Console.WriteLine("Please Wait - ");

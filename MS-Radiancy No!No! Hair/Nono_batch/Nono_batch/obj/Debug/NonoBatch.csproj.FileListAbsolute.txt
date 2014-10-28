@@ -1714,3 +1714,131 @@ C:\Projects\Year2014\Trynono.Com\07212014\Nono_batch\Nono_batch\bin\Debug\EBS.In
 C:\Projects\Year2014\Trynono.Com\07212014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
 C:\Projects\Year2014\Trynono.Com\07212014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
 C:\Projects\Year2014\Trynono.Com\07212014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\07282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\08112014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+J:\Projects\NoNoBatchSource_FromServer\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\09052014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\0911204\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\10242014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Projects\Year2014\Trynono.Com\10282014\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.config
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\obj\Debug\NonoBatch.pdb
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe.manifest
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\NonoBatch.application
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\NonoBatch.exe
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\NonoBatch.pdb
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.dll
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.dll
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.dll
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.OrbitalChasePayment.pdb
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.pdb
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\bin\Debug\EBS.IntegrationServices.Providers.PaymentProviders.WireCardEFT.pdb
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\obj\Debug\NonoBatch.csprojResolveAssemblyReference.cache
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\obj\Debug\NonoBatch.exe.manifest
+C:\Project\CsCommerce\CSCommerce\Dev\BatchProcesses\MS-Radiancy No!No! Hair\Nono_batch\Nono_batch\obj\Debug\NonoBatch.application

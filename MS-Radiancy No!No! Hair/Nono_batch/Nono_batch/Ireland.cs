@@ -346,7 +346,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     strPayment += "		<RealTimeCreditCardProcessing>False</RealTimeCreditCardProcessing>~";
                     strPayment += "		<CardStatus>11</CardStatus>~";
                     strPayment += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
-                    strPayment += "		<CardTransactionID>@TranasactionID@</CardTransactionID>~";
+                    //strPayment += "		<CardTransactionID>@TranasactionID@</CardTransactionID>~";
                     strPayment += "	</Payment>~";
                 }
                 strPayment = strPayment.Replace("[[[", ((char)(34)).ToString());

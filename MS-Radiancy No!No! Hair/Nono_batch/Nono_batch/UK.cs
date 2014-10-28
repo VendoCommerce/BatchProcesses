@@ -617,6 +617,20 @@ namespace Com.ConversionSystems.GoldCanyon
                     }
                 }
 
+                if (s1.Contains("CSYS-LTBST2") || s1.Contains("CSYS-LTBST3"))
+                {
+                    if ((PaymentPlanSKU.Contains("825") || PaymentPlanSKU.Contains("824")))
+                    {
+                        cnt++;
+                        stc += stb;
+                        stc = stc.Replace("@0", "0");
+                        stc = stc.Replace("@1", cnt.ToString());
+                        stc = stc.Replace("@2", fixstring("3YRWARFREE".ToString()).Replace(" ", "").Replace("-", ""));
+                        stc = stc.Replace("@3", "1".ToString());
+                        stc = stc.Replace("@4", fixstring("0".ToString()));
+                        stc = stc.Replace("@5", "");
+                    }
+                }
                 
                 string cardstatus = "";
                 cardstatus = "0";

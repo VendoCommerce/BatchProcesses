@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonoBatch", "NonoBatch.csproj", "{B9890542-4C72-4122-BCA2-EF28BB37531E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaChaseProvider", "..\MediaChaseProvider\ProviderConfiguration\MediaChaseProvider.csproj", "{C76496E5-4B87-4DDA-A5B9-AF5BD3422929}"
@@ -18,6 +20,35 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogError", "..\LogError\LogError\LogError.csproj", "{84B178B8-6BD4-4EE0-9BAF-A4DE6F4DB3C9}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://cs-srcctrl1:8080/tfs/csapps
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NonoBatch.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\MediaChaseProvider\\ProviderConfiguration\\MediaChaseProvider.csproj
+		SccProjectName2 = ../MediaChaseProvider/ProviderConfiguration
+		SccLocalPath2 = ..\\MediaChaseProvider\\ProviderConfiguration
+		SccProjectUniqueName3 = ..\\OrbitalChasePayment\\OrbitalChasePaymentAccount\\OrbitalChasePayment.csproj
+		SccProjectName3 = ../OrbitalChasePayment/OrbitalChasePaymentAccount
+		SccLocalPath3 = ..\\OrbitalChasePayment\\OrbitalChasePaymentAccount
+		SccProjectUniqueName4 = ..\\PaymentProviders\\EBS.IntegrationServices.Providers.PaymentProviders.csproj
+		SccProjectName4 = ../PaymentProviders
+		SccLocalPath4 = ..\\PaymentProviders
+		SccProjectUniqueName5 = ..\\WireCardEFT\\WireCardEFTAccount\\WireCardEFT.csproj
+		SccProjectName5 = ../WireCardEFT/WireCardEFTAccount
+		SccLocalPath5 = ..\\WireCardEFT\\WireCardEFTAccount
+		SccProjectUniqueName6 = ..\\PayPalExpress\\PayPalExpress.csproj
+		SccProjectName6 = ../PayPalExpress
+		SccLocalPath6 = ..\\PayPalExpress
+		SccProjectUniqueName7 = ..\\WireCardRisk\\WireCardRiskAccount\\WireCardRisk.csproj
+		SccProjectName7 = ../WireCardRisk/WireCardRiskAccount
+		SccLocalPath7 = ..\\WireCardRisk\\WireCardRiskAccount
+		SccProjectUniqueName8 = ..\\LogError\\LogError\\LogError.csproj
+		SccProjectName8 = ../LogError/LogError
+		SccLocalPath8 = ..\\LogError\\LogError
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/ZkRqsC44N7uP1QdepZP/dwuR2o=</dsig:DigestValue>
+        <dsig:DigestValue>3pTp0AVFmRpS5CAAxWGgZB765eQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IKiM7s+zqGcgG/XnzeR90DMMueo=</dsig:DigestValue>
+        <dsig:DigestValue>jqa95qQnkeQr9N7HrTXTHy6Fnow=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jACyJkroEafXYmsxZKyr34PEHuc=</dsig:DigestValue>
+        <dsig:DigestValue>6kDerav/FZL5PBCbPdEl887F6jg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -234,24 +234,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NonoBatch.exe" size="282624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NonoBatch.exe" size="295424">
       <assemblyIdentity name="NonoBatch" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ruP9rBb3v1729ET80Cv+MTFk/UU=</dsig:DigestValue>
+        <dsig:DigestValue>7IaNPmKM8YaBCCAfDhsQA/KWqjA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="NonoBatch.exe.config" size="16473">
+  <file name="NonoBatch.exe.config" size="17169">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>dyK6QxGzCpsotb61hmHIYLNuRew=</dsig:DigestValue>
+      <dsig:DigestValue>XJ6N7pK6EDa8h+uPh/pHA2Afdh4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
