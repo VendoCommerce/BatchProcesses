@@ -247,9 +247,18 @@ namespace Radiancy_Weekly_Report
 
                 foreach (string key in HitLinkVisitor.Keys)
                 {
-                    if ((key.Contains("-im") || key.Contains("im_")) && !OrderPresentKey.Contains(key))
-                        reportData.Rows.Add(new object[] { key.Substring(key.IndexOf("-")+1).ToUpper(), key.Substring(0, key.IndexOf("-")),
+                    try
+                    {
+                        if ((key.Contains("-im") || key.Contains("im_")) && !OrderPresentKey.Contains(key))
+                            reportData.Rows.Add(new object[] { key.Substring(key.IndexOf("-")+1).ToUpper(), key.Substring(0, key.IndexOf("-")),
                     HitLinkVisitor[key].ToString().ToLower(), "0", "0%", "0", "0", "0" });
+                    }
+                    catch
+                    {
+                        
+                        
+                    }
+                    
                 }
 
                 returnTable = reportData;

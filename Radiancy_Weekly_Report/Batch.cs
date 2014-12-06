@@ -36,7 +36,7 @@ namespace Radiancy_Weekly_Report
             
             Reports reports = new Reports();
             DataTable reportTable;
-            string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.ToString("M.dd.yyyy");
+            string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.AddDays(-1).ToString("M.dd.yyyy");
             string reportFileName;
             string reportName;
             bool reportSuccess = false;
