@@ -21,7 +21,7 @@ namespace Dermawand_Predictive_Report
         const string _predictive_Report_Name = "Dermawand_Predictive_Report";
         //enum ReportPeriods : uint
         //{
-        //    Daily = 1,
+        //    Daily = m,
         //    Weekly = 2,
         //    Monthly = 3
         //}
@@ -318,8 +318,8 @@ namespace Dermawand_Predictive_Report
         static void Main(string[] args)
         {
             //Test
-            //DateTime ReportDateFrom = DateTime.Today.AddDays(-7);
-            //DateTime ReportDateTo = DateTime.Today.AddDays(-7);
+            //DateTime ReportDateFrom = Convert.ToDateTime("2014/12/17");
+            //DateTime ReportDateTo = Convert.ToDateTime("2014/12/17");
             //Prod
             DateTime ReportDateFrom = DateTime.Today.AddDays(-1);
             DateTime ReportDateTo = DateTime.Today.AddDays(-1);
