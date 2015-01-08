@@ -463,6 +463,57 @@ namespace NoNoHairReconciliationReport
             }
         }
 
+        private static string GetQuotedValue(string str)
+        {
+            return string.Format("\"{0}\"", str);
+        }
+        private static bool CreateTXTFile(DataTable dt, string strFilePath)
+        {
+            bool TXTCreated = false;
+            try
+            {
+                // Create the TXT file.
+                StreamWriter sw = new StreamWriter(strFilePath, false);
+                int iColCount = dt.Columns.Count;
+
+                // First we will write the headers.
+                //DataTable dt = m_dsProducts.Tables[0];
+                for (int i = 0; i < iColCount; i++)
+                {
+                    sw.Write(dt.Columns[i]);
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+                
+                foreach (DataRow dr in dt.Rows)
+                {
+                    for (int i = 0; i < iColCount; i++)
+                    {
+                        if (!Convert.IsDBNull(dr[i]))
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                        if (i < iColCount - 1)
+                        {
+                            sw.Write(",");
+                        }
+                    }
+                    sw.Write(sw.NewLine);
+                }
+                sw.Close();
+                TXTCreated = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                TXTCreated = false;
+            }
+            return TXTCreated;
+        }
+
         private static bool Excel_FromDataTable(DataTable dt, string excelFileName, DataTable dtsummaryBottom)
         {
             bool excelCreated = false;
@@ -489,68 +540,71 @@ namespace NoNoHairReconciliationReport
                     }
                 }
 
-
-                DataTable NewTempDataTable = new DataTable();
-
-                DataColumn myDataColumn;
-
-                myDataColumn = new DataColumn();
-                myDataColumn.DataType = Type.GetType("System.String");
-                myDataColumn.ColumnName = "col1";
-                NewTempDataTable.Columns.Add(myDataColumn);
-
-                myDataColumn = new DataColumn();
-                myDataColumn.DataType = Type.GetType("System.String");
-                myDataColumn.ColumnName = "col2";
-                NewTempDataTable.Columns.Add(myDataColumn);
-
-                DataRow emptyrow;
-                emptyrow = NewTempDataTable.NewRow();
-                emptyrow[0] = "";
-                emptyrow[1] = "";
-                NewTempDataTable.Rows.Add(emptyrow);
-
-                emptyrow = NewTempDataTable.NewRow();
-                emptyrow[0] = "";
-                emptyrow[1] = "";
-                NewTempDataTable.Rows.Add(emptyrow);
-
-                emptyrow = NewTempDataTable.NewRow();
-                emptyrow[0] = "";
-                emptyrow[1] = "";
-                NewTempDataTable.Rows.Add(emptyrow);
-
-                emptyrow = NewTempDataTable.NewRow();
-                emptyrow[0] = "";
-                emptyrow[1] = "";
-                NewTempDataTable.Rows.Add(emptyrow);
-
-                foreach (DataRow r2 in NewTempDataTable.Rows)
+                
+                if (dtsummaryBottom.Rows.Count > 0)
                 {
-                    iRow++;
-                    iCol = 0;
-                    foreach (DataColumn c in NewTempDataTable.Columns)
-                    {
-                        iCol++;
-                        excel.Cells[iRow + 1, iCol] = r2[c.ColumnName];
-                    }
-                }
+                    DataTable NewTempDataTable = new DataTable();
 
-                // Summary in excel at Bottom
-                foreach (DataRow r1 in dtsummaryBottom.Rows)
-                {
-                    iRow++;
-                    iCol = 0;
-                    foreach (DataColumn c in dtsummaryBottom.Columns)
+                    DataColumn myDataColumn;
+
+                    myDataColumn = new DataColumn();
+                    myDataColumn.DataType = Type.GetType("System.String");
+                    myDataColumn.ColumnName = "col1";
+                    NewTempDataTable.Columns.Add(myDataColumn);
+
+                    myDataColumn = new DataColumn();
+                    myDataColumn.DataType = Type.GetType("System.String");
+                    myDataColumn.ColumnName = "col2";
+                    NewTempDataTable.Columns.Add(myDataColumn);
+
+                    DataRow emptyrow;
+                    emptyrow = NewTempDataTable.NewRow();
+                    emptyrow[0] = "";
+                    emptyrow[1] = "";
+                    NewTempDataTable.Rows.Add(emptyrow);
+
+                    emptyrow = NewTempDataTable.NewRow();
+                    emptyrow[0] = "";
+                    emptyrow[1] = "";
+                    NewTempDataTable.Rows.Add(emptyrow);
+
+                    emptyrow = NewTempDataTable.NewRow();
+                    emptyrow[0] = "";
+                    emptyrow[1] = "";
+                    NewTempDataTable.Rows.Add(emptyrow);
+
+                    emptyrow = NewTempDataTable.NewRow();
+                    emptyrow[0] = "";
+                    emptyrow[1] = "";
+                    NewTempDataTable.Rows.Add(emptyrow);
+
+                    foreach (DataRow r2 in NewTempDataTable.Rows)
                     {
-                        iCol++;
-                        if (iCol == 2)
+                        iRow++;
+                        iCol = 0;
+                        foreach (DataColumn c in NewTempDataTable.Columns)
                         {
-                            iCol--;
-                            excel.Cells[iRow + 1, iCol] = r1[c.ColumnName];
+                            iCol++;
+                            excel.Cells[iRow + 1, iCol] = r2[c.ColumnName];
                         }
                     }
-                    //  excel.Cells[iRow + 1, iCol] = r1[1];           
+
+                    // Summary in excel at Bottom
+                    foreach (DataRow r1 in dtsummaryBottom.Rows)
+                    {
+                        iRow++;
+                        iCol = 0;
+                        foreach (DataColumn c in dtsummaryBottom.Columns)
+                        {
+                            iCol++;
+                            if (iCol == 2)
+                            {
+                                iCol--;
+                                excel.Cells[iRow + 1, iCol] = r1[c.ColumnName];
+                            }
+                        }
+                        //  excel.Cells[iRow + 1, iCol] = r1[1];           
+                    }
                 }
 
                 object missing = System.Reflection.Missing.Value;
@@ -590,320 +644,341 @@ namespace NoNoHairReconciliationReport
         void LoadOrder_Germany(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUK", startDate, endDate,1);
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDGermany", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDGermany", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDGermany", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("Germany Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_Germany_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_Germany_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUK", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDGermany", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDGermany", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found for Germany");
-                Console.WriteLine("No Order found Germany");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found for Germany");
+            //    Console.WriteLine("No Order found Germany");
+            //}
         }
 
         void LoadOrder_Spain(DateTime startDate, DateTime endDate, string FileDate)
         {
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDSpain", startDate, endDate, 1);
-            if (Dt1.Rows.Count > 0)
-            {
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDSpain", startDate, endDate, 1);
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("Spain Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_Spain_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_Spain_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDSpain", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDSpain", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     Console.WriteLine("Sending Email...");
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found for Spain");
-                Console.WriteLine("No Order found Spain");
-            }
+            //}
+            //else
+            //{                
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found for Spain");
+            //    Console.WriteLine("No Order found Spain");
+            //}
         }
 
         void LoadOrder_France(DateTime startDate, DateTime endDate, string FileDate)
         {
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDFrance", startDate, endDate, 1);
-            if (Dt1.Rows.Count > 0)
-            {
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDFrance", startDate, endDate, 1);
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("France Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_France_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_France_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDFrance", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDFrance", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName); 
                 if (flag == true)
                 {
                     Console.WriteLine("Sending Email...");
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found for France");
-                Console.WriteLine("No Order found France");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found for France");
+            //    Console.WriteLine("No Order found France");
+            //}
         }
 
         void LoadOrder_IreLand(DateTime startDate, DateTime endDate, string FileDate)
         {            
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationIreland", startDate, endDate, 1);
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDIreland", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDIreland", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDIreland", startDate, endDate, 1);
             
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("IreLand Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_Ireland_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_Ireland_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
                 // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationIreland", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDIreland", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDIreland", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     Console.WriteLine("Sending Email...");
                     AddDataToTable(FUllPAthwithFileName, excelFileName);                    
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found for IreLand");
-                Console.WriteLine("No Order found IreLand");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found for IreLand");
+            //    Console.WriteLine("No Order found IreLand");
+            //}
         }
 
         void LoadOrder_UK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUK", startDate, endDate,1);
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUK", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUK", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDUK", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {                
+            //if (Dt1.Rows.Count > 0)
+            //{                
                 Console.WriteLine("UK Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_UK_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_UK_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath  + excelFileName;
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUK", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDUK", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDUK", startDate, endDate, 2);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName); // , dtsummaryBottom);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);                   
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found for UK");
-                Console.WriteLine("No Order found UK");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found for UK");
+            //    Console.WriteLine("No Order found UK");
+            //}
         }
         
         void LoadOrder_US_Canada(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate("pr_OrderReconciliationByBizIDUSCanada", startDate, endDate, 1); 
             //Update for GOM8800 sku
-            Dt1.Columns["EM8800"].ColumnName = "GOM8800";
+            // Dt1.Columns["EM8800"].ColumnName = "GOM8800";
             //
-            if (Dt1.Rows.Count > 0)
-            {                
+            //if (Dt1.Rows.Count > 0)
+            //{                
                 Console.WriteLine("US_Canada Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_US_Canada_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_US_Canada_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath  + excelFileName;
-
+                //DataTable dtsummaryBottom = new DataTable();
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 2);
+                // DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationByBizIDUSCanada", startDate, endDate, 2);
                 //Update for GOM8800 sku
-                foreach (DataRow r in dtsummaryBottom.Rows)
-                {
-                    if (r["key"].ToString() == "EM8800")
-                        r["Value"] = r["Value"].ToString().Replace("EM8800", "GOM8800");
-                }
+                //foreach (DataRow r in dtsummaryBottom.Rows)
+                //{
+                //    if (r["key"].ToString() == "EM8800")
+                //        r["Value"] = r["Value"].ToString().Replace("EM8800", "GOM8800");
+                //}
                 //
-                bool flag =  Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // bool flag =  Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);                   
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found US_Canada");
-                Console.WriteLine("No Order found US_Canada");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found US_Canada");
+            //    Console.WriteLine("No Order found US_Canada");
+            //}
         }
 
         void LoadOrder_MyNONO_US(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate_MYNONO("pr_get_order_reconciliation", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_MYNONO("pr_get_order_reconciliation", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_MYNONO("pr_sp_get_order_reconciliation", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("My-NO-NO Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_My-NO-NO_US_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_My-NO-NO_US_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_MYNONO("pr_get_order_reconciliation", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                //DataTable dtsummaryBottom = getDataTableByDate_MYNONO("pr_get_order_reconciliation", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found My-NO-NO.com");
-                Console.WriteLine("No Order found My-NO-NO.com");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found My-NO-NO.com");
+            //    Console.WriteLine("No Order found My-NO-NO.com");
+            //}
         }
 
 
 
         void LoadOrder_NoNoHairTV(DateTime startDate, DateTime endDate, string FileDate)
         {
-            DataTable Dt1 = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_NoNoHairTV("pr_sp_get_order_reconciliation", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("NoNoHairTV.com Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_NoNoHairTV_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_NoNoHairTV_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                //DataTable dtsummaryBottom = getDataTableByDate_NoNoHairTV("pr_get_order_reconciliation", startDate, endDate, 2);
+                //bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("NoNoHairTV : No Order found NoNoHairTV");
-                Console.WriteLine("No Order found NoNoHairTV");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("NoNoHairTV : No Order found NoNoHairTV");
+            //    Console.WriteLine("No Order found NoNoHairTV");
+            //}
         }
 
         void LoadOrder_TryKyro(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate_TryKyro("pr_get_order_reconciliation", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_TryKyro("pr_get_order_reconciliation", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_TryKyro("pr_sp_get_order_reconciliation", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("TryKyro Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_TryKyro_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_TryKyro_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_TryKyro("pr_get_order_reconciliation", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate_TryKyro("pr_get_order_reconciliation", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found TryKyro");
-                Console.WriteLine("No Order found TryKyro");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found TryKyro");
+            //    Console.WriteLine("No Order found TryKyro");
+            //}
         }
 
         void LoadOrder_Kyrobak_UK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_Kyrobak_UK("pr_sp_get_order_reconciliation", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("KyroBack_UK Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_Kyrobak_UK_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_Kyrobak_UK_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                //DataTable dtsummaryBottom = getDataTableByDate_Kyrobak_UK("pr_get_order_reconciliation", startDate, endDate, 2);
+                //bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found TryKyro");
-                Console.WriteLine("No Order found TryKyro");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found TryKyro");
+            //    Console.WriteLine("No Order found TryKyro");
+            //}
         }
 
         void LoadOrder_MyNONO_LTK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate_MYNONO_LTK("pr_get_order_reconciliation_LTK", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_MYNONO_LTK("pr_get_order_reconciliation_LTK", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_MYNONO_LTK("pr_sp_get_order_reconciliation_LTK", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("LTK-My-NO-NO Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_LTK-My-NO-NO_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_LTK-My-NO-NO_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_MYNONO_LTK("pr_get_order_reconciliation_LTK", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                //DataTable dtsummaryBottom = getDataTableByDate_MYNONO_LTK("pr_get_order_reconciliation_LTK", startDate, endDate, 2);
+                //bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found LTK.My-NO-NO.com");
-                Console.WriteLine("No Order found LTK.My-NO-NO.com");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found LTK.My-NO-NO.com");
+            //    Console.WriteLine("No Order found LTK.My-NO-NO.com");
+            //}
         }
         void LoadOrder_MyNONO_UK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate_MYNONO("pr_get_order_reconciliation_UK", startDate, endDate, 1);
+            // DataTable Dt1 = getDataTableByDate_MYNONO("pr_get_order_reconciliation_UK", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate_MYNONO("pr_sp_get_order_reconciliation_UK", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("My-NO-NO Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_HTTPBizID_My-NO-NO_UK" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_HTTPBizID_My-NO-NO_UK" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate_MYNONO("pr_get_order_reconciliation_UK", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                //DataTable dtsummaryBottom = getDataTableByDate_MYNONO("pr_get_order_reconciliation_UK", startDate, endDate, 2);
+                //bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("No No Hair : No Order found My-NO-NO.CO.UK");
-                Console.WriteLine("No Order found My-NO-NO.CO.UK");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("No No Hair : No Order found My-NO-NO.CO.UK");
+            //    Console.WriteLine("No Order found My-NO-NO.CO.UK");
+            //}
         }
 
         private void LogToFile(string AdditionalInfo)
