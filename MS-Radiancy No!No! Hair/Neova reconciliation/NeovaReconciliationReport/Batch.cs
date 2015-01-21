@@ -237,6 +237,52 @@ namespace NeovaReconciliationReport
             }
         }
 
+        private static bool CreateTXTFile(DataTable dt, string strFilePath)
+        {
+            bool TXTCreated = false;
+            try
+            {
+                // Create the TXT file.
+                StreamWriter sw = new StreamWriter(strFilePath, false);
+                int iColCount = dt.Columns.Count;
+
+                // First we will write the headers.
+                //DataTable dt = m_dsProducts.Tables[0];
+                for (int i = 0; i < iColCount; i++)
+                {
+                    sw.Write(dt.Columns[i]);
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    for (int i = 0; i < iColCount; i++)
+                    {
+                        if (!Convert.IsDBNull(dr[i]))
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                        if (i < iColCount - 1)
+                        {
+                            sw.Write(",");
+                        }
+                    }
+                    sw.Write(sw.NewLine);
+                }
+                sw.Close();
+                TXTCreated = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                TXTCreated = false;
+            }
+            return TXTCreated;
+        }    
         private static bool Excel_FromDataTable(DataTable dt, string excelFileName, DataTable dtsummaryBottom)
         {
             bool excelCreated = false;
@@ -370,54 +416,56 @@ namespace NeovaReconciliationReport
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate("pr_get_order_reconciliation_US", startDate, endDate, 1);            
+            DataTable Dt1 = getDataTableByDate("pr_sp_get_order_reconciliation_US", startDate, endDate, 1);            
             
-            if (Dt1.Rows.Count > 0)
-            {                
+            //if (Dt1.Rows.Count > 0)
+            //{                
                 Console.WriteLine("US_Canada Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_Neova_US_Canada_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_Neova_US_Canada_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath  + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("pr_get_order_reconciliation_US", startDate, endDate, 2);
-                bool flag =  Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("pr_get_order_reconciliation_US", startDate, endDate, 2);
+                // bool flag =  Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);                   
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("Neova : No Order found US_Canada");
-                Console.WriteLine("No Order found US_Canada");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("Neova : No Order found US_Canada");
+            //    Console.WriteLine("No Order found US_Canada");
+            //}
         }
 
         void LoadOrder_UK(DateTime startDate, DateTime endDate, string FileDate)
         {
             // DataTable Dt1 = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate,1);            
 
-            DataTable Dt1 = getDataTableByDate("pr_get_order_reconciliation_UK", startDate, endDate, 1);
+            DataTable Dt1 = getDataTableByDate("pr_sp_get_order_reconciliation_UK", startDate, endDate, 1);
 
-            if (Dt1.Rows.Count > 0)
-            {
+            //if (Dt1.Rows.Count > 0)
+            //{
                 Console.WriteLine("UK Order: " + Dt1.Rows.Count.ToString());
-                string excelFileName = "ReconciliationReport_Neova_UK_" + FileDate + ".xls";
+                string excelFileName = "ReconciliationReport_Neova_UK_" + FileDate + ".csv";
                 string FUllPAthwithFileName = targetPath + excelFileName;
 
                 //  DataTable dtsummaryBottom = getDataTableByDate("OrderReconciliationUSCanada", startDate, endDate, 2);
-                DataTable dtsummaryBottom = getDataTableByDate("pr_get_order_reconciliation_UK", startDate, endDate, 2);
-                bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                // DataTable dtsummaryBottom = getDataTableByDate("pr_get_order_reconciliation_UK", startDate, endDate, 2);
+                // bool flag = Excel_FromDataTable(Dt1, FUllPAthwithFileName, dtsummaryBottom);
+                bool flag = CreateTXTFile(Dt1, FUllPAthwithFileName);
                 if (flag == true)
                 {
                     AddDataToTable(FUllPAthwithFileName, excelFileName);
                 }
-            }
-            else
-            {
-                SendZeroRecordFoundEmail("Neova : No Order found UK");
-                Console.WriteLine("No Order found UK");
-            }
+            //}
+            //else
+            //{
+            //    SendZeroRecordFoundEmail("Neova : No Order found UK");
+            //    Console.WriteLine("No Order found UK");
+            //}
         }
        
         private void LogToFile(string AdditionalInfo)
