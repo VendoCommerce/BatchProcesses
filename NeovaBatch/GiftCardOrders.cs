@@ -283,7 +283,7 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "		<OrderID>@orderid@</OrderID>~";
             s1 += "		<OrderDate>@orderdate@</OrderDate>~";
             s1 += "		<OriginType>3</OriginType>~";
-            s1 += "		<StoreCode>www.Neova.com</StoreCode>~";
+            s1 += "		<StoreCode>Conversion Systems</StoreCode>~";
             s1 += "		<SiteID>@siteid@</SiteID>~";
             s1 += "		<CustomerIP></CustomerIP>~"; //ASK KEVIN AB THIS
             s1 += "	</Header>~";
