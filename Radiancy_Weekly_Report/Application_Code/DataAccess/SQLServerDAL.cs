@@ -20,7 +20,7 @@ namespace Com.ConversionSystems.DataAccess
 
         public bool Get_NoNo_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
-            return GetOrders("URL_OrderLoadByDatesRange", "TryNoNo_ConnectionString", start, end, out dt);
+            return GetOrders("URL_OrderLoadByDatesRange_FullPrice", "TryNoNo_ConnectionString", start, end, out dt);
         }
 
         public bool Get_NoNo_Skin_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
