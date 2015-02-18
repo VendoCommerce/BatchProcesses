@@ -286,7 +286,7 @@ namespace Radiancy_Weekly_Report
                 List<string> OrderPresentKey = new List<string>();
                 DAL dal = new DAL();
                 //get the versionSummary data from db , using OrderManager
-                dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportData);
+                dal.SQLServer.Get_NoNo_Web_Report_Table(startDate, endDate, out reportData);
 
 
 

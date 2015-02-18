@@ -234,7 +234,7 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today;//.AddHours(-3);
 
             //TODO: Comment for prod
-            //ReportDateFrom = DateTime.Parse("1/19/2015");
+            //ReportDateFrom = DateTime.Parse("1/26/2015");
             //ReportDateTo = DateTime.Parse("2/1/2015");
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
