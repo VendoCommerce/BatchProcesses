@@ -761,7 +761,7 @@ namespace RadiancyTrynonoBatch
             try
             {
                 //Create FTP request
-                FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(FTPAddress + "/Radiancy/" + Path.GetFileName(filePath));
+                FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(FTPAddress + "/DermaWand/" + Path.GetFileName(filePath));
 
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 request.Credentials = new NetworkCredential(username, password);
@@ -954,7 +954,7 @@ namespace RadiancyTrynonoBatch
                         hline += AddPipe("None");                                                                  // "Offer Code" |
                         hline += AddPipe("888.666.1212");                                                          // "Dialed TFN" |
                         hline += AddPipe("888.666.1212");                                                          // "Terminating number/unique ID" |
-                        hline += AddPipe("abc123");                                                                // "Affiliate ID" |
+                        hline += AddPipe(FixForDBNull(reader["Version"]));                                                               // "Affiliate ID" |
                         hline += AddPipe("www.Dermawand.com");                                                       // "URL" |
                         hline += AddPipe("00:00:00");                                                              // "Call Length" |
                         hline += AddPipe("1234");                                                                  // "Operator ID" |
@@ -1017,7 +1017,7 @@ namespace RadiancyTrynonoBatch
             }
 
             Console.WriteLine(path2);
-            ////////////////////////////uploadFile("ftp://www.ftp-directory.com/", path2, "ConvSys", "c0nV$ys");
+            uploadFile("ftp://www.ftp-directory.com/", path2, "ConvSys", "c0nV$ys");
 
 
             //string s1;
