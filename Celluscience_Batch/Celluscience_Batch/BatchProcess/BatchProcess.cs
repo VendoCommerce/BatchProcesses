@@ -219,8 +219,10 @@ namespace ConversionSystems.Celluscience.BatchProcess
                             ord.ShippingTotal = Math.Round(decimal.Parse(ord.ShippingTotal), 2).ToString();
 
                             ord.SalesTaxTotal = _drOrder["Tax"].ToString().Trim();
-                            ord.SalesTaxTotal = Math.Round(decimal.Parse(ord.SalesTaxTotal), 2).ToString();
-
+                            if (ord.SalesTaxTotal.Length > 0)
+                                ord.SalesTaxTotal = Math.Round(decimal.Parse(ord.SalesTaxTotal), 2).ToString();
+                            else
+                                ord.SalesTaxTotal = "0.00";
                             ord.OrderTotal = (decimal.Parse(ord.MerchandiseTotal) + decimal.Parse(ord.ShippingTotal) + decimal.Parse(ord.SalesTaxTotal)).ToString();
                             ord.OrderTotal = Math.Round(decimal.Parse(ord.OrderTotal), 2).ToString();
                         }

@@ -23,11 +23,10 @@ namespace ConversionSystems.Celluscience.BatchProcess
         {
             Batch CelluscienceBatch = new Batch();
             DateTime dt;
-            //dt = DateTime.ParseExact(Convert.ToDateTime("10/01/2014").ToString("yyyyMMdd"), "yyyyMMdd", CultureInfo.InvariantCulture);
             dt = DateTime.ParseExact(DateTime.Now.ToString("yyyyMMdd"), "yyyyMMdd", CultureInfo.InvariantCulture);
-            
             //TODO:Remove for prod
-            //dt = new DateTime(2014, 10, 19);
+            ///////dt = DateTime.ParseExact(Convert.ToDateTime("3/13/2015").ToString("yyyyMMdd"), "yyyyMMdd", CultureInfo.InvariantCulture);
+            
            // string EmployeeNumber = "CONV";
             string EmployeeNumber = Helper.DataServicesTxtBatchConfig["Field#24"]; 
             //   Console.WriteLine("\n Please Enter your assigned Employee Number(call center code).");
