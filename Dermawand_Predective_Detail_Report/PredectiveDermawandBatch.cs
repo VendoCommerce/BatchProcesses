@@ -954,8 +954,8 @@ namespace RadiancyTrynonoBatch
                         hline += AddPipe("None");                                                                  // "Offer Code" |
                         hline += AddPipe("888.666.1212");                                                          // "Dialed TFN" |
                         hline += AddPipe("888.666.1212");                                                          // "Terminating number/unique ID" |
-                        hline += AddPipe(FixForDBNull(reader["Version"]));                                                               // "Affiliate ID" |
-                        hline += AddPipe("www.Dermawand.com");                                                       // "URL" |
+                        hline += AddPipe(FixForDBNull(reader["Version"]));                                         // "Affiliate ID" |
+                        hline += AddPipe(FixForDBNull(reader["URL"]));                                                     // "URL" |
                         hline += AddPipe("00:00:00");                                                              // "Call Length" |
                         hline += AddPipe("1234");                                                                  // "Operator ID" |
                         hline += AddPipe("NNP2");                                                                  // "Response Input" |
@@ -974,14 +974,15 @@ namespace RadiancyTrynonoBatch
                         hline += AddPipe(FixForDBNull(reader["ZipPostalCode"]));
                         hline += AddPipe(FixForDBNull(reader["CountryCode"]));
                         // Country Code
-                        try
-                        {
-                            hline += AddPipe(reader["PhoneNumber"].ToString().Substring(0, 3)); // Area Code
-                        }
-                        catch
-                        {
+                        //try
+                        //{
+                        //    if (reader["PhoneNumber"] != Convert.DBNull)
+                        //    hline += AddPipe(reader["PhoneNumber"].ToString().Substring(0, 3)); // Area Code
+                        //}
+                        //catch
+                        //{
                             hline += AddPipe("");
-                        }
+                        //}
                         //hline += AddPipe(FixForDBNull(reader["PhoneNumber"]));
                         //hline += AddPipe(FixForDBNull(reader["Email"]));
                         hline += AddPipe(FixForDBNull(reader["OrderId"]));
