@@ -841,8 +841,8 @@ namespace RadiancyTrynonoBatch
             int linenum = 0;
 
             string hline = "";            
-            string path2 = string.Format("{1}\\ictvDermawand_{0}.txt", DateTime.Today.AddDays(1).ToString("MMddyyyy"), CopyPath1);
-            string path2a = string.Format("ictvDermawand_{0}.txt", DateTime.Today.AddDays(1).ToString("MMddyyyy"));
+            string path2 = string.Format("{1}\\ictvDermawand_{0}.txt", DateTime.Today.ToString("MMddyyyy"), CopyPath1);
+            string path2a = string.Format("ictvDermawand_{0}.txt", DateTime.Today.ToString("MMddyyyy"));
 
             using (StreamWriter sb = new StreamWriter(path2))
             {
