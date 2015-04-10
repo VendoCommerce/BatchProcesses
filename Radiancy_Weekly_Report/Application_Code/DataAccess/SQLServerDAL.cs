@@ -45,7 +45,7 @@ namespace Com.ConversionSystems.DataAccess
 
         public bool Get_Kyrobak_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
-            return GetOrders("Get_Kyrobak_Web_Report", "TryKyro_ConnectionString", start, end, out dt);
+            return GetOrders("Get_Kyrobak_Web_Report_Consolidated", "TryKyro_ConnectionString", start, end, out dt);
         }
         
         public bool GetOrders (string spName,string connectionName, DateTime start, DateTime end, out DataTable dt)        

@@ -208,13 +208,59 @@ namespace Radiancy_Weekly_Report
                 Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
-                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
+                    if (rptData.Rows[i].Columns[0].Value.Contains(","))
+                    {
+                        if (
+                            HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()
+                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))))
+                        {
+                            int realCount = Convert.ToInt32(HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()
+                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))]);
+                            int newCount = Convert.ToInt32(rptData.Rows[i].Columns[9].Value);
+
+                            HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()
+                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))] =
+                                (realCount + newCount).ToString();
+
+                        }
+                        else
+                        {
+                            HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(',')), rptData.Rows[i].Columns[9].Value); 
+                        }
+                         
+                    }
+                    else
+                    {
+                        if (
+                            HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()))
+                        {
+                            int realCount = Convert.ToInt32(HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()]);
+                            int newCount = Convert.ToInt32(rptData.Rows[i].Columns[9].Value);
+
+                            HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()] =
+                                (realCount + newCount).ToString();
+
+                        }
+                        else
+                        {
+                            HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
+                        }
+                        
+                         
+                    }
+                    
                 }
                 //get hitslink data for the url list using hitslink service
                 rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro2", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
-                    string versionName = rptData.Rows[i].Columns[0].Value.ToLower();
+                    
+                    string versionName = rptData.Rows[i].Columns[0].Value.ToLower();//.Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
+                    if (versionName.Contains(","))
+                    {
+                        versionName = rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
+                    }
+                    
                     if (!HitLinkVisitor.ContainsKey(versionName))
                         HitLinkVisitor.Add(versionName, rptData.Rows[i].Columns[9].Value);
                 }
