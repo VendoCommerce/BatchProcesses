@@ -103,7 +103,7 @@ namespace Radiancy_Weekly_Report
             ///// *********  Kyrobak Web Report   *********////////
             reportName = "Kyrobak Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate, out reportTable);
+            reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate.AddDays(-1), out reportTable);
 
             if (reportSuccess && reportTable != null)
             {
@@ -234,8 +234,8 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today;//.AddHours(-3);
 
             //TODO: Comment for prod
-            ReportDateFrom = DateTime.Parse("3/30/2015");
-            ReportDateTo = DateTime.Parse("4/6/2015");
+            //ReportDateFrom = DateTime.Parse("3/30/2015");
+            //ReportDateTo = DateTime.Parse("4/6/2015");
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
