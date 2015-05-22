@@ -323,7 +323,7 @@ namespace Radiancy_Weekly_Report
         public bool Get_NoNo_Web_Report_Report(DateTime startDate, DateTime endDate, out DataTable returnTable)
         {
             bool result = false;
-           
+            Hashtable HitLinkVisitor = new Hashtable();
 
             try
             {
@@ -333,16 +333,33 @@ namespace Radiancy_Weekly_Report
                 DAL dal = new DAL();
                 //get the versionSummary data from db , using OrderManager
                 dal.SQLServer.Get_NoNo_Web_Report_Table(startDate, endDate, out reportData);
+                HitLinkVisitor.Clear();
+                //get hitslink data using hitslink service , and update the versionSummary data accordingly 
+                ReportWSSoapClient hitslinkWS = new ReportWSSoapClient();
+               
+                //get hitslink data for the url list using hitslink service
+                Data   rptData = new ReportWSSoapClient().GetDataFromTimeframe("trynono_url", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate, endDate, 100000000, 0, 0);
+                for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
+                {
+                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
 
+                    //string versionName = rptData.Rows[i].Columns[0].Value.ToLower();//.Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
+                    //if (versionName.Contains(","))
+                    //{
+                    //    versionName = rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
+                    //}
 
+                    //if (!HitLinkVisitor.ContainsKey(versionName))
+                    //    HitLinkVisitor.Add(versionName, rptData.Rows[i].Columns[9].Value);
+                }
 
                 DataTable returnTable1 = reportData.Clone();
                 try
                 {
-                   
+
                     foreach (DataRow dataRow in reportData.Rows)
                     {
-                        string _url =  dataRow["URL"].ToString().ToLower();
+                        string _url = dataRow["URL"].ToString().ToLower();
                         double _num;
                         //string _url_checkNumber = _url.Substring(_url.IndexOf(".com", System.StringComparison.Ordinal) - 3, 3);
                         //bool isNum = double.TryParse(_url_checkNumber, out _num);
@@ -351,15 +368,62 @@ namespace Radiancy_Weekly_Report
                         if (m.Success)
                         {
                             returnTable1.ImportRow(dataRow);
-                            
+
                         }
                     }
                 }
                 catch
-                {}
+                { }
 
-                
-                //for Items which are not part of order
+
+
+                foreach (DataRow dataRow in returnTable1.Rows)
+                {
+                    string versionName = dataRow["URL"].ToString().ToLower();
+                    string versionURL1 = versionName.Replace("www.", "");
+                    if (versionName.EndsWith("/"))
+                    {
+                        versionName = versionName.Substring(0, versionName.Length - 1);
+                    }
+                    if (versionURL1.EndsWith("/"))
+                    {
+                        versionURL1 = versionURL1.Substring(0, versionURL1.Length - 1);
+                    }
+                    string versionUrl = versionName;
+                    decimal visitor = 0;
+                    //if (HitLinkVisitor.ContainsKey(versionUrl))
+                    //{
+                    //    visitor = Convert.ToDecimal(HitLinkVisitor[versionUrl].ToString().ToLower());
+                    //    OrderPresentKey.Add(versionUrl);
+                    //}
+                    foreach (string key in HitLinkVisitor.Keys)
+                    {
+                        try
+                        {
+                            if ((key.Contains(versionUrl)))
+                            {
+                                visitor = Convert.ToDecimal(HitLinkVisitor[key].ToString().ToLower());
+                            }
+                            else if ((key.Contains(versionURL1)))
+                            {
+                                visitor = Convert.ToDecimal(HitLinkVisitor[key].ToString().ToLower());
+                            }
+                        }
+                        catch
+                        {
+
+
+                        }
+                    }
+                    visitor = Math.Abs(visitor);
+                    if (visitor > 0)
+                    {
+                        dataRow["UniqueVisitors"] = visitor.ToString();
+                    }
+                    
+                }
+
+              
 
                 returnTable = returnTable1;
                 return true;

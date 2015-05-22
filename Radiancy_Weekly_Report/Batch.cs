@@ -43,7 +43,7 @@ namespace Radiancy_Weekly_Report
             ///// *********   NoNo Web Report  *********////////
             reportName = "NoNo Web Report";
             reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_NoNo_Web_Report_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            reportSuccess = reports.Get_NoNo_Web_Report_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate.AddDays(-1)), out reportTable);
            // reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
             if (reportSuccess && reportTable != null)
@@ -234,8 +234,8 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today;//.AddHours(-3);
 
             //TODO: Comment for prod
-            //ReportDateFrom = DateTime.Parse("3/30/2015");
-            //ReportDateTo = DateTime.Parse("4/6/2015");
+            //ReportDateFrom = DateTime.Parse("5/25/2015");
+            //ReportDateTo = DateTime.Parse("5/25/2015");
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
