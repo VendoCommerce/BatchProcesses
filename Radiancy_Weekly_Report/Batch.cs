@@ -53,15 +53,15 @@ namespace Radiancy_Weekly_Report
             }
 
             ///// *********   NoNo Skin Web Report  *********////////
-            reportName = "NoNo Skin Web Report";
-            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_NoNo_Skin_Web_Report(startDate, endDate, out reportTable);
+            //reportName = "NoNo Skin Web Report";
+            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            //reportSuccess = reports.Get_NoNo_Skin_Web_Report(startDate, endDate, out reportTable);
 
-            if (reportSuccess && reportTable != null)
-            {
-                CreateCSVFile(reportTable, targetPath + reportFileName, true);
-                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            }
+            //if (reportSuccess && reportTable != null)
+            //{
+            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
+            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            //}
 
             //TODO: should get proper visitor list 
             ///// *********  Neova Insert Report  *********////////
