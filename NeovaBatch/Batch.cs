@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Net;
@@ -241,6 +243,11 @@ namespace Com.ConversionSystems.GoldCanyon
             s1 += "		    <Field fieldName=[[[OriginalOrderDate[[[>@OrderDateFormat@</Field>~";
             s1 += "		    <Field fieldName=[[[URL[[[>www.Neova.com</Field>~";                        
             s1 += "		    <Field fieldName=[[[CustomerIP[[[>@CustomerIP@</Field>~";
+            s1 += "		    <Field fieldName=[[[UTM_SOURCE[[[>@UTM_SOURCE@</Field>~";
+            s1 += "		    <Field fieldName=[[[UTM_MEDIUM[[[>@UTM_MEDIUM@</Field>~";
+            s1 += "		    <Field fieldName=[[[UTM_CAMPAIGN[[[>@UTM_CAMPAIGN@</Field>~";
+            s1 += "		    <Field fieldName=[[[MID[[[>@MID@</Field>~";
+            s1 += "		    <Field fieldName=[[[SID[[[>@SID@</Field>~";
             s1 += "	    </Report>~";
             s1 += "	</CustomFields>~";
             s1 += "</UDOARequest>~";
@@ -624,7 +631,101 @@ namespace Com.ConversionSystems.GoldCanyon
                     method1 = "1";
                 }
 
-                
+                if (!string.IsNullOrEmpty(r["querystring"].ToString()))
+                {
+                    try
+                    {
+                        if (r["querystring"].ToString().ToUpper().Contains("UTM_SOURCE"))
+                        {
+                            NameValueCollection query = HttpUtility.ParseQueryString(r["querystring"].ToString().Substring(r["querystring"].ToString().IndexOf('?'), r["querystring"].ToString().Length - r["querystring"].ToString().IndexOf('?')).ToUpper());
+                            s1 = s1.Replace("@UTM_SOURCE@", query["UTM_SOURCE"]);
+                        }
+                        else
+                        {
+                            s1 = s1.Replace("@UTM_SOURCE@", "");
+                        }
+
+                    }
+                    catch
+                    {
+                        s1 = s1.Replace("@UTM_SOURCE@", "");
+                    }
+
+                    try
+                    {
+                        if (r["querystring"].ToString().ToUpper().Contains("UTM_MEDIUM"))
+                        {
+                            NameValueCollection query = HttpUtility.ParseQueryString(r["querystring"].ToString().Substring(r["querystring"].ToString().IndexOf('?'), r["querystring"].ToString().Length - r["querystring"].ToString().IndexOf('?')).ToUpper());
+                            s1 = s1.Replace("@UTM_MEDIUM@", query["UTM_MEDIUM"]);
+                        }
+                        else
+                        {
+                            s1 = s1.Replace("@UTM_MEDIUM@", "");
+                        }
+
+                    }
+                    catch
+                    {
+                        s1 = s1.Replace("@UTM_MEDIUM@", "");
+                    }
+
+                    try
+                    {
+                        if (r["querystring"].ToString().ToUpper().Contains("UTM_CAMPAIGN"))
+                        {
+                            NameValueCollection query = HttpUtility.ParseQueryString(r["querystring"].ToString().Substring(r["querystring"].ToString().IndexOf('?'), r["querystring"].ToString().Length - r["querystring"].ToString().IndexOf('?')).ToUpper());
+                            s1 = s1.Replace("@UTM_CAMPAIGN@", query["UTM_CAMPAIGN"]);
+                        }
+                        else
+                        {
+                            s1 = s1.Replace("@UTM_CAMPAIGN@", "");
+                        }
+
+                    }
+                    catch
+                    {
+                        s1 = s1.Replace("@UTM_CAMPAIGN@", "");
+                    }
+
+
+
+                    try
+                    {
+                        if (r["querystring"].ToString().ToUpper().Contains("MID"))
+                        {
+                            NameValueCollection query = HttpUtility.ParseQueryString(r["querystring"].ToString().Substring(r["querystring"].ToString().IndexOf('?'), r["querystring"].ToString().Length - r["querystring"].ToString().IndexOf('?')).ToUpper());
+                            s1 = s1.Replace("@MID@", query["MID"]);
+                        }
+                        else
+                        {
+                            s1 = s1.Replace("@MID@", "");
+                        }
+
+                    }
+                    catch
+                    {
+                        s1 = s1.Replace("@MID@", "");
+                    }
+
+                    try
+                    {
+                        if (r["querystring"].ToString().ToUpper().Contains("SID"))
+                        {
+                            NameValueCollection query = HttpUtility.ParseQueryString(r["querystring"].ToString().Substring(r["querystring"].ToString().IndexOf('?'), r["querystring"].ToString().Length - r["querystring"].ToString().IndexOf('?')).ToUpper());
+                            s1 = s1.Replace("@SID@", query["SID"]);
+                        }
+                        else
+                        {
+                            s1 = s1.Replace("@SID@", "");
+                        }
+
+                    }
+                    catch
+                    {
+                        s1 = s1.Replace("@SID@", "");
+                    }
+
+                }
 
                 s1 = s1.Replace("@methodcode@", method1);
                 s1 = s1.Replace("@siteid@", "");
