@@ -41,16 +41,16 @@ namespace Radiancy_Weekly_Report
             string reportName;
             bool reportSuccess = false;
             ///// *********   NoNo Web Report  *********////////
-            reportName = "NoNo Web Report";
-            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            //reportName = "NoNo Web Report";
+            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
             reportSuccess = reports.Get_NoNo_Web_Report_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate.AddDays(-1)), out reportTable);
            // reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
-            if (reportSuccess && reportTable != null)
-            {
-                CreateCSVFile(reportTable, targetPath + reportFileName, true);
-                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            }
+            //if (reportSuccess && reportTable != null)
+            //{
+            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
+            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            //}
 
             ///// *********   NoNo Skin Web Report  *********////////
             //reportName = "NoNo Skin Web Report";
@@ -101,15 +101,15 @@ namespace Radiancy_Weekly_Report
 
             //TODO: should get proper visitor list 
             ///// *********  Kyrobak Web Report   *********////////
-            reportName = "Kyrobak Web Report";
-            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate.AddDays(-1), out reportTable);
+            //reportName = "Kyrobak Web Report";
+            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            //reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate.AddDays(-1), out reportTable);
 
-            if (reportSuccess && reportTable != null)
-            {
-                CreateCSVFile(reportTable, targetPath + reportFileName, true);
-                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            }
+            //if (reportSuccess && reportTable != null)
+            //{
+            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
+            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            //}
             return true;
         }
 
