@@ -187,7 +187,7 @@ namespace Radiancy_Weekly_Report
                 return false;
             }
         }
-     
+
         public bool Get_Kyrobak_Web_Report(DateTime startDate, DateTime endDate, out DataTable returnTable)
         {
             bool result = false;
@@ -202,112 +202,93 @@ namespace Radiancy_Weekly_Report
                 DAL dal = new DAL();
                 //get the versionSummary data from db , using OrderManager
                 dal.SQLServer.Get_Kyrobak_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportData);
-
+                HitLinkVisitor.Clear();
                 //get hitslink data using hitslink service , and update the versionSummary data accordingly 
                 ReportWSSoapClient hitslinkWS = new ReportWSSoapClient();
-                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
-                for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
-                {
-                    if (rptData.Rows[i].Columns[0].Value.Contains(","))
-                    {
-                        if (
-                            HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()
-                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))))
-                        {
-                            int realCount = Convert.ToInt32(HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()
-                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))]);
-                            int newCount = Convert.ToInt32(rptData.Rows[i].Columns[9].Value);
 
-                            HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()
-                                .Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','))] =
-                                (realCount + newCount).ToString();
-
-                        }
-                        else
-                        {
-                            HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(',')), rptData.Rows[i].Columns[9].Value); 
-                        }
-                         
-                    }
-                    else
-                    {
-                        if (
-                            HitLinkVisitor.ContainsKey(rptData.Rows[i].Columns[0].Value.ToLower()))
-                        {
-                            int realCount = Convert.ToInt32(HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()]);
-                            int newCount = Convert.ToInt32(rptData.Rows[i].Columns[9].Value);
-
-                            HitLinkVisitor[rptData.Rows[i].Columns[0].Value.ToLower()] =
-                                (realCount + newCount).ToString();
-
-                        }
-                        else
-                        {
-                            HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
-                        }
-                        
-                         
-                    }
-                    
-                }
                 //get hitslink data for the url list using hitslink service
-                rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro2", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(-21), 100000000, 0, 0);
+                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("trykyro", "china2006", ReportsEnum.eCommerceActivitySummary, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(3), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
-                    
-                    string versionName = rptData.Rows[i].Columns[0].Value.ToLower();//.Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
-                    if (versionName.Contains(","))
-                    {
-                        versionName = rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
-                    }
-                    
-                    if (!HitLinkVisitor.ContainsKey(versionName))
-                        HitLinkVisitor.Add(versionName, rptData.Rows[i].Columns[9].Value);
+                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[3].Value);
                 }
-                //Update Version List information
-                foreach (DataRow dataRow in reportData.Rows)
+
+                DataTable returnTable1 = reportData.Clone();
+                try
                 {
-                    //decimal visitor = 0;
-                    string versionName = dataRow["Version"].ToString().ToLower();
-                    string url = dataRow["Sites"].ToString().ToLower();
-                    string versionUrl = url + "-" + versionName;
-                    decimal visitor = 0;
-                    if (HitLinkVisitor.ContainsKey(versionUrl))
-                    //    visitor = Convert.ToDecimal(HitLinkVisitor[versionName].ToString().ToLower());
-                    //if (HitLinkVisitor.ContainsKey(url))
+
+                    foreach (DataRow dataRow in reportData.Rows)
                     {
-                        visitor = Convert.ToDecimal(HitLinkVisitor[versionUrl].ToString().ToLower());
-                        OrderPresentKey.Add(versionUrl);
+                        string _url = dataRow["SID"].ToString().ToLower();
+
+                        if (_url.Contains("im_"))
+                        {
+                            returnTable1.ImportRow(dataRow);
+                            OrderPresentKey.Add(_url);
+
+                        }
+                    }
+                }
+                catch
+                { }
+
+
+
+                foreach (DataRow dataRow in returnTable1.Rows)
+                {
+                    string versionName = dataRow["sid"].ToString().ToLower();
+                    decimal visitor = 0;
+                    foreach (string key in HitLinkVisitor.Keys)
+                    {
+                        try
+                        {
+                            if ((key.Contains(versionName)))
+                            {
+                                visitor = Convert.ToDecimal(HitLinkVisitor[key].ToString().ToLower());
+                            }
+                        }
+                        catch
+                        {
+
+
+                        }
                     }
                     visitor = Math.Abs(visitor);
                     if (visitor > 0)
                     {
-                        dataRow["Unique_Visitors"] = visitor.ToString();
-                        dataRow["Conversion_Perc"] = Math.Round((Convert.ToDecimal(dataRow["Total_Orders"]) * 100) / visitor, 1).ToString() + '%';
-                        dataRow["Revenue_Per_Visitor"] = (Convert.ToDecimal(dataRow["Total_Revenue"]) / visitor).ToString("N");
+                        dataRow["UniqueVisitors"] = visitor.ToString();
+                        try
+                        {
+                            dataRow["Conversion"] = Math.Round((Convert.ToDecimal(dataRow["TotalOrders"]) * 100) / visitor, 2) + "%";
+                        }
+                        catch
+                        {
+                            dataRow["Conversion"] = "0%";
+                        }
                     }
-                    //dataRow["Date"] =endDate.ToString("M-d-yyyy");
-                }
+                    else
+                    {
+                        dataRow["Conversion"] = "100%";
+                    }
 
-                //for Items which are not part of order
+                }
 
                 foreach (string key in HitLinkVisitor.Keys)
                 {
                     try
                     {
-                        if ((key.Contains("-im") || key.Contains("im_")) && !OrderPresentKey.Contains(key))
-                            reportData.Rows.Add(new object[] { key.Substring(key.IndexOf("-")+1).ToUpper(), key.Substring(0, key.IndexOf("-")),
-                    HitLinkVisitor[key].ToString().ToLower(), "0", "0%", "0", "0", "0" });
+                        if (key.Contains("im_") && !OrderPresentKey.Contains(key))
+                            returnTable1.Rows.Add(new object[] { key.ToUpper(), HitLinkVisitor[key].ToString(), "0", "0", "0%", "0" });
                     }
                     catch
                     {
-                        
-                        
+
+
                     }
-                    
+
                 }
 
-                returnTable = reportData;
+                returnTable = returnTable1;
                 return true;
             }
             catch (Exception ex)
@@ -327,7 +308,7 @@ namespace Radiancy_Weekly_Report
 
             try
             {
-               
+
                 DataTable reportData;
                 List<string> OrderPresentKey = new List<string>();
                 DAL dal = new DAL();
@@ -336,21 +317,12 @@ namespace Radiancy_Weekly_Report
                 HitLinkVisitor.Clear();
                 //get hitslink data using hitslink service , and update the versionSummary data accordingly 
                 ReportWSSoapClient hitslinkWS = new ReportWSSoapClient();
-               
+
                 //get hitslink data for the url list using hitslink service
-                Data   rptData = new ReportWSSoapClient().GetDataFromTimeframe("trynono_url", "china2006", ReportsEnum.MultiVariate, TimeFrameEnum.Daily, startDate, endDate, 100000000, 0, 0);
+                Data rptData = new ReportWSSoapClient().GetDataFromTimeframe("tgelman", "china2006", ReportsEnum.eCommerceActivitySummary, TimeFrameEnum.Daily, startDate.AddHours(3), endDate.AddHours(3), 100000000, 0, 0);
                 for (int i = 0; i <= rptData.Rows.GetUpperBound(0); i++)
                 {
-                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[9].Value);
-
-                    //string versionName = rptData.Rows[i].Columns[0].Value.ToLower();//.Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
-                    //if (versionName.Contains(","))
-                    //{
-                    //    versionName = rptData.Rows[i].Columns[0].Value.ToLower().Substring(0, rptData.Rows[i].Columns[0].Value.IndexOf(','));
-                    //}
-
-                    //if (!HitLinkVisitor.ContainsKey(versionName))
-                    //    HitLinkVisitor.Add(versionName, rptData.Rows[i].Columns[9].Value);
+                    HitLinkVisitor.Add(rptData.Rows[i].Columns[0].Value.ToLower(), rptData.Rows[i].Columns[3].Value);
                 }
 
                 DataTable returnTable1 = reportData.Clone();
@@ -359,15 +331,12 @@ namespace Radiancy_Weekly_Report
 
                     foreach (DataRow dataRow in reportData.Rows)
                     {
-                        string _url = dataRow["URL"].ToString().ToLower();
-                        double _num;
-                        //string _url_checkNumber = _url.Substring(_url.IndexOf(".com", System.StringComparison.Ordinal) - 3, 3);
-                        //bool isNum = double.TryParse(_url_checkNumber, out _num);
-                        Regex re = new Regex(@"(?:nono|nonopro)+\d+.com");
-                        Match m = re.Match(_url);
-                        if (m.Success)
+                        string _url = dataRow["MID"].ToString().ToLower();
+
+                        if (_url.Contains("im_"))
                         {
                             returnTable1.ImportRow(dataRow);
+                            OrderPresentKey.Add(_url);
 
                         }
                     }
@@ -379,32 +348,13 @@ namespace Radiancy_Weekly_Report
 
                 foreach (DataRow dataRow in returnTable1.Rows)
                 {
-                    string versionName = dataRow["URL"].ToString().ToLower();
-                    string versionURL1 = versionName.Replace("www.", "");
-                    if (versionName.EndsWith("/"))
-                    {
-                        versionName = versionName.Substring(0, versionName.Length - 1);
-                    }
-                    if (versionURL1.EndsWith("/"))
-                    {
-                        versionURL1 = versionURL1.Substring(0, versionURL1.Length - 1);
-                    }
-                    string versionUrl = versionName;
+                    string versionName = dataRow["mid"].ToString().ToLower();
                     decimal visitor = 0;
-                    //if (HitLinkVisitor.ContainsKey(versionUrl))
-                    //{
-                    //    visitor = Convert.ToDecimal(HitLinkVisitor[versionUrl].ToString().ToLower());
-                    //    OrderPresentKey.Add(versionUrl);
-                    //}
                     foreach (string key in HitLinkVisitor.Keys)
                     {
                         try
                         {
-                            if ((key.Contains(versionUrl)))
-                            {
-                                visitor = Convert.ToDecimal(HitLinkVisitor[key].ToString().ToLower());
-                            }
-                            else if ((key.Contains(versionURL1)))
+                            if ((key.Contains(versionName)))
                             {
                                 visitor = Convert.ToDecimal(HitLinkVisitor[key].ToString().ToLower());
                             }
@@ -419,11 +369,38 @@ namespace Radiancy_Weekly_Report
                     if (visitor > 0)
                     {
                         dataRow["UniqueVisitors"] = visitor.ToString();
+                        try
+                        {
+                            dataRow["Conversion"] = Math.Round((Convert.ToDecimal(dataRow["TotalOrders"]) * 100) / visitor, 2) + "%";
+                        }
+                        catch
+                        {
+                            dataRow["Conversion"] = "0%";
+                        }
                     }
-                    
+                    else
+                    {
+                        dataRow["Conversion"] = "100%";
+                    }
+
                 }
 
-              
+                foreach (string key in HitLinkVisitor.Keys)
+                {
+                    try
+                    {
+                        if (key.Contains("im_") && !OrderPresentKey.Contains(key))
+                            returnTable1.Rows.Add(new object[] { key.ToUpper(), HitLinkVisitor[key].ToString(), "0", "0", "0%", "0" });
+                    }
+                    catch
+                    {
+
+
+                    }
+
+                }
+
+
 
                 returnTable = returnTable1;
                 return true;

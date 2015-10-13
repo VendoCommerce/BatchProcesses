@@ -15,12 +15,12 @@ namespace Com.ConversionSystems.DataAccess
     {
         private const string _FILENAME = "SQLServerDAL.cs";
 
-       
+
         //Basic Coordinator Functions ________________________________________
 
         public bool Get_NoNo_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
-            return GetOrders("URL_OrderLoadByDatesRange_FullPrice_new", "TryNoNo_ConnectionString", start, end, out dt);
+            return GetOrders("MDI_OrderLoadByDatesRange_New", "TryNoNo_ConnectionString", start, end, out dt);
         }
 
         public bool Get_NoNo_Skin_Web_Report_Table(DateTime start, DateTime end, out DataTable dt)
@@ -32,7 +32,7 @@ namespace Com.ConversionSystems.DataAccess
         {
             return GetOrders("Get_Neova_Insert_Report", "Neova_ConnectionString", start, end, out dt);
         }
-        
+
         public bool Get_MBI_Neova_Report_Table(DateTime start, DateTime end, out DataTable dt)
         {
             return GetOrders("Get_MBI_Neova_Report", "Neova_ConnectionString", start, end, out dt);
@@ -47,9 +47,9 @@ namespace Com.ConversionSystems.DataAccess
         {
             return GetOrders("Get_Kyrobak_Web_Report_Consolidated", "TryKyro_ConnectionString", start, end, out dt);
         }
-        
-        public bool GetOrders (string spName,string connectionName, DateTime start, DateTime end, out DataTable dt)        
-        {            
+
+        public bool GetOrders(string spName, string connectionName, DateTime start, DateTime end, out DataTable dt)
+        {
             bool bReturn = false;
             int intPhase = -1;
             string strMessage;
@@ -109,6 +109,6 @@ namespace Com.ConversionSystems.DataAccess
             oCmd = null;
             return bReturn;
         }
-    
+
     }
 }

@@ -20,7 +20,7 @@ namespace Radiancy_Weekly_Report
     class ReportBatch
     {
         const string _report_Name = "Radiancy Weekly Report";
-        
+
         enum ReportTypes : uint
         {
             Predictive = 1,
@@ -33,7 +33,7 @@ namespace Radiancy_Weekly_Report
 
         private bool GenerateReport(DateTime startDate, DateTime endDate)
         {
-            
+
             Reports reports = new Reports();
             DataTable reportTable;
             string fileNameTrailer = startDate.ToString("M.dd") + " - " + endDate.AddDays(-1).ToString("M.dd.yyyy");
@@ -41,16 +41,16 @@ namespace Radiancy_Weekly_Report
             string reportName;
             bool reportSuccess = false;
             ///// *********   NoNo Web Report  *********////////
-            //reportName = "NoNo Web Report";
-            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportName = "NoNo Web Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
             reportSuccess = reports.Get_NoNo_Web_Report_Report(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate.AddDays(-1)), out reportTable);
-           // reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            //reportSuccess = dal.SQLServer.Get_NoNo_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
-            //if (reportSuccess && reportTable != null)
-            //{
-            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
-            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            //}
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
 
             ///// *********   NoNo Skin Web Report  *********////////
             //reportName = "NoNo Skin Web Report";
@@ -101,15 +101,15 @@ namespace Radiancy_Weekly_Report
 
             //TODO: should get proper visitor list 
             ///// *********  Kyrobak Web Report   *********////////
-            //reportName = "Kyrobak Web Report";
-            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            //reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate.AddDays(-1), out reportTable);
+            reportName = "Kyrobak Web Report";
+            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            reportSuccess = reports.Get_Kyrobak_Web_Report(startDate, endDate.AddDays(-1), out reportTable);
 
-            //if (reportSuccess && reportTable != null)
-            //{
-            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
-            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            //}
+            if (reportSuccess && reportTable != null)
+            {
+                CreateCSVFile(reportTable, targetPath + reportFileName, true);
+                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            }
             return true;
         }
 
@@ -120,7 +120,7 @@ namespace Radiancy_Weekly_Report
             try
             {
                 client = new SmtpClient();
-                client.Send(oMsg);                
+                client.Send(oMsg);
                 bResult = true;
             }
             catch (Exception ex)
@@ -234,8 +234,8 @@ namespace Radiancy_Weekly_Report
             DateTime ReportDateTo = DateTime.Today;//.AddHours(-3);
 
             //TODO: Comment for prod
-            //ReportDateFrom = DateTime.Parse("5/25/2015");
-            //ReportDateTo = DateTime.Parse("5/25/2015");
+           // ReportDateFrom = DateTime.Parse("9/28/2015");
+           // ReportDateTo = DateTime.Parse("10/5/2015");
 
             Console.WriteLine("Start " + _report_Name + " reports generation.");
 
