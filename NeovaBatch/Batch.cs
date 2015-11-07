@@ -393,7 +393,7 @@ namespace Com.ConversionSystems.GoldCanyon
 
 
                 //s1 = s1.Replace("@keycode@", fixstring(r["keycode"]));
-                s1 = s1.Replace("@orderid@", "CS_N_" + fixstring(r["orderid"]));
+                s1 = s1.Replace("@orderid@", "CS_N_TEST_" + fixstring(r["orderid"]));
 
 
                 s1 = s1.Replace("@shipfirstname@", fixstring(r["shipfirstname"]));
@@ -474,6 +474,11 @@ namespace Com.ConversionSystems.GoldCanyon
                 {
                     s1 = s1.Replace("@keyCode@", "CSYS-TAKE20");
                     TAKE20CodeApplied = true;
+                }
+                else if (r["DiscountCode"] != null && r["DiscountCode"].ToString().Length > 1 && r["DiscountCode"].ToString().ToUpper().Equals("SUNSALE"))
+                {
+                    s1 = s1.Replace("@keyCode@", "CSYS-SUNSALE");
+                    //TAKE20CodeApplied = true;
                 }
                 
                 IsGiftCardOrder = false;
