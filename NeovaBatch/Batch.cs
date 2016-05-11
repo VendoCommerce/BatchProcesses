@@ -353,7 +353,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     tempPaymentTag += "		<CardStatus>11</CardStatus>~";
                     tempPaymentTag += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
                     tempPaymentTag += "		<CardTransactionID></CardTransactionID>~";
-                    tempPaymentTag += "		<CardAuthorizationAmount >>@AuthorizationAmount@</CardAuthorizationAmount >~";
+                    tempPaymentTag += "		<CardAuthorizationAmount>@AuthorizationAmount@</CardAuthorizationAmount >~";
                     tempPaymentTag += "	</Payment>~";
                 }
                 tempPaymentTag = tempPaymentTag.Replace("[[[", ((char)(34)).ToString());
