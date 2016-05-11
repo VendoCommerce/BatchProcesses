@@ -329,6 +329,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     strPayment += "		<RealTimeCreditCardProcessing>False</RealTimeCreditCardProcessing>~";
                     strPayment += "		<CardStatus>11</CardStatus>~";
                     strPayment += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
+                    strPayment += "		<CardAuthorizationAmount >>@AuthorizationAmount@</CardAuthorizationAmount >~";
                     strPayment += "	</Payment>~";
                 }
                 strPayment = strPayment.Replace("[[[", ((char)(34)).ToString());
@@ -522,7 +523,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     {
                         if (r1["StandingOrderId"].ToString().Length > 0)
                         {
-                            stc = stc.Replace("@7", "<StandingOrder configurationID=[[[@StandingOrder@[[[></StandingOrder>");
+                            stc = stc.Replace("@7", "<StandingOrder configurationID=\"@StandingOrder@\"></StandingOrder>");
                             stc = stc.Replace("@StandingOrder@", r1["StandingOrderId"].ToString());
                         }
                         else

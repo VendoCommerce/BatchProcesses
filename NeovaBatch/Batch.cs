@@ -332,6 +332,7 @@ namespace Com.ConversionSystems.GoldCanyon
                         tempPaymentTag += "		<CardStatus>11</CardStatus>~";
                         tempPaymentTag += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
                         tempPaymentTag += "		<CardTransactionID></CardTransactionID>~";
+                        tempPaymentTag += "		<CardAuthorizationAmount >>@AuthorizationAmount@</CardAuthorizationAmount >~";
                         tempPaymentTag += "		<AdditionalPayment>~";
                         tempPaymentTag += "	<Payment type=[[[11[[[>~";
                         tempPaymentTag += "		<PaidAmount>@PaidAmount@</PaidAmount>~";
@@ -352,6 +353,7 @@ namespace Com.ConversionSystems.GoldCanyon
                     tempPaymentTag += "		<CardStatus>11</CardStatus>~";
                     tempPaymentTag += "		<CardAuthCode>@CardAuthCode@</CardAuthCode>~";
                     tempPaymentTag += "		<CardTransactionID></CardTransactionID>~";
+                    tempPaymentTag += "		<CardAuthorizationAmount >>@AuthorizationAmount@</CardAuthorizationAmount >~";
                     tempPaymentTag += "	</Payment>~";
                 }
                 tempPaymentTag = tempPaymentTag.Replace("[[[", ((char)(34)).ToString());
@@ -372,7 +374,7 @@ namespace Com.ConversionSystems.GoldCanyon
                 FirstName = r["billfirstname"].ToString();
                 LastName = r["billlastname"].ToString();
                 s1 = s1.Replace("@billfirstname@", fixstring(r["billfirstname"]));
-
+                s1 = s1.Replace("@AuthorizationAmount@", Math.Round(Convert.ToDecimal(fixstring(r["totalamount"])), 2).ToString());
                 s1 = s1.Replace("@billlastname@", fixstring(r["billlastname"]));
                 s1 = s1.Replace("@billaddress@", fixstring(r["billaddress"]));
                 s1 = s1.Replace("@billaddress2@", fixstring(r["billaddress2"]));
@@ -393,7 +395,7 @@ namespace Com.ConversionSystems.GoldCanyon
 
 
                 //s1 = s1.Replace("@keycode@", fixstring(r["keycode"]));
-                s1 = s1.Replace("@orderid@", "CS_N_TEST_" + fixstring(r["orderid"]));
+                s1 = s1.Replace("@orderid@", "CS_N_TEST" + fixstring(r["orderid"]));
 
 
                 s1 = s1.Replace("@shipfirstname@", fixstring(r["shipfirstname"]));
