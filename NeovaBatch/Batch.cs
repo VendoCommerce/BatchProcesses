@@ -395,7 +395,7 @@ namespace Com.ConversionSystems.GoldCanyon
 
 
                 //s1 = s1.Replace("@keycode@", fixstring(r["keycode"]));
-                s1 = s1.Replace("@orderid@", "CS_N_TEST" + fixstring(r["orderid"]));
+                s1 = s1.Replace("@orderid@", "CS_N" + fixstring(r["orderid"]));
 
 
                 s1 = s1.Replace("@shipfirstname@", fixstring(r["shipfirstname"]));
