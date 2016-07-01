@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
@@ -87,7 +88,8 @@ namespace NeovaReconciliationReport
                 oCmd.Parameters.Add("@StartDate", SqlDbType.DateTime).Value = startDate ;                
                 oCmd.Parameters.Add("@EndDate", SqlDbType.DateTime).Value = endDate;
                 oCmd.Parameters.Add("@excelsection", SqlDbType.Int).Value = excelsection;
-
+                oCmd.ResetCommandTimeout();
+                oCmd.CommandTimeout = 0;
                 oCmd.Connection = new SqlConnection(connstr);
                 oCmd.Prepare();
                 dt = new DataTable();

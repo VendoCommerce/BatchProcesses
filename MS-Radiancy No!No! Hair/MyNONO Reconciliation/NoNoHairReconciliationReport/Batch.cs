@@ -1017,9 +1017,9 @@ namespace NoNoHairReconciliationReport
         {
             DateTime startDate;
             DateTime endDate;
-            startDate =  DateTime.Now.AddDays(-1);
-            endDate = DateTime.Now.AddDays(-1);
-            DateTime tDate = DateTime.Now.AddDays(-1);
+            startDate =  DateTime.Now.AddDays(-2);
+            endDate = DateTime.Now.AddDays(-2);
+            DateTime tDate = DateTime.Now.AddDays(-2);
             string date = string.Empty;           
             date = tDate.ToString("MM/dd/yyyy");
 
