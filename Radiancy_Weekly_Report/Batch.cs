@@ -89,15 +89,15 @@ namespace Radiancy_Weekly_Report
 
             //TODO: Should get proper versions based version report
             ///// *********  MBI WebReport *********////////
-            reportName = "MBI Web Report";
-            reportFileName = reportName + " " + fileNameTrailer + report_filetype;
-            reportSuccess = dal.SQLServer.Get_MBI_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
+            //reportName = "MBI Web Report";
+            //reportFileName = reportName + " " + fileNameTrailer + report_filetype;
+            //reportSuccess = dal.SQLServer.Get_MBI_Web_Report_Table(Logging.StartOfDay(startDate), Logging.EndOfDay(endDate), out reportTable);
 
-            if (reportSuccess && reportTable != null)
-            {
-                CreateCSVFile(reportTable, targetPath + reportFileName, true);
-                SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
-            }
+            //if (reportSuccess && reportTable != null)
+            //{
+            //    CreateCSVFile(reportTable, targetPath + reportFileName, true);
+            //    SendFileasAttachment(targetPath + reportFileName, reportFileName, reportName);
+            //}
 
             //TODO: should get proper visitor list 
             ///// *********  Kyrobak Web Report   *********////////
